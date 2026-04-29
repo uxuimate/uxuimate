@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import App from './App';
@@ -15,12 +15,10 @@ gsap.ticker.add(time => {
 
 gsap.ticker.lagSmoothing(0);
 
-const routerBasename = import.meta.env.BASE_URL === '/' ? undefined : import.meta.env.BASE_URL.replace(/\/$/, '');
-
 createRoot(document.getElementById('root')).render(
 // <StrictMode>
-<BrowserRouter basename={routerBasename}>
+<HashRouter>
       <App />
-    </BrowserRouter>
+    </HashRouter>
 // </StrictMode>
 );
