@@ -1,0 +1,1 @@
+const t="/contact#book-a-call",o="/contact#contact",a="https://calendly.com/uxuimate/30min?hide_event_type_details=1&background_color=d5d9e2&text_color=1a1b20&primary_color=e8195a";export{o as C,t as a,a as b};

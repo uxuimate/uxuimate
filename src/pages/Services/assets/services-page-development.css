@@ -1,0 +1,188 @@
+/* Web Development service tab: purple accent (#A855F7) replaces site pink. Scoped to .services-page--development only. */
+
+.services-page--development .services-carousel-page .service-picker__tab.is-active,
+.services-page--development .services-carousel-page .service-picker__tab[aria-selected='true'] {
+    border-left-color: #A855F7;
+}
+
+.services-page--development .services-ux-theory__eyebrow,
+.services-page--development .services-ux-theory__number {
+    color: #A855F7;
+}
+
+.services-page--development .services-ux-theory__connector-line {
+    background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.45), transparent);
+}
+
+.services-page--development .services-ux-theory__connector-dot {
+    background: #A855F7;
+    -webkit-box-shadow: 0 0 18px rgba(168, 85, 247, 0.55);
+    box-shadow: 0 0 18px rgba(168, 85, 247, 0.55);
+}
+
+.services-page--development .services-deliverables {
+    background: radial-gradient(ellipse 120% 80% at 50% 0%, rgba(168, 85, 247, 0.08) 0%, transparent 50%), #060506;
+}
+
+.services-page--development .services-deliverables__eyebrow {
+    color: #A855F7;
+}
+
+.services-page--development .services-deliverables__row--fan .services-deliverables__card:hover {
+    -webkit-box-shadow: inset 0 0 0 0.5px rgba(168, 85, 247, 0.5), 0 0 0 1px rgba(168, 85, 247, 0.45) !important;
+    box-shadow: inset 0 0 0 0.5px rgba(168, 85, 247, 0.5), 0 0 0 1px rgba(168, 85, 247, 0.45) !important;
+}
+
+.services-page--development .services-deliverables__row--fan .services-deliverables__card:hover::after {
+    -webkit-box-shadow: 0 28px 64px rgba(168, 85, 247, 0.22) !important;
+    box-shadow: 0 28px 64px rgba(168, 85, 247, 0.22) !important;
+}
+
+.services-page--development .services-deliverables__row--fan .services-deliverables__col:nth-child(2) .services-deliverables__card--featured {
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), inset 0 0 40px rgba(168, 85, 247, 0.1), inset 0 0 0 0.5px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), inset 0 0 40px rgba(168, 85, 247, 0.1), inset 0 0 0 0.5px rgba(255, 255, 255, 0.1);
+}
+
+.services-page--development .services-deliverables__row--fan .services-deliverables__col:nth-child(2) .services-deliverables__card--featured::after {
+    -webkit-box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.3), 0 20px 56px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.3), 0 20px 56px rgba(168, 85, 247, 0.2);
+}
+
+.services-page--development .services-deliverables__row--fan .services-deliverables__col:nth-child(2) .services-deliverables__card--featured:hover {
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 0 36px rgba(168, 85, 247, 0.12), inset 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 0 0 1px rgba(168, 85, 247, 0.5) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 0 36px rgba(168, 85, 247, 0.12), inset 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 0 0 1px rgba(168, 85, 247, 0.5) !important;
+}
+
+.services-page--development .services-deliverables__row--fan .services-deliverables__col:nth-child(2) .services-deliverables__card--featured:hover::after {
+    -webkit-box-shadow: 0 28px 64px rgba(168, 85, 247, 0.24) !important;
+    box-shadow: 0 28px 64px rgba(168, 85, 247, 0.24) !important;
+}
+
+.services-page--development .services-deliverables__row--fan:has(.services-deliverables__col:hover) .services-deliverables__col:nth-child(2) .services-deliverables__card--featured:not(:hover) {
+    -webkit-box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.06) !important;
+    box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.06) !important;
+}
+
+.services-page--development .services-deliverables__row--fan:has(.services-deliverables__col:hover) .services-deliverables__col:nth-child(2) .services-deliverables__card--featured:not(:hover)::after {
+    -webkit-box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.services-page--development .services-deliverables__ribbon {
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    color: #C4B5FD;
+}
+
+.services-page--development .services-deliverables__item::before {
+    color: #A855F7;
+}
+
+.services-page--development .services-deliverables__price {
+    color: #E9D5FF;
+}
+
+@media (max-width: 991px) {
+    .services-page--development .services-deliverables__row--fan .services-deliverables__col:hover .services-deliverables__card {
+        -webkit-box-shadow: inset 0 0 0 0.5px rgba(168, 85, 247, 0.5), 0 0 0 1px rgba(168, 85, 247, 0.45) !important;
+        box-shadow: inset 0 0 0 0.5px rgba(168, 85, 247, 0.5), 0 0 0 1px rgba(168, 85, 247, 0.45) !important;
+    }
+
+    .services-page--development .services-deliverables__row--fan .services-deliverables__col:hover .services-deliverables__card::after {
+        -webkit-box-shadow: 0 20px 48px rgba(168, 85, 247, 0.2) !important;
+        box-shadow: 0 20px 48px rgba(168, 85, 247, 0.2) !important;
+    }
+}
+
+.services-page--development .services-testimonial__mark {
+    color: #A855F7;
+}
+
+.services-page--development .services-testimonial__rule {
+    background: #A855F7;
+}
+
+.services-page--development .our-process-section {
+    background: radial-gradient(circle at 84% 18%, rgba(168, 85, 247, 0.12), transparent 30%), linear-gradient(180deg, #070708 0%, #111116 100%);
+}
+
+.services-page--development .our-process__eyebrow,
+.services-page--development .our-process-timeline__card > span {
+    color: #A855F7;
+}
+
+.services-page--development .our-process__line {
+    background: #A855F7;
+}
+
+.services-page--development .our-process-timeline-section::before {
+    background: linear-gradient(180deg, rgba(3, 8, 10, 0.9), rgba(3, 8, 10, 0.78)), radial-gradient(circle at 50% 18%, rgba(168, 85, 247, 0.16), transparent 30%);
+}
+
+.services-page--development .our-process-timeline::before {
+    background: linear-gradient(180deg, transparent, rgba(168, 85, 247, 0.45) 12%, rgba(168, 85, 247, 0.45) 88%, transparent);
+}
+
+.services-page--development .our-process-timeline__item::before {
+    -webkit-box-shadow: 0 0 0 6px rgba(168, 85, 247, 0.1);
+    box-shadow: 0 0 0 6px rgba(168, 85, 247, 0.1);
+}
+
+.services-page--development .our-process-timeline__item:hover::before {
+    background: #A855F7;
+    border-color: rgba(168, 85, 247, 0.4);
+    -webkit-box-shadow: 0 0 0 7px rgba(168, 85, 247, 0.15), 0 0 28px rgba(168, 85, 247, 0.45);
+    box-shadow: 0 0 0 7px rgba(168, 85, 247, 0.15), 0 0 28px rgba(168, 85, 247, 0.45);
+}
+
+/* Process step card hover/highlight: soft violet tint (Development page only) */
+.services-page--development .our-process-timeline__card:hover {
+    background: rgba(139, 92, 246, 0.12);
+    border: 0.5px solid rgba(139, 92, 246, 0.35);
+}
+
+.services-page--development .our-process-timeline__item.is-left .our-process-timeline__card:hover::after {
+    border-left-color: rgba(139, 92, 246, 0.45);
+}
+
+.services-page--development .our-process-timeline__item.is-right .our-process-timeline__card:hover::after {
+    border-right-color: rgba(139, 92, 246, 0.45);
+}
+
+.services-page--development .services-section-dots__btn.is-active {
+    background: #A855F7;
+    border: 1.5px solid #ffffff;
+    -webkit-box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.2);
+    box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.2);
+}
+
+.services-page--development .innovative-footer {
+    background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.12), transparent 36%), linear-gradient(180deg, #050506 0%, #0d0d10 100%);
+}
+
+.services-page--development .innovative-footer__studios span,
+.services-page--development .innovative-footer__studios em {
+    color: #A855F7;
+}
+
+.services-page--development .footer-social li a:hover {
+    background-color: #A855F7;
+    border-color: #A855F7;
+}
+
+.services-page--development .scroll-top-arrow {
+    background-color: #A855F7;
+}
+
+.services-page--development .scroll-top-arrow:hover {
+    background-color: #9333ea;
+}
+
+.services-page--development .our-process__cta .btn.btn-transparent-white {
+    border-color: rgba(168, 85, 247, 0.5);
+}
+
+.services-page--development .our-process__cta .btn.btn-transparent-white:hover {
+    border-color: #A855F7;
+    color: #ffffff;
+}
