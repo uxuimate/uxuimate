@@ -1,15 +1,30 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const AnimatedCursor = () => {
   const outerRef = useRef(null);
   const dotRef = useRef(null);
+  const [isEnabled, setIsEnabled] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const updateSupport = event => {
+      setIsEnabled(event.matches);
+    };
+
+    setIsEnabled(mediaQuery.matches);
+    mediaQuery.addEventListener('change', updateSupport);
+
+    return () => {
+      mediaQuery.removeEventListener('change', updateSupport);
+    };
+  }, []);
 
   useEffect(() => {
     const outer = outerRef.current;
     const dot = dotRef.current;
 
-    if (!outer || !dot) return undefined;
+    if (!isEnabled || !outer || !dot) return undefined;
 
     const moveCursor = event => {
       const { clientX: x, clientY: y } = event;
@@ -43,7 +58,9 @@ const AnimatedCursor = () => {
         element.removeEventListener('mouseleave', resetCursor);
       });
     };
-  }, []);
+  }, [isEnabled]);
+
+  if (!isEnabled) return null;
 
   return <>
       <div id="cursor-outer" ref={outerRef} />
