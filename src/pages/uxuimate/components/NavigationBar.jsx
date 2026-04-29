@@ -241,7 +241,7 @@ const NavigationBar = ({ accentTheme = 'default' }) => {
       <nav className="navbar navbar-top-default navbar-expand-lg navbar-simple nav-box-round" style={navStyle}>
         <Container>
           <Link to={HOME_PATH} title="Logo" className="logo scroll">
-            <img src={withBasePath('/img/icons/logo-footer.png')} alt="UX UI MATE" className="uxui-nav-logo" />
+            <img src={withBasePath('/img/icons/logo-footer.png')} alt="UX UI MATE — home" className="uxui-nav-logo" />
           </Link>
           <div className="collapse navbar-collapse" id="megaone">
             <div className="navbar-nav ml-auto">

@@ -45,7 +45,7 @@ const HealthyEatsHeroSlider = () => (
       {HERO_SLIDES.map((slide, index) => (
         <SwiperSlide key={slide.image}>
           <div className="offer-hero__overlay" />
-          <img src={slide.image} alt="Healthy Eats case study hero" loading={index === 0 ? 'eager' : 'lazy'} sizes="100vw" />
+          <img src={slide.image} alt={`${slide.heading} — ${slide.eyebrow}`} loading={index === 0 ? 'eager' : 'lazy'} sizes="100vw" />
           <Container className="offer-hero__content">
             <Row>
               <Col xs={12} className="mb-0 mb-md-5">

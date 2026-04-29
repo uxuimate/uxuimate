@@ -15,6 +15,7 @@ import SectionDots from './components/SectionDots';
 import useReveal from './hooks/useReveal';
 import { lenisScrollToElementId } from '@/utils/lenisScroll';
 import SeoHead from '@/components/SeoHead';
+import { buildStudioHomeJsonLd } from '@/constants/siteSeo';
 import './assets/css/style.css';
 
 const InnovativeParallax = () => {
@@ -53,20 +54,10 @@ const InnovativeParallax = () => {
       toggleDocumentAttribute('data-offset', '90', 'body', true);
     };
   }, []);
-  const localBusinessJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: 'UX UI MATE',
-    url: 'https://uxuimate.com/',
-    email: 'uxuimate@gmail.com',
-    areaServed: ['Newcastle', 'United Kingdom', 'Bulgaria', 'Europe'],
-    serviceType: ['UX/UI Design', 'Web Development', 'Branding', 'Mobile App Design']
-  };
-
   return <>
       <SeoHead
         title="UX/UI Design Studio Newcastle"
-        description="UX UI MATE helps businesses in Newcastle, the UK, Bulgaria and Europe with UX/UI design, web development, branding and mobile/SaaS design."
+        description="Premium digital studio UX UI MATE: UX design, UI design, UX research, branding, web design, web development, no-code and custom code — Newcastle, UK and Sofia, Bulgaria, serving the United Kingdom, Bulgaria and Europe."
         path="/"
         image="/img/icons/logo-footer.png"
         keywords={[
@@ -75,10 +66,11 @@ const InnovativeParallax = () => {
           'UX agency UK',
           'branding studio UK',
           'web development UK',
+          'UX UI Sofia',
           'UX UI Bulgaria',
           'UX UI Europe'
         ]}
-        jsonLd={localBusinessJsonLd}
+        jsonLd={buildStudioHomeJsonLd()}
       />
       <NavigationBar />
 

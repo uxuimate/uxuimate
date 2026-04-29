@@ -28,6 +28,7 @@ const LegalPolicyLayout = ({ eyebrow, title, path, children }) => {
         title={title}
         description={`${title} for UX UI MATE.`}
         path={path}
+        mergeCoreKeywords={false}
       />
       <NavigationBar />
       <section className="legal-page__section" aria-labelledby="legal-page-title">

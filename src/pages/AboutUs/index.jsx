@@ -78,9 +78,16 @@ const AboutUsPage = () => {
     <div className="main-page-section about-page">
       <SeoHead
         title="About UX UI MATE"
-        description="Meet UX UI MATE, a UX/UI design studio supporting founders and teams in Newcastle, the UK, Bulgaria and Europe with strategy-led digital experiences."
+        description="About UX UI MATE — premium digital studio for UX design, UI design, UX research, branding, web design, web development, no-code and custom code. Based in Newcastle, UK and Sofia, Bulgaria; serving the United Kingdom, Bulgaria and Europe."
         path="/about-us"
         image="/img/icons/logo-footer.png"
+        keywords={[
+          'about UX UI MATE',
+          'UX design studio Newcastle',
+          'digital agency Sofia',
+          'UK Bulgaria design studio',
+          'founder-led UX studio'
+        ]}
       />
       <NavigationBar />
 

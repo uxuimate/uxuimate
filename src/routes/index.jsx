@@ -19,6 +19,8 @@ const NewcastlePage = lazy(() => import('@/pages/Locations/Newcastle'));
 const UkPage = lazy(() => import('@/pages/Locations/Uk'));
 const BulgariaPage = lazy(() => import('@/pages/Locations/Bulgaria'));
 const SofiaPage = lazy(() => import('@/pages/Locations/Sofia'));
+
+/** New public URLs: add a matching entry in `src/constants/sitemapPaths.js` (sitemap regenerates on `npm run build`). */
 export const appRoutes = [{
   path: '/',
   name: 'root',

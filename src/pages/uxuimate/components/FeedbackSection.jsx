@@ -99,7 +99,7 @@ const FeedbackSection = () => {
               {feedbackItems.map(item => <div key={item.name} className="item">
                   <div className="testimonial-quote whitecolor">
                     <div className="team-img mb-4">
-                      <img src={item.image} alt={item.name} />
+                      <img src={item.image} alt={`${item.name}, ${item.role}`} />
                     </div>
                     <h1 className="font-weight-light mb-3 alt-font">{item.name}</h1>
                     <div className="mb-3 testimonial-line wow fadeInleft" />
@@ -126,7 +126,7 @@ const FeedbackSection = () => {
                     setActiveIndex(index);
                   }}
                 >
-                  <img src={item.image} alt="" />
+                  <img src={item.image} alt="" aria-hidden="true" />
                 </button>)}
             </div>
             <div className="team-item d-none" />

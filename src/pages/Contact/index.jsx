@@ -17,6 +17,7 @@ import './assets/contact-page.css';
 import HeroRotatingTypewriter from '@/components/HeroRotatingTypewriter';
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget';
 import SeoHead from '@/components/SeoHead';
+import { buildStudioContactJsonLd } from '@/constants/siteSeo';
 import MobileSliderHint from '@/components/MobileSliderHint';
 
 const CONTACT_EMAIL = 'uxuimate@gmail.com';
@@ -127,30 +128,26 @@ const ContactPage = () => {
     };
   }, []);
 
-  const contactJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'ProfessionalService',
-    name: 'UX UI MATE',
-    url: 'https://uxuimate.com/contact',
+  const contactJsonLd = buildStudioContactJsonLd({
     email: CONTACT_EMAIL,
     telephone: WHATSAPP_DISPLAY,
-    areaServed: ['Newcastle', 'United Kingdom', 'Bulgaria', 'Europe'],
-    contactPoint: [{
-      '@type': 'ContactPoint',
-      contactType: 'customer support',
-      email: CONTACT_EMAIL,
-      telephone: WHATSAPP_DISPLAY,
-      areaServed: 'GB'
-    }]
-  };
+    contactUrl: 'https://uxuimate.com/contact'
+  });
 
   return (
     <div className="main-page-section contact-page">
       <SeoHead
         title="Contact UX UI MATE"
-        description="Contact UX UI MATE in Newcastle, UK for UX/UI design, web development, branding and product design support across the UK, Europe and Bulgaria."
+        description="Contact UX UI MATE — premium digital studio for UX design, UI design, UX research, branding, web design, web development, no-code and custom code. Newcastle, UK and Sofia, Bulgaria; United Kingdom, Bulgaria and Europe."
         path="/contact"
         image="/img/icons/logo-footer.png"
+        keywords={[
+          'contact UX agency Newcastle',
+          'hire UX designer UK',
+          'web design quote Bulgaria',
+          'branding studio Sofia',
+          'product design enquiry'
+        ]}
         jsonLd={contactJsonLd}
       />
       <NavigationBar />

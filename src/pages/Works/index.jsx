@@ -62,9 +62,16 @@ const WorksPage = () => {
     <div className="main-page-section works-page">
       <SeoHead
         title="Case Studies"
-        description="UX UI MATE portfolio and case studies: UX/UI redesigns, branding projects, and conversion-focused websites delivered across the UK and Europe."
+        description="Portfolio: UX design, UI design, UX research, branding, web design and web development case studies from a premium digital studio — Newcastle, Sofia, United Kingdom, Bulgaria and Europe."
         path="/works"
         image="/img/icons/logo-footer.png"
+        keywords={[
+          'UX case studies UK',
+          'branding portfolio Newcastle',
+          'web development case studies Bulgaria',
+          'SaaS UX portfolio',
+          'premium digital studio work'
+        ]}
       />
       <NavigationBar />
 

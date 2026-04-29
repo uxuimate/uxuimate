@@ -26,9 +26,14 @@ const LocalLandingPage = ({
       path={path}
       image="/img/icons/logo-footer.png"
       keywords={keywords || [
-        `UX UI design ${city}`,
-        `web design ${city}`,
+        `UX design ${city}`,
+        `UI design ${city}`,
+        `UX research ${city}`,
         `branding ${city}`,
+        `web design ${city}`,
+        `web development ${city}`,
+        `no-code development ${city}`,
+        `${serviceName} ${city}`,
         `UX agency ${region}`,
         'UX UI MATE'
       ]}

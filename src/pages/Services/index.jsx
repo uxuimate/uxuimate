@@ -92,9 +92,16 @@ const ServicesPage = () => {
   return <>
       <SeoHead
         title="Services - UX/UI, Branding, Web Development"
-        description="Explore UX UI MATE services: UX/UI design, web development, branding, and mobile/SaaS product design for businesses in Newcastle, the UK, Europe and Bulgaria."
+        description="UX UI MATE services: UX design, UI design, UX research, branding, web design, web development, no-code builds and custom code — premium digital studio for Newcastle, Sofia, the United Kingdom, Bulgaria and Europe."
         path="/services"
         image="/img/icons/logo-footer.png"
+        keywords={[
+          'UX UI services Newcastle',
+          'branding and web development UK',
+          'SaaS design Bulgaria',
+          'no-code website development',
+          'custom web development studio'
+        ]}
       />
       <NavigationBar accentTheme={serviceMode} />
 

@@ -60,7 +60,19 @@
     General
 ====================================== */
 
-body {font-family: 'Roboto', sans-serif; font-size: 16px;color: #696969;font-weight:300;line-height:30px;letter-spacing: 0.2px;width: 100%; overflow-x: hidden}
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    background-color: #050506;
+}
+body {font-family: 'Roboto', sans-serif; font-size: 16px;color: #696969;font-weight:300;line-height:30px;letter-spacing: 0.2px;overflow-x: hidden;overflow-x: clip}
+#root {
+    min-height: 100%;
+    background-color: #050506;
+    overflow-x: hidden;
+    overflow-x: clip;
+}
 .h1, .h2, .h3, h1, h2, h3 {line-height: 1.14; font-weight: 400; font-family: 'Deltha', sans-serif; color: #2b2b2b;}
 .h4, .h5, .h6, h4, h5, h6, p, span, a, li {font-family: 'Montserrat', sans-serif;}
 a, *::before, *::after, img, span, input, button, .navbar, .fixedmenu, .tp-bullet, .owl-dot, .owl-prev, .owl-next {transition: ease-in-out 0.2s;-webkit-transition: ease-in-out 0.2s;-moz-transition: ease-in-out 0.2s;-ms-transition: ease-in-out 0.2s;-o-transition: ease-in-out 0.2s;}
@@ -666,9 +678,10 @@ header a.logo .uxui-nav-logo {
     position: relative;
     -webkit-border-radius: 0;
     border-radius: 0;
+    text-decoration: none !important;
 }
 .side-nav .navbar-nav .nav-link::after{
-    content: "";
+    content: none;
     position: absolute;
     background: var(--nav-accent, #e8195a);
     display: inline-block;
@@ -3675,9 +3688,16 @@ body:has(.services-carousel-page) .scroll-top-arrow {
 
     /* Mobile price-card safety: disable pop-forward transforms that get clipped. */
     .services-deliverables,
-    .services-deliverables__container,
-    .services-deliverables__row--fan {
-        overflow: visible;
+    .services-deliverables__container {
+        overflow-x: clip;
+        overflow-y: visible;
+    }
+
+    /* Keep horizontal scroll behavior on mobile slider rows. */
+    .mobile-card-slider {
+        overflow-x: auto !important;
+        overflow-y: visible;
+        width: 100%;
     }
 
     .services-deliverables__row--fan .services-deliverables__card,

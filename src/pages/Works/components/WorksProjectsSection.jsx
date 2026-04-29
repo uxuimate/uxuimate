@@ -34,7 +34,7 @@ const WorksProjectsSection = () => (
                     <img
                       className="works-showcase-card__img"
                       src={imgSrc}
-                      alt={`${project.name} case study preview`}
+                      alt={`${project.client}: ${project.headline} — ${project.tagPill} case study preview`}
                       loading="lazy"
                       decoding="async"
                       sizes="(max-width: 767px) 100vw, 50vw"
