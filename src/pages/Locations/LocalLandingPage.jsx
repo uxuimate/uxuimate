@@ -42,7 +42,7 @@ const LocalLandingPage = ({
         </h1>
         <p className="local-seo-page__lede">{description}</p>
         <div className="local-seo-page__cta-row">
-          <Link to="/contact#contact" className="btn btn-white btn-rounded btn-large">
+          <Link to="/contact?section=contact" className="btn btn-white btn-rounded btn-large">
             Send your brief
           </Link>
           <Link to="/works" className="btn btn-transparent-white btn-rounded btn-large">

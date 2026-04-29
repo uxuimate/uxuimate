@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
 import MobileSliderHint from '@/components/MobileSliderHint';
@@ -293,9 +294,9 @@ const ServicesDeliverablesSection = ({ serviceMode = 'default' }) => {
                 <ul className="services-deliverables__list" role="list">
                   {t.items.map(item => <li key={item} className="services-deliverables__item">{item}</li>)}
                 </ul>
-                <a className="btn btn-transparent-white btn-rounded btn-large services-deliverables__btn" href={CONTACT_BRIEF_ANCHOR}>
+                <Link className="btn btn-transparent-white btn-rounded btn-large services-deliverables__btn" to={CONTACT_BRIEF_ANCHOR}>
                   {DELIVERABLES_CTA_TEXT}
-                </a>
+                </Link>
               </article>
             </Col>)}
         </Row>

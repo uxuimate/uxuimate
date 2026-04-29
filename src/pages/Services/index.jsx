@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from 'react';
 import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { CONTACT_BOOK_CALL_ANCHOR, CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
 import { toggleDocumentAttribute } from '@/utils';
 import { SERVICE_PAGE_FAQ_ITEMS } from '@/data/servicePageFaq';
@@ -114,12 +115,12 @@ const ServicesPage = () => {
               </h1>
               <p className="services-hero__body">{current.text}</p>
               <div className="services-hero__ctas">
-                <a className="btn btn-white btn-rounded btn-large" href={CONTACT_BRIEF_ANCHOR}>
+                <Link className="btn btn-white btn-rounded btn-large" to={CONTACT_BRIEF_ANCHOR}>
                   Send your brief
-                </a>
-                <a className="btn btn-transparent-white btn-rounded btn-large" href={CONTACT_BOOK_CALL_ANCHOR}>
+                </Link>
+                <Link className="btn btn-transparent-white btn-rounded btn-large" to={CONTACT_BOOK_CALL_ANCHOR}>
                   Book 30-min call
-                </a>
+                </Link>
               </div>
             </div>
           </div>

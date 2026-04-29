@@ -77,12 +77,17 @@ const ContactPage = () => {
   useReveal();
 
   useLayoutEffect(() => {
-    if (location.hash !== '#book-a-call' && location.hash !== '#contact') {
+    const section = new URLSearchParams(location.search).get('section');
+    const fromQuery = section === 'book-a-call' || section === 'contact' ? section : null;
+    const fromHash = location.hash === '#book-a-call' || location.hash === '#contact' ? location.hash.slice(1) : null;
+    const target = fromQuery || fromHash;
+
+    if (!target) {
       return undefined;
     }
-    const id = location.hash === '#book-a-call' ? 'book-a-call' : 'contact';
+
     const run = () => {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     };
     run();
     const t = window.setTimeout(run, 120);
@@ -91,7 +96,7 @@ const ContactPage = () => {
       window.clearTimeout(t);
       window.clearTimeout(t2);
     };
-  }, [location.pathname, location.hash]);
+  }, [location.pathname, location.hash, location.search]);
 
   useEffect(() => {
     const id = requestAnimationFrame(() => {

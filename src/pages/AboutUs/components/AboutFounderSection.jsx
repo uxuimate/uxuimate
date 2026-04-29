@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
 import founderPhoto from '../assets/founder.jpg';
@@ -135,9 +136,9 @@ const AboutFounderSection = () => {
               </li>
             ))}
           </ul>
-          <a className="btn btn-transparent-white btn-rounded btn-large about-founder__cta" href={CONTACT_BRIEF_ANCHOR}>
+          <Link className="btn btn-transparent-white btn-rounded btn-large about-founder__cta" to={CONTACT_BRIEF_ANCHOR}>
             Work with us
-          </a>
+          </Link>
         </div>
       </div>
     </section>

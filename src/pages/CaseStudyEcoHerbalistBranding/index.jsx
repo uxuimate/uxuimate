@@ -168,7 +168,7 @@ const EcoHerbalistBrandingCaseStudyPage = () => {
           <p className="video-case-book-banner__eyebrow">Next step</p>
           <h2>Book a free 30-minute call.</h2>
           <p>We will review your project and give you a clear next-step recommendation.</p>
-          <Link className="btn btn-white btn-rounded btn-large" to="/contact#book-a-call">Book 30-min call →</Link>
+          <Link className="btn btn-white btn-rounded btn-large" to="/contact?section=book-a-call">Book 30-min call →</Link>
         </Container>
       </section>
 

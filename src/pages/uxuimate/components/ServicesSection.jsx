@@ -1,4 +1,5 @@
 import ServicesAtmosphere from './ServicesAtmosphere';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
@@ -35,6 +36,9 @@ const ServicesSection = ({
   footerText = 'View all services',
   showAtmosphere = true
 }) => {
+  const isExternal = /^https?:\/\//i.test(footerHref);
+  const isSpaPath = footerHref.startsWith('/') && !footerHref.startsWith('//') && !isExternal;
+
   return <section className="services-section" id={id}>
       {showAtmosphere ? <ServicesAtmosphere /> : null}
       <div className="services-section__container">
@@ -61,9 +65,11 @@ const ServicesSection = ({
         </div>
 
         <div className="services-section__footer reveal-up">
-          <a href={footerHref} className="btn btn-white btn-rounded btn-large services-section__btn-link">
-            {footerText}
-          </a>
+          {isSpaPath ? <Link to={footerHref} className="btn btn-white btn-rounded btn-large services-section__btn-link">
+              {footerText}
+            </Link> : <a href={footerHref} className="btn btn-white btn-rounded btn-large services-section__btn-link">
+              {footerText}
+            </a>}
         </div>
       </div>
     </section>;

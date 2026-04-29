@@ -1,4 +1,5 @@
 import aboutImage from '../assets/img/about-studio-bg.jpg';
+import { Link } from 'react-router-dom';
 import AboutAtmosphere from './AboutAtmosphere';
 
 const defaultParagraphs = [
@@ -19,6 +20,9 @@ const AboutSection = ({
   linkClassName = 'btn btn-white btn-rounded btn-large',
   showAtmosphere = true
 }) => {
+  const isExternal = typeof linkHref === 'string' && /^https?:\/\//i.test(linkHref);
+  const isSpaPath = typeof linkHref === 'string' && linkHref.startsWith('/') && !linkHref.startsWith('//') && !isExternal;
+
   return <section className="about-studio-section model-agency-parallax-bg" id={id} style={{
     backgroundImage: `url("${backgroundImage}")`,
     backgroundPosition
@@ -29,7 +33,7 @@ const AboutSection = ({
           <span className="about-studio__eyebrow">{eyebrow}</span>
           <h2 className="about-heading">{title}</h2>
           {paragraphs.map(text => <p key={text}>{text}</p>)}
-          {linkHref ? <a href={linkHref} className={linkClassName}>{linkText}</a> : null}
+          {linkHref ? isSpaPath ? <Link to={linkHref} className={linkClassName}>{linkText}</Link> : <a href={linkHref} className={linkClassName}>{linkText}</a> : null}
         </div>
       </div>
     </section>;

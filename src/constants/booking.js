@@ -1,8 +1,8 @@
 /**
  * In-app "Book ... call" CTAs - scroll to embedded Calendly on Contact (stay on site).
  */
-export const CONTACT_BOOK_CALL_ANCHOR = '/contact#book-a-call';
-export const CONTACT_BRIEF_ANCHOR = '/contact#contact';
+export const CONTACT_BOOK_CALL_ANCHOR = '/contact?section=book-a-call';
+export const CONTACT_BRIEF_ANCHOR = '/contact?section=contact';
 
 /**
  * Direct Calendly page (optional share / email). CTAs use CONTACT_BOOK_CALL_ANCHOR.
