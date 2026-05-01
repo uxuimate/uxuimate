@@ -440,6 +440,23 @@ header a.logo .uxui-nav-logo {
     text-decoration: none !important;
 }
 
+/* Force top desktop nav to stay text-only (no underline/rule). */
+header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link,
+header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link:hover,
+header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link:focus,
+header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link:active,
+header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link:visited {
+    text-decoration: none !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+}
+
+header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link::before,
+header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link::after {
+    content: none !important;
+    display: none !important;
+}
+
 
 /* side menu button */
 
