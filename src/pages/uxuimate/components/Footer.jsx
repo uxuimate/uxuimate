@@ -11,8 +11,25 @@ const legalLinks = [
 
 const Footer = ({ accentTheme = 'default' }) => {
   const [showAtmosphereLayer, setShowAtmosphereLayer] = useState(false);
+  const [allowAtmosphere, setAllowAtmosphere] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 992px) and (hover: hover) and (pointer: fine)');
+    const update = () => {
+      setAllowAtmosphere(mediaQuery.matches);
+    };
+    update();
+    mediaQuery.addEventListener('change', update);
+    return () => {
+      mediaQuery.removeEventListener('change', update);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!allowAtmosphere) {
+      return undefined;
+    }
+
     let cancelled = false;
     const run = () => {
       if (!cancelled) {
@@ -33,10 +50,10 @@ const Footer = ({ accentTheme = 'default' }) => {
       cancelled = true;
       window.clearTimeout(timeoutId);
     };
-  }, []);
+  }, [allowAtmosphere]);
 
   return <section className="innovative-footer" id="page-footer">
-      {showAtmosphereLayer ? <Suspense fallback={null}>
+      {allowAtmosphere && showAtmosphereLayer ? <Suspense fallback={null}>
           <FooterAtmosphere accentTheme={accentTheme} />
         </Suspense> : null}
       <h2 className="d-none">hidden</h2>

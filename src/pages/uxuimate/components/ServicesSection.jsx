@@ -38,11 +38,28 @@ const ServicesSection = ({
   showAtmosphere = true
 }) => {
   const [showAtmosphereLayer, setShowAtmosphereLayer] = useState(false);
+  const [allowAtmosphere, setAllowAtmosphere] = useState(false);
   const isExternal = /^https?:\/\//i.test(footerHref);
   const isSpaPath = footerHref.startsWith('/') && !footerHref.startsWith('//') && !isExternal;
 
   useEffect(() => {
     if (!showAtmosphere) {
+      return undefined;
+    }
+
+    const mediaQuery = window.matchMedia('(min-width: 992px) and (hover: hover) and (pointer: fine)');
+    const update = () => {
+      setAllowAtmosphere(mediaQuery.matches);
+    };
+    update();
+    mediaQuery.addEventListener('change', update);
+    return () => {
+      mediaQuery.removeEventListener('change', update);
+    };
+  }, [showAtmosphere]);
+
+  useEffect(() => {
+    if (!showAtmosphere || !allowAtmosphere) {
       return undefined;
     }
 
@@ -66,10 +83,10 @@ const ServicesSection = ({
       cancelled = true;
       window.clearTimeout(timeoutId);
     };
-  }, [showAtmosphere]);
+  }, [showAtmosphere, allowAtmosphere]);
 
   return <section className="services-section" id={id}>
-      {showAtmosphere && showAtmosphereLayer ? <Suspense fallback={null}>
+      {showAtmosphere && allowAtmosphere && showAtmosphereLayer ? <Suspense fallback={null}>
           <ServicesAtmosphere />
         </Suspense> : null}
       <div className="services-section__container">

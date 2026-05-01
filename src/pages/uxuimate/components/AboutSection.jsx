@@ -22,11 +22,28 @@ const AboutSection = ({
   showAtmosphere = true
 }) => {
   const [showAtmosphereLayer, setShowAtmosphereLayer] = useState(false);
+  const [allowAtmosphere, setAllowAtmosphere] = useState(false);
   const isExternal = typeof linkHref === 'string' && /^https?:\/\//i.test(linkHref);
   const isSpaPath = typeof linkHref === 'string' && linkHref.startsWith('/') && !linkHref.startsWith('//') && !isExternal;
 
   useEffect(() => {
     if (!showAtmosphere) {
+      return undefined;
+    }
+
+    const mediaQuery = window.matchMedia('(min-width: 992px) and (hover: hover) and (pointer: fine)');
+    const update = () => {
+      setAllowAtmosphere(mediaQuery.matches);
+    };
+    update();
+    mediaQuery.addEventListener('change', update);
+    return () => {
+      mediaQuery.removeEventListener('change', update);
+    };
+  }, [showAtmosphere]);
+
+  useEffect(() => {
+    if (!showAtmosphere || !allowAtmosphere) {
       return undefined;
     }
 
@@ -50,13 +67,13 @@ const AboutSection = ({
       cancelled = true;
       window.clearTimeout(timeoutId);
     };
-  }, [showAtmosphere]);
+  }, [showAtmosphere, allowAtmosphere]);
 
   return <section className="about-studio-section model-agency-parallax-bg" id={id} style={{
     backgroundImage: `url("${backgroundImage}")`,
     backgroundPosition
   }}>
-      {showAtmosphere && showAtmosphereLayer ? <Suspense fallback={null}>
+      {showAtmosphere && allowAtmosphere && showAtmosphereLayer ? <Suspense fallback={null}>
           <AboutAtmosphere />
         </Suspense> : null}
       <div className="about-studio__container">
