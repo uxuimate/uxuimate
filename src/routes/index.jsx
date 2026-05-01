@@ -1,5 +1,4 @@
 import { lazy } from 'react';
-import LocalLandingPage from '@/pages/Locations/LocalLandingPage';
 const InnovativeParallax = lazy(() => import('@/pages/uxuimate'));
 const ServicesPage = lazy(() => import('@/pages/Services'));
 const AboutUsPage = lazy(() => import('@/pages/AboutUs'));
@@ -19,6 +18,7 @@ const NewcastlePage = lazy(() => import('@/pages/Locations/Newcastle'));
 const UkPage = lazy(() => import('@/pages/Locations/Uk'));
 const BulgariaPage = lazy(() => import('@/pages/Locations/Bulgaria'));
 const SofiaPage = lazy(() => import('@/pages/Locations/Sofia'));
+const LocalLandingPage = lazy(() => import('@/pages/Locations/LocalLandingPage'));
 
 /** New public URLs: add a matching entry in `src/constants/sitemapPaths.js` (sitemap regenerates on `npm run build`). */
 export const appRoutes = [{

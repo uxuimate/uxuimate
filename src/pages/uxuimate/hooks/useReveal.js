@@ -1,8 +1,4 @@
 import { useEffect } from 'react';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const revealConfigs = [
   { selector: '.reveal-up', from: { y: 60, opacity: 0 } },
@@ -12,17 +8,32 @@ const revealConfigs = [
 
 const useReveal = () => {
   useEffect(() => {
-    const animatedElements = new WeakSet();
-    const initReveals = () => {
+    const desktopRevealQuery = window.matchMedia('(min-width: 992px) and (hover: hover) and (pointer: fine)');
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const shouldRunReveal = desktopRevealQuery.matches && !reducedMotionQuery.matches;
+    if (!shouldRunReveal) {
+      return undefined;
+    }
+
+    let cancelled = false;
+    let gsapLib;
+    let ScrollTriggerPlugin;
+    let context;
+
+    const runPass = () => {
+      if (cancelled || !gsapLib) {
+        return;
+      }
+
       revealConfigs.forEach(({ selector, from }) => {
-        gsap.utils.toArray(selector).forEach(element => {
-          if (animatedElements.has(element)) {
+        gsapLib.utils.toArray(selector).forEach(element => {
+          if (element.dataset.revealInit === '1') {
             return;
           }
-          animatedElements.add(element);
+          element.dataset.revealInit = '1';
           const delay = Number(element.dataset.delay || 0);
 
-          gsap.fromTo(element, from, {
+          gsapLib.fromTo(element, from, {
             x: 0,
             y: 0,
             opacity: 1,
@@ -41,28 +52,51 @@ const useReveal = () => {
       });
     };
 
-    const context = gsap.context(() => {
-      initReveals();
-    });
+    const initReveals = async () => {
+      const [{ default: gsapModule }, { default: scrollTriggerModule }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger')
+      ]);
 
-    let rafId = 0;
-    const observer = new MutationObserver(() => {
-      if (rafId) {
+      if (cancelled) {
         return;
       }
-      rafId = requestAnimationFrame(() => {
-        rafId = 0;
-        initReveals();
+
+      gsapLib = gsapModule;
+      ScrollTriggerPlugin = scrollTriggerModule;
+      gsapLib.registerPlugin(ScrollTriggerPlugin);
+
+      context = gsapLib.context(() => {
+        runPass();
       });
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+
+      // Second pass catches sections rendered shortly after first paint.
+      window.setTimeout(() => {
+        runPass();
+        ScrollTriggerPlugin.refresh();
+      }, 1200);
+    };
+
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(() => {
+        void initReveals();
+      }, { timeout: 1600 });
+
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback(idleId);
+        context?.revert();
+      };
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      void initReveals();
+    }, 450);
 
     return () => {
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-      }
-      observer.disconnect();
-      context.revert();
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+      context?.revert();
     };
   }, []);
 };
