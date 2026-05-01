@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Container } from 'react-bootstrap';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from '@/pages/uxuimate/components/NavigationBar';
@@ -16,6 +15,7 @@ import VideoCaseHeroSlider from './VideoCaseHeroSlider';
 import VideoCaseSectionDots from './VideoCaseSectionDots';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
+import SeoHead from '@/components/SeoHead';
 import '@/pages/uxuimate/assets/css/style.css';
 import './video-nabliudenie-case-study.css';
 
@@ -160,9 +160,19 @@ const VideoNabliudenieCaseStudyPage = () => {
 
   return (
     <div className="main-page-section video-case-page">
-      <Helmet>
-        <title>VideoNabliudenie — UX UI MATE</title>
-      </Helmet>
+      <SeoHead
+        title="VideoNabliudenie.bg Case Study"
+        description="Case study: UX/UI redesign and web development for VideoNabliudenie.bg, focused on B2B trust architecture, clearer service hierarchy, and higher-intent enquiries."
+        path="/works/videonabliudenie-bg"
+        image="/img/works/videonabliudenie-bg/hero-1.webp"
+        keywords={[
+          'VideoNabliudenie case study',
+          'B2B website redesign',
+          'security systems UX UI',
+          'conversion-focused web development',
+          'UX UI MATE case studies'
+        ]}
+      />
 
       <NavigationBar />
 

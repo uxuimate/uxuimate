@@ -1,6 +1,6 @@
 /** Shared local + service SEO: keywords, merges, and JSON-LD fragments */
 
-export const SITE_NAME = 'UX UI MATE';
+export const SITE_NAME = 'UX UI Mate';
 export const SITE_URL = 'https://uxuimate.com';
 
 /** X (Twitter) handle for cards and structured data — include @ prefix for meta tags */
@@ -27,9 +27,11 @@ export const SITE_CORE_KEYWORDS = [
   'UK',
   'Bulgaria',
   'Europe',
-  'UX agency',
-  'UI agency',
-  'UX UI MATE'
+  'UX UI agency',
+  'UX design agency',
+  'UI design agency',
+  'UX UI Mate',
+  'uxuimate'
 ];
 
 export const SCHEMA_SERVICE_TYPES = [

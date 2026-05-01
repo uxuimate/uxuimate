@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Container } from 'react-bootstrap';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from '@/pages/uxuimate/components/NavigationBar';
@@ -15,6 +14,7 @@ import ServicesUxTheorySection from '@/pages/Services/components/ServicesUxTheor
 import VideoCaseSectionDots from '@/pages/CaseStudyVideoNabliudenie/VideoCaseSectionDots';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
+import SeoHead from '@/components/SeoHead';
 import EcoHerbalistUxHeroSlider from './EcoHerbalistUxHeroSlider';
 import '@/pages/uxuimate/assets/css/style.css';
 import '@/pages/CaseStudyVideoNabliudenie/video-nabliudenie-case-study.css';
@@ -91,7 +91,19 @@ const EcoHerbalistUxCaseStudyPage = () => {
 
   return (
     <div className="main-page-section video-case-page">
-      <Helmet><title>Eco Herbalist UX — UX UI MATE</title></Helmet>
+      <SeoHead
+        title="Eco Herbalist UX Case Study"
+        description="UX case study for Eco Herbalist eCommerce: improved product readability, checkout flow simplification, and trust-focused interface design."
+        path="/works/eco-herbalist-ux"
+        image="/img/works/eco-herbalist-ux/hero-1.webp"
+        keywords={[
+          'Eco Herbalist UX case study',
+          'ecommerce UX redesign',
+          'checkout UX optimization',
+          'wellness product UX',
+          'UX UI MATE case studies'
+        ]}
+      />
       <NavigationBar />
       <EcoHerbalistUxHeroSlider />
 

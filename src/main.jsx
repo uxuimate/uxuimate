@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import App from './App';
@@ -17,8 +17,8 @@ gsap.ticker.lagSmoothing(0);
 
 createRoot(document.getElementById('root')).render(
 // <StrictMode>
-<HashRouter>
+<BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
 // </StrictMode>
 );

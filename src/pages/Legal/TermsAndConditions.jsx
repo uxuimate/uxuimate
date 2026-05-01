@@ -2,7 +2,12 @@ import LegalPolicyLayout from './components/LegalPolicyLayout';
 import { Link } from 'react-router-dom';
 
 const TermsAndConditionsPage = () => (
-  <LegalPolicyLayout eyebrow="Terms & Conditions" title="Terms & Conditions" path="/terms-and-conditions">
+  <LegalPolicyLayout
+    eyebrow="Terms & Conditions"
+    title="Terms & Conditions"
+    path="/terms-and-conditions"
+    description="Terms and Conditions for using the UX UI MATE website and related digital design services."
+  >
     <h2>1. About This Website</h2>
     <p>
       This website is operated under the trading name UX UI MATE. UX UI MATE is a UK-based sole trader business

@@ -2,7 +2,12 @@ import LegalPolicyLayout from './components/LegalPolicyLayout';
 import { Link } from 'react-router-dom';
 
 const CookiePolicyPage = () => (
-  <LegalPolicyLayout eyebrow="Cookie Policy" title="Cookie Policy" path="/cookie-policy">
+  <LegalPolicyLayout
+    eyebrow="Cookie Policy"
+    title="Cookie Policy"
+    path="/cookie-policy"
+    description="Cookie Policy for UX UI MATE, including current cookie usage status and consent approach for future tracking technologies."
+  >
     <h2>1. Introduction</h2>
     <p>
       This Cookie Policy explains how UX UI MATE (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) uses cookies and similar technologies on this

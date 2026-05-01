@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Container } from 'react-bootstrap';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from '@/pages/uxuimate/components/NavigationBar';
@@ -15,6 +14,7 @@ import ServicesUxTheorySection from '@/pages/Services/components/ServicesUxTheor
 import VideoCaseSectionDots from '@/pages/CaseStudyVideoNabliudenie/VideoCaseSectionDots';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
+import SeoHead from '@/components/SeoHead';
 import NistravelHeroSlider from './NistravelHeroSlider';
 import '@/pages/uxuimate/assets/css/style.css';
 import '@/pages/CaseStudyVideoNabliudenie/video-nabliudenie-case-study.css';
@@ -112,9 +112,19 @@ const NistravelCaseStudyPage = () => {
 
   return (
     <div className="main-page-section video-case-page">
-      <Helmet>
-        <title>Nistravel.bg — UX UI MATE</title>
-      </Helmet>
+      <SeoHead
+        title="Nistravel.bg Case Study"
+        description="Travel website redesign case study for Nistravel.bg: modern UX/UI, multilingual readiness, improved trust pages, and clearer trip-booking structure."
+        path="/works/nistravel-bg"
+        image="/img/works/nistravel/hero-redesign.webp"
+        keywords={[
+          'Nistravel case study',
+          'travel website redesign',
+          'multilingual website UX',
+          'tour booking UX UI',
+          'UX UI MATE case studies'
+        ]}
+      />
 
       <NavigationBar />
       <NistravelHeroSlider />

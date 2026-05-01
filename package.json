@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "node scripts/generate-sitemap.mjs && node scripts/prepare-gh-pages.mjs",
+    "postbuild": "node scripts/generate-sitemap.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

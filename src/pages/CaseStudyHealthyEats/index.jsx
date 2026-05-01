@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Container } from 'react-bootstrap';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from '@/pages/uxuimate/components/NavigationBar';
@@ -15,6 +14,7 @@ import ServicesUxTheorySection from '@/pages/Services/components/ServicesUxTheor
 import VideoCaseSectionDots from '@/pages/CaseStudyVideoNabliudenie/VideoCaseSectionDots';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
+import SeoHead from '@/components/SeoHead';
 import HealthyEatsHeroSlider from './HealthyEatsHeroSlider';
 import '@/pages/uxuimate/assets/css/style.css';
 import '@/pages/CaseStudyVideoNabliudenie/video-nabliudenie-case-study.css';
@@ -114,7 +114,19 @@ const HealthyEatsCaseStudyPage = () => {
 
   return (
     <div className="main-page-section video-case-page">
-      <Helmet><title>Healthy Eats Redesign — UX UI MATE</title></Helmet>
+      <SeoHead
+        title="Healthy Eats Redesign Case Study"
+        description="Product redesign case study for Healthy Eats: improved hierarchy, clearer comparison patterns, and streamlined checkout journeys for better completion confidence."
+        path="/works/healthy-eats-redesign"
+        image="/img/works/healthy-eats/hero-1.webp"
+        keywords={[
+          'Healthy Eats case study',
+          'product redesign case study',
+          'food app UX redesign',
+          'checkout flow UX',
+          'UX UI MATE portfolio'
+        ]}
+      />
       <NavigationBar />
       <HealthyEatsHeroSlider />
 

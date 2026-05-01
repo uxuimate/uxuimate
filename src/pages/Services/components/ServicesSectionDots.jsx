@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { lenisScrollToElementId } from '@/utils/lenisScroll';
 
 const SECTION_CANDIDATES = [
   { id: 'services-hero', label: 'Hero' },
@@ -48,20 +47,29 @@ const ServicesSectionDots = () => {
       }
       rafId = requestAnimationFrame(() => {
         rafId = 0;
-        const scrollMarker = window.scrollY + window.innerHeight * 0.4;
-        const currentSection = sections.reduce((activeId, section) => {
+        const viewportCenter = window.scrollY + window.innerHeight / 2;
+        let bestId = sections[0]?.id ?? 'services-hero';
+        let bestDistance = Number.POSITIVE_INFINITY;
+
+        sections.forEach(section => {
           const element = document.getElementById(section.id);
 
           if (!element) {
-            return activeId;
+            return;
           }
 
-          const sectionTop = element.getBoundingClientRect().top + window.scrollY;
+          const rect = element.getBoundingClientRect();
+          const sectionTop = rect.top + window.scrollY;
+          const sectionCenter = sectionTop + rect.height / 2;
+          const distance = Math.abs(sectionCenter - viewportCenter);
 
-          return sectionTop <= scrollMarker ? section.id : activeId;
-        }, sections[0]?.id ?? 'services-hero');
+          if (distance < bestDistance) {
+            bestDistance = distance;
+            bestId = section.id;
+          }
+        });
 
-        setActiveSection(prev => (prev === currentSection ? prev : currentSection));
+        setActiveSection(prev => (prev === bestId ? prev : bestId));
       });
     };
 
@@ -80,6 +88,17 @@ const ServicesSectionDots = () => {
     return null;
   }
 
+  const scrollToSection = sectionId => {
+    const element = document.getElementById(sectionId);
+    if (!element) {
+      return;
+    }
+    // Keep section heading clear of sticky nav.
+    const NAV_OFFSET = 96;
+    const top = element.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+  };
+
   return <nav className="services-section-dots" aria-label="On this page">
       <ul className="services-section-dots__list">
         {sections.map(section => {
@@ -91,9 +110,7 @@ const ServicesSectionDots = () => {
               className={'services-section-dots__btn' + (isActive ? ' is-active' : '')}
               aria-label={`Scroll to: ${section.label}`}
               aria-current={isActive ? 'true' : undefined}
-              onClick={() => {
-                lenisScrollToElementId(section.id);
-              }}
+              onClick={() => scrollToSection(section.id)}
             />
           </li>;
       })}

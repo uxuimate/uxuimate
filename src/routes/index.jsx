@@ -27,10 +27,6 @@ export const appRoutes = [{
   name: 'root',
   element: <InnovativeParallax />
 }, {
-  path: '/innovative-parallax',
-  name: 'innovative-parallax',
-  element: <InnovativeParallax />
-}, {
   path: '/services',
   name: 'services-page',
   element: <ServicesPage />

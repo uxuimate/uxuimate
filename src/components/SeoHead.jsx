@@ -3,11 +3,22 @@ import { mergeKeywords, SITE_CORE_KEYWORDS, SITE_NAME, SITE_TWITTER_SITE, SITE_U
 
 const DEFAULT_IMAGE = '/favicon.ico';
 
-const toCanonical = (path = '/') => {
-  if (!path.startsWith('/')) {
-    return `${SITE_URL}/${path}`;
+const normalizePath = (path = '/') => {
+  const raw = String(path || '/').trim();
+  const withoutOrigin = raw.replace(/^https?:\/\/[^/]+/i, '');
+  const withSingleLeadingSlash = withoutOrigin.startsWith('/') ? withoutOrigin : `/${withoutOrigin}`;
+  const collapsedSlashes = withSingleLeadingSlash.replace(/\/{2,}/g, '/');
+
+  if (collapsedSlashes === '/') {
+    return '/';
   }
-  return `${SITE_URL}${path}`;
+
+  return collapsedSlashes.replace(/\/+$/, '');
+};
+
+const toCanonical = (path = '/') => {
+  const normalizedPath = normalizePath(path);
+  return `${SITE_URL}${normalizedPath}`;
 };
 
 const SeoHead = ({

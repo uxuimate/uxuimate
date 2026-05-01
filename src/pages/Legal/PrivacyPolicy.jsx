@@ -2,7 +2,12 @@ import LegalPolicyLayout from './components/LegalPolicyLayout';
 import { Link } from 'react-router-dom';
 
 const PrivacyPolicyPage = () => (
-  <LegalPolicyLayout eyebrow="Privacy Policy" title="Privacy Policy" path="/privacy-policy">
+  <LegalPolicyLayout
+    eyebrow="Privacy Policy"
+    title="Privacy Policy"
+    path="/privacy-policy"
+    description="Read how UX UI MATE collects, uses, stores, and protects personal data under UK GDPR and EU GDPR."
+  >
     <p>
       UX UI MATE ("we", "us", "our") is a premium UX/UI design studio. This Privacy Policy explains how we collect,
       use, and protect your personal data when you use this website or get in touch with us. This policy applies to

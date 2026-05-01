@@ -59,16 +59,27 @@ const VideoCaseSectionDots = () => {
 
       rafId = requestAnimationFrame(() => {
         rafId = 0;
-        const marker = window.scrollY + window.innerHeight * 0.62;
-        const current = sections.reduce((activeId, section) => {
+        const viewportCenter = window.scrollY + window.innerHeight / 2;
+        let bestId = sections[0]?.id ?? 'home';
+        let bestDistance = Number.POSITIVE_INFINITY;
+
+        sections.forEach(section => {
           const element = document.getElementById(section.id);
           if (!element) {
-            return activeId;
+            return;
           }
-          const top = element.getBoundingClientRect().top + window.scrollY;
-          return top <= marker ? section.id : activeId;
-        }, sections[0]?.id ?? 'home');
-        setActiveSection(prev => (prev === current ? prev : current));
+          const rect = element.getBoundingClientRect();
+          const elementTop = rect.top + window.scrollY;
+          const elementCenter = elementTop + rect.height / 2;
+          const distance = Math.abs(elementCenter - viewportCenter);
+
+          if (distance < bestDistance) {
+            bestDistance = distance;
+            bestId = section.id;
+          }
+        });
+
+        setActiveSection(prev => (prev === bestId ? prev : bestId));
       });
     };
 
@@ -87,6 +98,17 @@ const VideoCaseSectionDots = () => {
     return null;
   }
 
+  const scrollToSection = sectionId => {
+    const element = document.getElementById(sectionId);
+    if (!element) {
+      return;
+    }
+    // Keeps target heading visible under sticky nav.
+    const NAV_OFFSET = 96;
+    const top = element.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+    window.scrollTo({ top: Math.max(top, 0), behavior: 'smooth' });
+  };
+
   return (
     <nav className="section-dots" aria-label="Page sections">
       <ul>
@@ -99,7 +121,7 @@ const VideoCaseSectionDots = () => {
                 className={active ? 'active' : ''}
                 aria-label={`Go to ${section.label}`}
                 aria-current={active ? 'true' : undefined}
-                onClick={() => document.getElementById(section.id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                onClick={() => scrollToSection(section.id)}
               >
                 <span />
               </button>

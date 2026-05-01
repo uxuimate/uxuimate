@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from '@/pages/uxuimate/components/NavigationBar';
 import Footer from '@/pages/uxuimate/components/Footer';
@@ -10,6 +9,7 @@ import WorksSection from '@/pages/uxuimate/components/WorksSection';
 import VideoCaseSectionDots from '@/pages/CaseStudyVideoNabliudenie/VideoCaseSectionDots';
 import ServicesUxTheorySection from '@/pages/Services/components/ServicesUxTheorySection';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
+import SeoHead from '@/components/SeoHead';
 import '@/pages/uxuimate/assets/css/style.css';
 import '@/pages/CaseStudyVideoNabliudenie/video-nabliudenie-case-study.css';
 import CinematicEscapesHeroSlider from './CinematicEscapesHeroSlider';
@@ -33,14 +33,38 @@ const VISUAL_STORIES = [
 ];
 
 const GALLERY_IMAGES = [
-  '/img/works/cinematic-escapes/hero-1.webp',
-  '/img/works/cinematic-escapes/hero-2.webp',
-  '/img/works/cinematic-escapes/hero-3.webp',
-  '/img/works/cinematic-escapes/hero-4.webp',
-  '/img/works/cinematic-escapes/hero-5.webp',
-  '/img/works/cinematic-escapes/hero-6.webp',
-  '/img/works/cinematic-escapes/hero-7.webp',
-  '/img/works/cinematic-escapes/hero-8.webp'
+  {
+    src: '/img/works/cinematic-escapes/hero-1.webp',
+    alt: 'Cinematic Escapes campaign visual featuring premium destination storytelling'
+  },
+  {
+    src: '/img/works/cinematic-escapes/hero-2.webp',
+    alt: 'Cinematic Escapes concept visual with atmospheric luxury travel composition'
+  },
+  {
+    src: '/img/works/cinematic-escapes/hero-3.webp',
+    alt: 'Cinematic Escapes art direction example showing immersive travel mood'
+  },
+  {
+    src: '/img/works/cinematic-escapes/hero-4.webp',
+    alt: 'Cinematic Escapes campaign frame designed for high-impact social placement'
+  },
+  {
+    src: '/img/works/cinematic-escapes/hero-5.webp',
+    alt: 'Cinematic Escapes branded visual balancing cinematic tone and destination clarity'
+  },
+  {
+    src: '/img/works/cinematic-escapes/hero-6.webp',
+    alt: 'Cinematic Escapes creative concept showing premium travel scene composition'
+  },
+  {
+    src: '/img/works/cinematic-escapes/hero-7.webp',
+    alt: 'Cinematic Escapes visual narrative frame used for campaign consistency'
+  },
+  {
+    src: '/img/works/cinematic-escapes/hero-8.webp',
+    alt: 'Cinematic Escapes final campaign visual with cohesive cinematic brand style'
+  }
 ];
 
 const OUTCOMES = [
@@ -94,9 +118,19 @@ const CinematicEscapesCaseStudyPage = () => {
 
   return (
     <div className="main-page-section video-case-page video-case-page--cinematic">
-      <Helmet>
-        <title>Cinematic Escapes - UX UI MATE</title>
-      </Helmet>
+      <SeoHead
+        title="Cinematic Escapes Case Study"
+        description="Visual creative case study: Cinematic Escapes campaign direction with premium travel storytelling, atmospheric art direction, and consistent multi-asset execution."
+        path="/works/cinematic-escapes"
+        image="/img/works/cinematic-escapes/hero-1.webp"
+        keywords={[
+          'Cinematic Escapes case study',
+          'campaign art direction',
+          'travel visual storytelling',
+          'creative direction portfolio',
+          'UX UI MATE visual work'
+        ]}
+      />
 
       <NavigationBar />
       <main className="video-case-main">
@@ -160,9 +194,9 @@ const CinematicEscapesCaseStudyPage = () => {
         <section className="cinematic-gallery" id="gallery">
         <div className="container-fluid px-0">
           <div className="cinematic-gallery__grid">
-            {GALLERY_IMAGES.map((image, index) => (
-              <div className="cinematic-gallery__item" key={image}>
-                <img src={image} alt={`Cinematic Escapes visual ${index + 1}`} loading="lazy" />
+            {GALLERY_IMAGES.map(image => (
+              <div className="cinematic-gallery__item" key={image.src}>
+                <img src={image.src} alt={image.alt} loading="lazy" />
               </div>
             ))}
           </div>

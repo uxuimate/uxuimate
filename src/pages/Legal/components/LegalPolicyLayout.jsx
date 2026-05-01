@@ -9,7 +9,7 @@ import SeoHead from '@/components/SeoHead';
 import '@/pages/uxuimate/assets/css/style.css';
 import '../assets/legal-pages.css';
 
-const LegalPolicyLayout = ({ eyebrow, title, path, children }) => {
+const LegalPolicyLayout = ({ eyebrow, title, path, description, children }) => {
   useEffect(() => {
     toggleDocumentAttribute('data-spy', 'scroll', 'body');
     toggleDocumentAttribute('data-target', '.navbar', 'body');
@@ -26,7 +26,7 @@ const LegalPolicyLayout = ({ eyebrow, title, path, children }) => {
     <div className="main-page-section legal-page">
       <SeoHead
         title={title}
-        description={`${title} for UX UI MATE.`}
+        description={description || `${title} for UX UI MATE.`}
         path={path}
         mergeCoreKeywords={false}
       />

@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Container } from 'react-bootstrap';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from '@/pages/uxuimate/components/NavigationBar';
@@ -15,6 +14,7 @@ import ServicesUxTheorySection from '@/pages/Services/components/ServicesUxTheor
 import VideoCaseSectionDots from '@/pages/CaseStudyVideoNabliudenie/VideoCaseSectionDots';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
+import SeoHead from '@/components/SeoHead';
 import SoftPlayHeroSlider from './SoftPlayHeroSlider';
 import '@/pages/uxuimate/assets/css/style.css';
 import '@/pages/CaseStudyVideoNabliudenie/video-nabliudenie-case-study.css';
@@ -93,7 +93,19 @@ const SoftPlayCaseStudyPage = () => {
 
   return (
     <div className="main-page-section video-case-page">
-      <Helmet><title>Soft Play Solutions — UX UI MATE</title></Helmet>
+      <SeoHead
+        title="Soft Play Solutions Case Study"
+        description="Bilingual B2B website case study for Soft Play Solutions: UX/UI redesign, conversion architecture, and trust-driven project storytelling for international leads."
+        path="/works/soft-play-solutions"
+        image="/img/works/soft-play-solutions/hero-1.webp"
+        keywords={[
+          'Soft Play Solutions case study',
+          'B2B website UX UI redesign',
+          'bilingual website design',
+          'conversion-focused web design',
+          'UX UI MATE portfolio'
+        ]}
+      />
       <NavigationBar />
       <SoftPlayHeroSlider />
 

@@ -1,10 +1,8 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import { SELECTED_WORKS_FOR_PARALLAX } from '@/data/selectedWorksProjects';
 
 const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work', excludedProjectIds = [] }) => {
-  const navigate = useNavigate();
   const cardStateRef = useRef(new WeakMap());
 
   useEffect(() => {
@@ -66,15 +64,6 @@ const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work'
     card.style.setProperty('--glow-y', '0%');
   };
 
-  const openProject = project => {
-    if (project.url.startsWith('/')) {
-      navigate(project.url);
-      return;
-    }
-
-    window.open(project.url, '_blank', 'noopener,noreferrer');
-  };
-
   if (!projects.length) {
     return null;
   }
@@ -100,22 +89,18 @@ const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work'
               key={project.id}
               className={`works-fan__item works-fan__item--${index}`}
             >
-              <article
+              <Link
+                className="works-card works-card--fan"
+                to={project.url}
+                aria-label={`${project.name} case study`}
+              >
+                <article
                 className="works-card works-card--fan"
                 onPointerEnter={handleCardEnter}
                 onPointerMove={handleCardMove}
                 onPointerLeave={e => {
                   handleCardLeave(e);
                 }}
-                onClick={() => openProject(project)}
-                onKeyDown={event => {
-                  if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    openProject(project);
-                  }
-                }}
-                role="link"
-                tabIndex={0}
               >
                 <div
                   className="works-card__image"
@@ -130,7 +115,8 @@ const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work'
                     View case study
                   </span>
                 </div>
-              </article>
+                </article>
+              </Link>
             </div>
           ))}
         </div>

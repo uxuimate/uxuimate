@@ -1,6 +1,5 @@
 /**
  * Canonical paths for sitemap.xml — keep in sync when adding routes in src/routes/index.jsx.
- * Omit /innovative-parallax (same content as /; home canonical is /).
  */
 export const SITEMAP_ENTRIES = [
   { path: '/', changefreq: 'weekly', priority: '1.0' },

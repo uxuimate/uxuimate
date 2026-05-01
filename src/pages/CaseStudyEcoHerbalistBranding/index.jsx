@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Container } from 'react-bootstrap';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from '@/pages/uxuimate/components/NavigationBar';
@@ -15,6 +14,7 @@ import ServicesUxTheorySection from '@/pages/Services/components/ServicesUxTheor
 import VideoCaseSectionDots from '@/pages/CaseStudyVideoNabliudenie/VideoCaseSectionDots';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
+import SeoHead from '@/components/SeoHead';
 import EcoHerbalistBrandingHeroSlider from './EcoHerbalistBrandingHeroSlider';
 import '@/pages/uxuimate/assets/css/style.css';
 import '@/pages/CaseStudyVideoNabliudenie/video-nabliudenie-case-study.css';
@@ -91,7 +91,19 @@ const EcoHerbalistBrandingCaseStudyPage = () => {
 
   return (
     <div className="main-page-section video-case-page">
-      <Helmet><title>Eco Herbalist Branding — UX UI MATE</title></Helmet>
+      <SeoHead
+        title="Eco Herbalist Branding Case Study"
+        description="Brand identity case study for Eco Herbalist: typography and color system, channel-ready brand guidelines, and scalable visual consistency across digital and print."
+        path="/works/eco-herbalist-branding"
+        image="/img/works/eco-herbalist-branding/hero-1.webp"
+        keywords={[
+          'Eco Herbalist branding case study',
+          'brand identity design',
+          'brand guidelines project',
+          'wellness brand system',
+          'UX UI MATE branding'
+        ]}
+      />
       <NavigationBar />
       <EcoHerbalistBrandingHeroSlider />
 

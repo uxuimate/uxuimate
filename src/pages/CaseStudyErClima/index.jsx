@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { Container } from 'react-bootstrap';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from '@/pages/uxuimate/components/NavigationBar';
@@ -15,6 +14,7 @@ import ServicesUxTheorySection from '@/pages/Services/components/ServicesUxTheor
 import VideoCaseSectionDots from '@/pages/CaseStudyVideoNabliudenie/VideoCaseSectionDots';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
+import SeoHead from '@/components/SeoHead';
 import ErClimaHeroSlider from './ErClimaHeroSlider';
 import '@/pages/uxuimate/assets/css/style.css';
 import '@/pages/CaseStudyVideoNabliudenie/video-nabliudenie-case-study.css';
@@ -160,9 +160,19 @@ const ErClimaCaseStudyPage = () => {
 
   return (
     <div className="main-page-section video-case-page">
-      <Helmet>
-        <title>Er Clima Solutions — UX UI MATE</title>
-      </Helmet>
+      <SeoHead
+        title="Er Clima Solutions Case Study"
+        description="HVAC web platform case study for Er Clima Solutions: improved information architecture for 1,100+ products, clearer service journeys, and conversion-focused UX."
+        path="/works/er-clima-solutions"
+        image="/img/works/er-clima/hero-1.webp"
+        keywords={[
+          'Er Clima case study',
+          'HVAC website redesign',
+          'information architecture case study',
+          'B2B industrial UX UI',
+          'UX UI MATE web development'
+        ]}
+      />
 
       <NavigationBar />
       <ErClimaHeroSlider />

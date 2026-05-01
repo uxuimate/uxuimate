@@ -46,7 +46,7 @@ const socialLinks = [
   }
 ];
 
-const HOME_PATH = '/innovative-parallax';
+const HOME_PATH = '/';
 
 const navLinks = [
   {
