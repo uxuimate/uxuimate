@@ -153,6 +153,19 @@
     background: linear-gradient(180deg, rgba(5, 5, 5, 0.44) 0%, rgba(5, 5, 5, 0.52) 45%, rgba(5, 5, 5, 0.58) 100%);
 }
 
+/* Case-study outcomes cards: keep full copy visible and readable. */
+.video-case-page .video-case-outcomes .services-ux-theory__cover {
+    background: rgba(10, 11, 18, 0.9);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+}
+
+.video-case-page .video-case-outcomes .services-ux-theory__text {
+    color: rgba(255, 255, 255, 0.92);
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+}
+
 .he-video-showcase,
 .he-before-after {
     background: #07080d;
@@ -390,3 +403,111 @@
         grid-template-columns: 1fr;
     }
 }
+
+.nistravel-ui-gallery {
+    background: #07080d;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: clamp(80px, 10vw, 120px) 0;
+}
+
+.nistravel-tools {
+    background: #06070d;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: clamp(72px, 9vw, 108px) 0;
+}
+
+.nistravel-tools__header {
+    margin: 0 auto 28px;
+    max-width: 800px;
+    text-align: center;
+}
+
+.nistravel-tools__header h2 {
+    color: #fff;
+    font-size: clamp(1.8rem, 3.2vw, 3rem);
+    line-height: 1.1;
+    margin: 0;
+}
+
+.nistravel-tools__grid {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 220px));
+    justify-content: center;
+}
+
+.nistravel-tools__item {
+    align-items: center;
+    background: rgba(11, 12, 19, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 164px;
+    padding: 16px 12px;
+}
+
+.nistravel-tools__icon-wrap {
+    align-items: center;
+    display: flex;
+    height: 70px;
+    justify-content: center;
+    width: 70px;
+}
+
+.nistravel-tools__icon-wrap img {
+    display: block;
+    height: 58px;
+    object-fit: contain;
+    width: 58px;
+}
+
+.nistravel-tools__icon-wrap img.nistravel-tools__icon--figma {
+    height: 62px;
+    width: 62px;
+}
+
+.nistravel-tools__item h3 {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin: 10px 0 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.nistravel-ui-gallery__grid {
+    columns: 2;
+    column-gap: 16px;
+}
+
+.nistravel-ui-gallery__item {
+    background: rgba(11, 12, 19, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    break-inside: avoid;
+    margin-bottom: 16px;
+    padding: 10px;
+}
+
+.nistravel-ui-gallery__media {
+    overflow: hidden;
+}
+
+.nistravel-ui-gallery__item img {
+    display: block;
+    height: auto;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .nistravel-tools__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .nistravel-ui-gallery__grid {
+        columns: 1;
+    }
+}
+

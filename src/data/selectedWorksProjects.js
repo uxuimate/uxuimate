@@ -5,6 +5,22 @@ import { withBasePath } from '@/utils';
 
 export const SELECTED_WORKS_PROJECTS = [
   {
+    id: 'nistravel-bg',
+    name: 'Nistravel.bg',
+    client: 'Nistravel.bg',
+    year: 2026,
+    filterSlug: 'web',
+    tagPill: 'Web redesign',
+    headline: 'Travel agency redesign for trust and multilingual growth',
+    outcomeMetric: '+02',
+    outcomeRest: 'new language tracks (EN/ES)',
+    category: 'Web Redesign',
+    url: '/works/nistravel-bg',
+    image: withBasePath('/img/works/nistravel/card.webp'),
+    imagePortrait: withBasePath('/img/works/nistravel/card-portrait.webp'),
+    tagline: 'Modern travel booking experience with expanded trust and legal page architecture.'
+  },
+  {
     id: 'videonabliudenie-bg',
     name: 'VideoNabliudenie.bg',
     client: 'VideoNabliudenie.bg',
@@ -123,10 +139,10 @@ export const SELECTED_WORKS_PROJECTS = [
  * Order here is the slide order.
  */
 const PARALLAX_WORKS_CARD_IDS = [
+  'nistravel-bg',
   'videonabliudenie-bg',
   'eco-herbalist-ux',
-  'healthy-eats',
-  'eco-herbalist-brand'
+  'healthy-eats'
 ];
 
 const byId = new Map(SELECTED_WORKS_PROJECTS.map(p => [p.id, p]));

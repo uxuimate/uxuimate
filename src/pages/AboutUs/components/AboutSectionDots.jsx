@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { lenisScrollToElementId } from '@/utils/lenisScroll';
 
-const sections = [
+const SECTION_CANDIDATES = [
   { id: 'about-hero', label: 'Hero' },
   { id: 'about-intro', label: 'Belief' },
   { id: 'about-why-studio', label: 'Why us' },
@@ -12,9 +12,37 @@ const sections = [
 ];
 
 const AboutSectionDots = () => {
-  const [activeSection, setActiveSection] = useState(sections[0].id);
+  const resolveSections = () =>
+    SECTION_CANDIDATES.filter(section => document.getElementById(section.id));
+
+  const [sections, setSections] = useState(() => resolveSections());
+  const [activeSection, setActiveSection] = useState(() => (sections[0]?.id ?? 'about-hero'));
 
   useEffect(() => {
+    const hasSameIds = (a, b) =>
+      a.length === b.length && a.every((section, index) => section.id === b[index].id);
+
+    const syncSections = () => {
+      const next = resolveSections();
+      setSections(prev => (hasSameIds(prev, next) ? prev : next));
+    };
+
+    syncSections();
+    const observer = new MutationObserver(syncSections);
+    observer.observe(document.body, { childList: true, subtree: true });
+    window.addEventListener('resize', syncSections);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', syncSections);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!sections.length) {
+      return undefined;
+    }
+
     const updateActiveSection = () => {
       const scrollMarker = window.scrollY + window.innerHeight * 0.5;
       const currentSection = sections.reduce((activeId, section) => {
@@ -27,7 +55,7 @@ const AboutSectionDots = () => {
         const sectionTop = element.getBoundingClientRect().top + window.scrollY;
 
         return sectionTop <= scrollMarker ? section.id : activeId;
-      }, sections[0].id);
+      }, sections[0]?.id ?? 'about-hero');
 
       setActiveSection(currentSection);
     };
@@ -40,7 +68,11 @@ const AboutSectionDots = () => {
       window.removeEventListener('scroll', updateActiveSection);
       window.removeEventListener('resize', updateActiveSection);
     };
-  }, []);
+  }, [sections]);
+
+  if (!sections.length) {
+    return null;
+  }
 
   return (
     <nav className="section-dots" aria-label="On this page">

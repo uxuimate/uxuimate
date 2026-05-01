@@ -15,6 +15,7 @@ export const SITEMAP_ENTRIES = [
   { path: '/works/eco-herbalist-ux', changefreq: 'monthly', priority: '0.8' },
   { path: '/works/eco-herbalist-branding', changefreq: 'monthly', priority: '0.8' },
   { path: '/works/cinematic-escapes', changefreq: 'monthly', priority: '0.8' },
+  { path: '/works/nistravel-bg', changefreq: 'monthly', priority: '0.8' },
   { path: '/privacy-policy', changefreq: 'yearly', priority: '0.4' },
   { path: '/terms-and-conditions', changefreq: 'yearly', priority: '0.4' },
   { path: '/cookie-policy', changefreq: 'yearly', priority: '0.4' },

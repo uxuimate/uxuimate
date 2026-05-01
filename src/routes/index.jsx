@@ -12,6 +12,7 @@ const HealthyEatsCaseStudyPage = lazy(() => import('@/pages/CaseStudyHealthyEats
 const EcoHerbalistUxCaseStudyPage = lazy(() => import('@/pages/CaseStudyEcoHerbalistUx'));
 const EcoHerbalistBrandingCaseStudyPage = lazy(() => import('@/pages/CaseStudyEcoHerbalistBranding'));
 const CinematicEscapesCaseStudyPage = lazy(() => import('@/pages/CaseStudyCinematicEscapes'));
+const NistravelCaseStudyPage = lazy(() => import('@/pages/CaseStudyNistravel'));
 const PrivacyPolicyPage = lazy(() => import('@/pages/Legal/PrivacyPolicy'));
 const TermsAndConditionsPage = lazy(() => import('@/pages/Legal/TermsAndConditions'));
 const CookiePolicyPage = lazy(() => import('@/pages/Legal/CookiePolicy'));
@@ -73,6 +74,10 @@ export const appRoutes = [{
   path: '/works/cinematic-escapes',
   name: 'works-cinematic-escapes',
   element: <CinematicEscapesCaseStudyPage />
+}, {
+  path: '/works/nistravel-bg',
+  name: 'works-nistravel-bg',
+  element: <NistravelCaseStudyPage />
 }, {
   path: '/privacy-policy',
   name: 'privacy-policy',
