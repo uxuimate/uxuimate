@@ -26,6 +26,14 @@ const InnovativeParallax = () => {
   useReveal();
 
   useEffect(() => {
+    const isMobileLikeViewport = window.matchMedia('(max-width: 991px)').matches;
+
+    // Keep desktop/large screens immediate to avoid hurting desktop PSI.
+    if (!isMobileLikeViewport) {
+      setShowDeferredSections(true);
+      return undefined;
+    }
+
     let cancelled = false;
     const run = () => {
       if (!cancelled) {

@@ -1,4 +1,8 @@
 import { useEffect } from 'react';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const revealConfigs = [
   { selector: '.reveal-up', from: { y: 60, opacity: 0 } },
@@ -8,28 +12,6 @@ const revealConfigs = [
 
 const useReveal = () => {
   useEffect(() => {
-    const shouldRunReveal =
-      typeof window !== 'undefined' &&
-      !window.matchMedia('(prefers-reduced-motion: reduce)').matches &&
-      window.matchMedia('(min-width: 992px) and (hover: hover) and (pointer: fine)').matches;
-
-    if (!shouldRunReveal) {
-      return undefined;
-    }
-
-    let cleanup = () => {};
-    let cancelled = false;
-
-    const initReveal = async () => {
-      const [gsapModule, scrollTriggerModule] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
-      if (cancelled) {
-        return;
-      }
-
-      const gsap = gsapModule.default;
-      const ScrollTrigger = scrollTriggerModule.default;
-      gsap.registerPlugin(ScrollTrigger);
-
     const animatedElements = new WeakSet();
     const initReveals = () => {
       revealConfigs.forEach(({ selector, from }) => {
@@ -59,36 +41,28 @@ const useReveal = () => {
       });
     };
 
-      const context = gsap.context(() => {
+    const context = gsap.context(() => {
+      initReveals();
+    });
+
+    let rafId = 0;
+    const observer = new MutationObserver(() => {
+      if (rafId) {
+        return;
+      }
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
         initReveals();
       });
-
-      let rafId = 0;
-      const observer = new MutationObserver(() => {
-        if (rafId) {
-          return;
-        }
-        rafId = requestAnimationFrame(() => {
-          rafId = 0;
-          initReveals();
-        });
-      });
-      observer.observe(document.body, { childList: true, subtree: true });
-
-      cleanup = () => {
-        if (rafId) {
-          cancelAnimationFrame(rafId);
-        }
-        observer.disconnect();
-        context.revert();
-      };
-    };
-
-    void initReveal();
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      cancelled = true;
-      cleanup();
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      observer.disconnect();
+      context.revert();
     };
   }, []);
 };
