@@ -8,7 +8,7 @@ import useReveal from './hooks/useReveal';
 import { lenisScrollToElementId } from '@/utils/lenisScroll';
 import SeoHead from '@/components/SeoHead';
 import { buildStudioHomeJsonLd } from '@/constants/siteSeo';
-import './assets/css/home-critical.css';
+import './assets/css/style.css';
 
 const WorksSection = lazy(() => import('./components/WorksSection'));
 const ServicesSection = lazy(() => import('./components/ServicesSection'));
@@ -23,44 +23,9 @@ const InnovativeParallax = () => {
   const location = useLocation();
   const [showDeferredSections, setShowDeferredSections] = useState(false);
   const [showDesktopEnhancements, setShowDesktopEnhancements] = useState(false);
-  const [fullStylesReady, setFullStylesReady] = useState(false);
   useReveal();
 
   useEffect(() => {
-    let cancelled = false;
-    const loadFullStyles = async () => {
-      if (!cancelled) {
-        await import('./assets/css/style.css');
-        if (!cancelled) {
-          setFullStylesReady(true);
-        }
-      }
-    };
-
-    if ('requestIdleCallback' in window) {
-      const id = window.requestIdleCallback(() => {
-        void loadFullStyles();
-      }, { timeout: 2200 });
-      return () => {
-        cancelled = true;
-        window.cancelIdleCallback(id);
-      };
-    }
-
-    const timeoutId = window.setTimeout(() => {
-      void loadFullStyles();
-    }, 1200);
-    return () => {
-      cancelled = true;
-      window.clearTimeout(timeoutId);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!fullStylesReady) {
-      return undefined;
-    }
-
     const isMobileLikeViewport = window.matchMedia('(max-width: 991px)').matches;
 
     // Keep desktop/large screens immediate to avoid hurting desktop PSI.
@@ -89,7 +54,7 @@ const InnovativeParallax = () => {
       cancelled = true;
       window.clearTimeout(timeoutId);
     };
-  }, [fullStylesReady]);
+  }, []);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 992px) and (hover: hover) and (pointer: fine)');

@@ -3,9 +3,7 @@ import '@vendor/css/owl.carousel.min.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import dimitarPortrait from '../assets/img/feedback/uxm-face-dimitar.webp';
 import mohaanPortrait from '../assets/img/feedback/uxm-face-mohaan.webp';
-import mohaanPortraitSmall from '../assets/img/feedback/uxm-face-mohaan-236.webp';
 import ivaPortrait from '../assets/img/feedback/uxm-face-iva.webp';
-import ivaPortraitSmall from '../assets/img/feedback/uxm-face-iva-236.webp';
 import stanislavPortrait from '../assets/img/feedback/uxm-face-stanislav.webp';
 import teamBg from '../assets/img/feedback/team-bg.webp';
 
@@ -22,14 +20,12 @@ const feedbackItems = [
     name: 'Mohaan Biswas',
     role: 'Gateshead College - Level 5 Diploma',
     image: mohaanPortrait,
-    imageSmall: mohaanPortraitSmall,
     quote: `A strong, research-led UX project with clear, evidence-based design decisions. User insights were effectively translated into well-structured flows and polished, user-friendly prototypes. The work was professionally presented and demonstrated a confident understanding of user-centred design.`
   },
   {
     name: 'Iva Kostadinova',
     role: 'Digital Marketing Manager & Brand Strategist',
     image: ivaPortrait,
-    imageSmall: ivaPortraitSmall,
     quote: `Working with Alexander was extremely pleasant and professional. Communication throughout the entire process was clear, timely, and very smooth, which made the collaboration easy and effective. He quickly understood our business needs and transformed them into a clear, intuitive, and modern UX. The result exceeded our expectations, and we would be happy to work with him again.`
   },
   {
@@ -127,16 +123,7 @@ const FeedbackSection = () => {
               {feedbackItems.map(item => <div key={item.name} className="item">
                   <div className="testimonial-quote whitecolor">
                     <div className="team-img mb-4">
-                      <img
-                        src={item.imageSmall || item.image}
-                        srcSet={item.imageSmall ? `${item.imageSmall} 1x, ${item.image} 2x` : undefined}
-                        sizes="236px"
-                        width="236"
-                        height="236"
-                        loading="lazy"
-                        decoding="async"
-                        alt={`${item.name}, ${item.role}`}
-                      />
+                      <img src={item.image} alt={`${item.name}, ${item.role}`} />
                     </div>
                     <h1 className="font-weight-light mb-3 alt-font">{item.name}</h1>
                     <div className="mb-3 testimonial-line wow fadeInleft" />
@@ -167,17 +154,7 @@ const FeedbackSection = () => {
                     setActiveIndex(index);
                   }}
                 >
-                  <img
-                    src={item.imageSmall || item.image}
-                    srcSet={item.imageSmall ? `${item.imageSmall} 1x, ${item.image} 2x` : undefined}
-                    sizes="72px"
-                    width="72"
-                    height="72"
-                    loading="lazy"
-                    decoding="async"
-                    alt=""
-                    aria-hidden="true"
-                  />
+                  <img src={item.image} alt="" aria-hidden="true" />
                 </button>)}
             </div>
             <div className="team-item d-none" />
