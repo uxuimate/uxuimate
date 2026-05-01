@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,6 @@ import researchHeroImage from '../assets/img/hero-research.webp';
 import growthHeroImage from '../assets/img/hero-growth.webp';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
 
 const heroSlides = [
   {
@@ -58,17 +57,7 @@ const HeroOfferSlider = () => {
     };
   }, []);
 
-  const swiperModules = isMobileViewport
-    ? [Autoplay, EffectCoverflow]
-    : [Autoplay, Pagination, EffectCoverflow];
-
-  const paginationConfig = isMobileViewport
-    ? false
-    : {
-        el: '.offer-hero__pagination',
-        clickable: true,
-        renderBullet: (index, className) => `<span class="${className}">${index + 1}</span>`
-      };
+  const swiperModules = [Autoplay, EffectCoverflow];
 
   return <section className="offer-hero" id="home">
       <Swiper speed={isMobileViewport ? 900 : 1200} effect="coverflow" coverflowEffect={{
@@ -80,7 +69,7 @@ const HeroOfferSlider = () => {
     }} modules={swiperModules} autoplay={{
       delay: 5200,
       disableOnInteraction: false
-    }} pagination={paginationConfig} className="offer-hero__swiper">
+    }} className="offer-hero__swiper">
         {heroSlides.map((slide, index) => <SwiperSlide key={slide.eyebrow}>
             <div className="offer-hero__overlay" />
             <img src={slide.image} alt={slide.alt} loading={index === 0 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : 'auto'} decoding="async" sizes="100vw" />
@@ -106,7 +95,6 @@ const HeroOfferSlider = () => {
           </SwiperSlide>)}
       </Swiper>
 
-      {!isMobileViewport ? <div className="offer-hero__pagination" /> : null}
     </section>;
 };
 
