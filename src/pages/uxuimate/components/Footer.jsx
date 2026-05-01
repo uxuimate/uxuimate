@@ -1,6 +1,7 @@
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from 'react-router-dom';
-import FooterAtmosphere from './FooterAtmosphere';
+const FooterAtmosphere = lazy(() => import('./FooterAtmosphere'));
 
 const legalLinks = [
   { label: 'Privacy Policy', to: '/privacy-policy' },
@@ -9,8 +10,35 @@ const legalLinks = [
 ];
 
 const Footer = ({ accentTheme = 'default' }) => {
+  const [showAtmosphereLayer, setShowAtmosphereLayer] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    const run = () => {
+      if (!cancelled) {
+        setShowAtmosphereLayer(true);
+      }
+    };
+
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(run, { timeout: 1800 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback(id);
+      };
+    }
+
+    const timeoutId = window.setTimeout(run, 700);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
+
   return <section className="innovative-footer" id="page-footer">
-      <FooterAtmosphere accentTheme={accentTheme} />
+      {showAtmosphereLayer ? <Suspense fallback={null}>
+          <FooterAtmosphere accentTheme={accentTheme} />
+        </Suspense> : null}
       <h2 className="d-none">hidden</h2>
       <Container>
         <Row className="innovative-footer__top align-items-start">

@@ -1,5 +1,6 @@
-import ServicesAtmosphere from './ServicesAtmosphere';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+const ServicesAtmosphere = lazy(() => import('./ServicesAtmosphere'));
 
 const services = [
   {
@@ -36,11 +37,41 @@ const ServicesSection = ({
   footerText = 'View all services',
   showAtmosphere = true
 }) => {
+  const [showAtmosphereLayer, setShowAtmosphereLayer] = useState(false);
   const isExternal = /^https?:\/\//i.test(footerHref);
   const isSpaPath = footerHref.startsWith('/') && !footerHref.startsWith('//') && !isExternal;
 
+  useEffect(() => {
+    if (!showAtmosphere) {
+      return undefined;
+    }
+
+    let cancelled = false;
+    const run = () => {
+      if (!cancelled) {
+        setShowAtmosphereLayer(true);
+      }
+    };
+
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(run, { timeout: 1500 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback(id);
+      };
+    }
+
+    const timeoutId = window.setTimeout(run, 500);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, [showAtmosphere]);
+
   return <section className="services-section" id={id}>
-      {showAtmosphere ? <ServicesAtmosphere /> : null}
+      {showAtmosphere && showAtmosphereLayer ? <Suspense fallback={null}>
+          <ServicesAtmosphere />
+        </Suspense> : null}
       <div className="services-section__container">
         <div className="services-section__top reveal-up">
           <div className="services-section__intro">

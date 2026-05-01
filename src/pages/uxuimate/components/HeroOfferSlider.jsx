@@ -1,4 +1,4 @@
-import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
+import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import designThinkingImage from '../assets/img/hero-design-thinking.webp';
 import researchHeroImage from '../assets/img/hero-research.webp';
 import growthHeroImage from '../assets/img/hero-growth.webp';
 import 'swiper/css';
-import 'swiper/css/effect-fade';
+import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 const heroSlides = [
@@ -44,9 +44,13 @@ const heroSlides = [
 
 const HeroOfferSlider = () => {
   return <section className="offer-hero" id="home">
-      <Swiper speed={700} effect="fade" fadeEffect={{
-      crossFade: true
-    }} modules={[Autoplay, Pagination, EffectFade]} autoplay={{
+      <Swiper speed={1200} effect="coverflow" coverflowEffect={{
+      rotate: 30,
+      stretch: 0,
+      depth: 420,
+      modifier: 1,
+      slideShadows: true
+    }} modules={[Autoplay, Pagination, EffectCoverflow]} autoplay={{
       delay: 5200,
       disableOnInteraction: false
     }} pagination={{

@@ -1,6 +1,7 @@
+import { lazy, Suspense, useEffect, useState } from 'react';
 import aboutImage from '../assets/img/about-studio-bg.webp';
 import { Link } from 'react-router-dom';
-import AboutAtmosphere from './AboutAtmosphere';
+const AboutAtmosphere = lazy(() => import('./AboutAtmosphere'));
 
 const defaultParagraphs = [
   "We're a small, focused digital studio operating between Newcastle, UK and Sofia, Bulgaria.",
@@ -20,14 +21,44 @@ const AboutSection = ({
   linkClassName = 'btn btn-white btn-rounded btn-large',
   showAtmosphere = true
 }) => {
+  const [showAtmosphereLayer, setShowAtmosphereLayer] = useState(false);
   const isExternal = typeof linkHref === 'string' && /^https?:\/\//i.test(linkHref);
   const isSpaPath = typeof linkHref === 'string' && linkHref.startsWith('/') && !linkHref.startsWith('//') && !isExternal;
+
+  useEffect(() => {
+    if (!showAtmosphere) {
+      return undefined;
+    }
+
+    let cancelled = false;
+    const run = () => {
+      if (!cancelled) {
+        setShowAtmosphereLayer(true);
+      }
+    };
+
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(run, { timeout: 1500 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback(id);
+      };
+    }
+
+    const timeoutId = window.setTimeout(run, 550);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, [showAtmosphere]);
 
   return <section className="about-studio-section model-agency-parallax-bg" id={id} style={{
     backgroundImage: `url("${backgroundImage}")`,
     backgroundPosition
   }}>
-      {showAtmosphere ? <AboutAtmosphere /> : null}
+      {showAtmosphere && showAtmosphereLayer ? <Suspense fallback={null}>
+          <AboutAtmosphere />
+        </Suspense> : null}
       <div className="about-studio__container">
         <div className="about-studio__content reveal-right">
           <span className="about-studio__eyebrow">{eyebrow}</span>
