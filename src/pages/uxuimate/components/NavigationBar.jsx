@@ -148,38 +148,51 @@ const NavigationBar = ({ accentTheme = 'default' }) => {
       return undefined;
     }
 
-    const updateScrollSection = () => {
+    const sectionNodes = SCROLL_SECTION_IDS
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    if (!sectionNodes.length) {
+      return undefined;
+    }
+
+    const visibility = new Map();
+    const updateFromVisibility = () => {
       if (Date.now() < ignoreScrollUntilRef.current) {
         return;
       }
-
-      const scrollMarker = window.scrollY + window.innerHeight * 0.35;
-      let current = 'home';
-
+      let nextSection = 'home';
+      let bestRatio = 0;
       for (const id of SCROLL_SECTION_IDS) {
-        const element = document.getElementById(id);
-
-        if (!element) {
-          continue;
-        }
-
-        const sectionTop = element.getBoundingClientRect().top + window.scrollY;
-
-        if (sectionTop <= scrollMarker) {
-          current = id;
+        const ratio = visibility.get(id) ?? 0;
+        if (ratio >= bestRatio) {
+          bestRatio = ratio;
+          nextSection = id;
         }
       }
-
-      setScrollSection(current);
+      setScrollSection(prev => (prev === nextSection ? prev : nextSection));
     };
 
-    updateScrollSection();
-    window.addEventListener('scroll', updateScrollSection, { passive: true });
-    window.addEventListener('resize', updateScrollSection);
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const id = entry.target.id;
+          if (SCROLL_SECTION_IDS.includes(id)) {
+            visibility.set(id, entry.isIntersecting ? entry.intersectionRatio : 0);
+          }
+        });
+        updateFromVisibility();
+      },
+      {
+        root: null,
+        rootMargin: '-35% 0px -45% 0px',
+        threshold: [0, 0.1, 0.25, 0.5, 0.75, 1]
+      }
+    );
+
+    sectionNodes.forEach(node => observer.observe(node));
 
     return () => {
-      window.removeEventListener('scroll', updateScrollSection);
-      window.removeEventListener('resize', updateScrollSection);
+      observer.disconnect();
     };
   }, [pathnameNorm, homeNorm]);
 
@@ -241,7 +254,7 @@ const NavigationBar = ({ accentTheme = 'default' }) => {
       <nav className="navbar navbar-top-default navbar-expand-lg navbar-simple nav-box-round" style={navStyle}>
         <Container>
           <Link to={HOME_PATH} title="Logo" className="logo scroll">
-            <img src={withBasePath('/img/icons/logo-footer.png')} alt="UX UI MATE — home" className="uxui-nav-logo" />
+            <img src={withBasePath('/img/icons/logo-footer.webp')} alt="UX UI MATE — home" className="uxui-nav-logo" />
           </Link>
           <div className="collapse navbar-collapse" id="megaone">
             <div className="navbar-nav ml-auto">
@@ -261,7 +274,7 @@ const NavigationBar = ({ accentTheme = 'default' }) => {
               })}
             </div>
           </div>
-          <a href="#" className="d-inline-block sidemenu_btn" id="sidemenu_toggle" onClick={event => {
+          <a href="#" className="d-inline-block sidemenu_btn" id="sidemenu_toggle" aria-label="Open navigation menu" title="Open navigation menu" onClick={event => {
           event.preventDefault();
           setIsMenuOpen(true);
         }}>
@@ -305,7 +318,7 @@ const NavigationBar = ({ accentTheme = 'default' }) => {
           </div>
         </div>
       </div>
-      <a id="close_side_menu" href="#" onClick={closeMenu} style={{
+      <a id="close_side_menu" href="#" aria-label="Close navigation menu" title="Close navigation menu" onClick={closeMenu} style={{
       display: isMenuOpen ? 'block' : 'none'
     }} />
     </header>;

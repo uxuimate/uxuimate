@@ -2,10 +2,10 @@ import { useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import gsap from 'gsap';
 import MobileSliderHint from '@/components/MobileSliderHint';
-import designThinkingBg from '../assets/design-thinking.jpg';
-import webDevTheoryBg from '../assets/web-dev-theory.jpg';
-import brandingTheoryBg from '../assets/branding-theory.jpg';
-import mobileSaasTheoryBg from '../assets/mobile-saas-theory.jpg';
+import designThinkingBg from '../assets/design-thinking.webp';
+import webDevTheoryBg from '../assets/web-dev-theory.webp';
+import brandingTheoryBg from '../assets/branding-theory.webp';
+import mobileSaasTheoryBg from '../assets/mobile-saas-theory.webp';
 
 const uxPillars = [
   {

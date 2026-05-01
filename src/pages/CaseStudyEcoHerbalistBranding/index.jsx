@@ -43,21 +43,21 @@ const HOW_SOLVED = [
     eyebrow: 'Typography & Color System',
     heading: 'Clarity through controlled visual language',
     text: 'A deliberate typography and color system balanced warmth, readability, and premium perception across digital and print environments.',
-    image: '/img/works/eco-herbalist-branding/how-1.jpg'
+    image: '/img/works/eco-herbalist-branding/how-1.webp'
   },
   {
     id: 'how-solved-2',
     eyebrow: 'Guideline Depth',
     heading: 'One source of truth for execution',
     text: 'Clear application rules were created for layouts, imagery, and assets to keep the brand consistent regardless of channel or vendor.',
-    image: '/img/works/eco-herbalist-branding/how-2.jpg'
+    image: '/img/works/eco-herbalist-branding/how-2.webp'
   },
   {
     id: 'how-solved-3',
     eyebrow: 'Brand Applications',
     heading: 'Systemized touchpoint rollout',
     text: 'The identity was translated across social, web, packaging, and collateral so every customer interaction reinforces the same brand signal.',
-    image: '/img/works/eco-herbalist-branding/how-3.jpg'
+    image: '/img/works/eco-herbalist-branding/how-3.webp'
   }
 ];
 
@@ -134,7 +134,7 @@ const EcoHerbalistBrandingCaseStudyPage = () => {
         heading="How this case study was delivered, step by step."
         intro="Eight clear delivery phases from discovery to post-launch support."
         steps={PROCESS_STEPS}
-        backgroundImage="/img/works/eco-herbalist-branding/hero-1.jpg"
+        backgroundImage="/img/works/eco-herbalist-branding/hero-1.webp"
         showCta={false}
       />
 
@@ -157,7 +157,7 @@ const EcoHerbalistBrandingCaseStudyPage = () => {
         headingId="eco-herbalist-branding-outcomes-heading"
         headerOverride={OUTCOMES_HEADER}
         pillarsOverride={OUTCOMES.map(item => ({ num: item.value, title: item.title, text: item.text }))}
-        backgroundImage="/img/works/eco-herbalist-branding/hero-3.jpg"
+        backgroundImage="/img/works/eco-herbalist-branding/hero-3.webp"
         className="video-case-outcomes"
       />
 

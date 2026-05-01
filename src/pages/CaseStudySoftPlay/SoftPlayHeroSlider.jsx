@@ -8,19 +8,19 @@ import 'swiper/css/pagination';
 
 const HERO_SLIDES = [
   {
-    image: '/img/works/soft-play-solutions/hero-1.jpg',
+    image: '/img/works/soft-play-solutions/hero-1.webp',
     eyebrow: 'UX/UI Design & Web Development',
     heading: 'Soft Play Solutions',
     text: 'A bilingual website redesign that transformed the business from no online presence to a professional global portfolio.'
   },
   {
-    image: '/img/works/soft-play-solutions/hero-2.jpg',
+    image: '/img/works/soft-play-solutions/hero-2.webp',
     eyebrow: 'Core Challenge',
     heading: 'Trust and clarity at first visit',
     text: 'The experience was structured to showcase real projects, clear services, and strong proof signals for faster B2B confidence.'
   },
   {
-    image: '/img/works/soft-play-solutions/hero-3.jpg',
+    image: '/img/works/soft-play-solutions/hero-3.webp',
     eyebrow: 'Delivery Impact',
     heading: 'From brochure gap to lead system',
     text: 'The new site now works as a 24/7 sales tool with bilingual content, clear service flows, and inquiry-first conversion paths.'

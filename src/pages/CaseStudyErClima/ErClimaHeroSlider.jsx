@@ -8,19 +8,19 @@ import 'swiper/css/pagination';
 
 const HERO_SLIDES = [
   {
-    image: '/img/works/er-clima/hero-1.jpg',
+    image: '/img/works/er-clima/hero-1.webp',
     eyebrow: 'UX/UI Design & Web Development',
     heading: 'Er Clima Solutions',
     text: 'A full website redesign that transformed a fragmented HVAC presence into a clear and professional digital system.'
   },
   {
-    image: '/img/works/er-clima/hero-2.jpg',
+    image: '/img/works/er-clima/hero-2.webp',
     eyebrow: 'Project Goal',
     heading: 'Clarity across products and services',
     text: 'The experience was restructured to separate service flows from catalog browsing, helping users find the right path faster.'
   },
   {
-    image: '/img/works/er-clima/hero-3.jpg',
+    image: '/img/works/er-clima/hero-3.webp',
     eyebrow: 'Delivery Impact',
     heading: 'Built for trust and growth',
     text: 'The new foundation supports over 1,100 products, stronger trust signals, and scalable content expansion without breaking UX clarity.'

@@ -1,5 +1,5 @@
 import { Col, Container, Row } from 'react-bootstrap';
-import contactSectionBg from '../assets/img/contact-section-bg.jpg';
+import contactSectionBg from '../assets/img/contact-section-bg.webp';
 
 const InnovativeContactSection = ({
   id = 'contact',

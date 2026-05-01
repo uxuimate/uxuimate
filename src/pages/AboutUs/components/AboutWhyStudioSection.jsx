@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import gsap from 'gsap';
-import theoryBg from '@/pages/Services/assets/design-thinking.jpg';
+import theoryBg from '@/pages/Services/assets/design-thinking.webp';
 
 const pillars = [
   {

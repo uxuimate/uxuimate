@@ -91,21 +91,21 @@ const HOW_SOLVED = [
     eyebrow: 'Service and Catalog Separation',
     heading: 'Clear paths for different user intents',
     text: 'We separated service journeys from product-browsing journeys so visitors can immediately understand where to go. This removed ambiguity and helped users follow the right decision path based on their intent.',
-    image: '/img/works/er-clima/how-1.jpg'
+    image: '/img/works/er-clima/how-1.webp'
   },
   {
     id: 'how-solved-2',
     eyebrow: 'Information Architecture',
     heading: 'Structure for 1,100+ HVAC products',
     text: 'The catalog was reorganized with consistent grouping and hierarchy to reduce cognitive load. Users can now explore categories and product detail content with greater speed and confidence.',
-    image: '/img/works/er-clima/hero-2.jpg'
+    image: '/img/works/er-clima/hero-2.webp'
   },
   {
     id: 'how-solved-3',
     eyebrow: 'Conversion Strategy',
     heading: 'Trust-forward UX at key moments',
     text: 'Calls-to-action and trust signals were intentionally placed at high-intent moments so users can move from exploration to enquiry without friction. The result is a more reliable conversion flow for commercial conversations.',
-    image: '/img/works/er-clima/how-3.jpg'
+    image: '/img/works/er-clima/how-3.webp'
   }
 ];
 
@@ -206,7 +206,7 @@ const ErClimaCaseStudyPage = () => {
         heading="How this case study was delivered, step by step."
         intro="Eight clear delivery phases from discovery to post-launch support."
         steps={PROCESS_STEPS}
-        backgroundImage="/img/works/er-clima/hero-1.jpg"
+        backgroundImage="/img/works/er-clima/hero-1.webp"
         showCta={false}
       />
 
@@ -229,7 +229,7 @@ const ErClimaCaseStudyPage = () => {
         headingId="er-clima-outcomes-heading"
         headerOverride={OUTCOMES_HEADER}
         pillarsOverride={OUTCOMES.map(item => ({ num: item.value, title: item.title, text: item.text }))}
-        backgroundImage="/img/works/er-clima/outcomes-bg.jpg"
+        backgroundImage="/img/works/er-clima/outcomes-bg.webp"
         className="video-case-outcomes"
       />
 

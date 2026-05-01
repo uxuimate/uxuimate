@@ -43,21 +43,21 @@ const HOW_SOLVED = [
     eyebrow: 'Hierarchy & Scanability',
     heading: 'Content → price → action rhythm',
     text: 'Card layouts were standardized so users can quickly scan products, compare options, and identify next actions without reading unnecessary detail.',
-    image: '/img/works/healthy-eats/how-1.jpg'
+    image: '/img/works/healthy-eats/how-1.webp'
   },
   {
     id: 'how-solved-2',
     eyebrow: 'Checkout Architecture',
     heading: 'Linear flow with predictable next steps',
     text: 'Basket, payment, and delivery were structured as one clear progression to reduce hesitation and remove ambiguity at each checkout decision point.',
-    image: '/img/works/healthy-eats/how-2.jpg'
+    image: '/img/works/healthy-eats/how-2.webp'
   },
   {
     id: 'how-solved-3',
     eyebrow: 'Design System',
     heading: 'Reusable patterns that scale',
     text: 'A reusable component system ensured visual consistency, reduced re-learning, and made future product growth possible without redesign debt.',
-    image: '/img/works/healthy-eats/how-3.jpg'
+    image: '/img/works/healthy-eats/how-3.webp'
   }
 ];
 
@@ -157,7 +157,7 @@ const HealthyEatsCaseStudyPage = () => {
         heading="How this case study was delivered, step by step."
         intro="Eight clear delivery phases from discovery to post-launch support."
         steps={PROCESS_STEPS}
-        backgroundImage="/img/works/healthy-eats/hero-1.jpg"
+        backgroundImage="/img/works/healthy-eats/hero-1.webp"
         showCta={false}
       />
 
@@ -200,9 +200,9 @@ const HealthyEatsCaseStudyPage = () => {
 
           <div className="he-compare reveal-up" data-delay="0.04">
             <div className="he-compare__media" {...compareAHandlers}>
-              <img src="/img/works/healthy-eats/after-home-product.jpg" alt="Healthy Eats redesign after state for home and product views" />
+              <img src="/img/works/healthy-eats/after-home-product.webp" alt="Healthy Eats redesign after state for home and product views" />
               <div className="he-compare__before" style={{ clipPath: `inset(0 ${100 - compareA}% 0 0)` }}>
-                <img src="/img/works/healthy-eats/before-home-product.jpg" alt="Healthy Eats original before state for home and product views" />
+                <img src="/img/works/healthy-eats/before-home-product.webp" alt="Healthy Eats original before state for home and product views" />
               </div>
               <div className="he-compare__handle" style={{ left: `${compareA}%` }} aria-hidden="true" />
               <span className="he-compare__label he-compare__label--before">Before</span>
@@ -212,9 +212,9 @@ const HealthyEatsCaseStudyPage = () => {
 
           <div className="he-compare reveal-up" data-delay="0.08">
             <div className="he-compare__media" {...compareBHandlers}>
-              <img src="/img/works/healthy-eats/after-checkout.jpg" alt="Healthy Eats redesign after state for basket, payment, and delivery" />
+              <img src="/img/works/healthy-eats/after-checkout.webp" alt="Healthy Eats redesign after state for basket, payment, and delivery" />
               <div className="he-compare__before" style={{ clipPath: `inset(0 ${100 - compareB}% 0 0)` }}>
-                <img src="/img/works/healthy-eats/before-checkout.jpg" alt="Healthy Eats original before state for basket, payment, and delivery" />
+                <img src="/img/works/healthy-eats/before-checkout.webp" alt="Healthy Eats original before state for basket, payment, and delivery" />
               </div>
               <div className="he-compare__handle" style={{ left: `${compareB}%` }} aria-hidden="true" />
               <span className="he-compare__label he-compare__label--before">Before</span>
@@ -229,7 +229,7 @@ const HealthyEatsCaseStudyPage = () => {
         headingId="healthy-eats-outcomes-heading"
         headerOverride={OUTCOMES_HEADER}
         pillarsOverride={OUTCOMES.map(item => ({ num: item.value, title: item.title, text: item.text }))}
-        backgroundImage="/img/works/healthy-eats/how-2.jpg"
+        backgroundImage="/img/works/healthy-eats/how-2.webp"
         className="video-case-outcomes"
       />
 

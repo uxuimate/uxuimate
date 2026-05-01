@@ -1,13 +1,11 @@
-import { useEffect, useState } from 'react';
-import $ from 'jquery';
+import { useEffect, useRef, useState } from 'react';
 import '@vendor/css/owl.carousel.min.css';
-import '@vendor/js/owl.carousel.min.js';
 import { Col, Container, Row } from 'react-bootstrap';
-import dimitarPortrait from '../assets/img/feedback/uxm-face-dimitar.jpg';
-import mohaanPortrait from '../assets/img/feedback/uxm-face-mohaan.jpg';
-import ivaPortrait from '../assets/img/feedback/uxm-face-iva.jpg';
-import stanislavPortrait from '../assets/img/feedback/uxm-face-stanislav.jpg';
-import teamBg from '../assets/img/feedback/team-bg.jpg';
+import dimitarPortrait from '../assets/img/feedback/uxm-face-dimitar.webp';
+import mohaanPortrait from '../assets/img/feedback/uxm-face-mohaan.webp';
+import ivaPortrait from '../assets/img/feedback/uxm-face-iva.webp';
+import stanislavPortrait from '../assets/img/feedback/uxm-face-stanislav.webp';
+import teamBg from '../assets/img/feedback/team-bg.webp';
 
 const FEEDBACK_CAROUSEL = '#innovative-testimonial-quote';
 
@@ -40,46 +38,72 @@ const feedbackItems = [
 
 const FeedbackSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const jqueryRef = useRef(null);
 
   useEffect(() => {
-    const $carousel = $(FEEDBACK_CAROUSEL);
-    if (!$carousel.length) {
-      return undefined;
-    }
+    let mounted = true;
+    let cleanup = () => {};
 
-    const onChanged = (event) => {
-      if (event.item && Number.isInteger(event.item.index)) {
-        setActiveIndex(event.item.index);
+    const initCarousel = async () => {
+      const jqueryModule = await import('jquery');
+      if (!mounted) {
+        return;
       }
+
+      const $ = jqueryModule.default;
+      jqueryRef.current = $;
+      window.$ = window.jQuery = $;
+      await import('@vendor/js/owl.carousel.min.js');
+      if (!mounted) {
+        return;
+      }
+
+      const $carousel = $(FEEDBACK_CAROUSEL);
+      if (!$carousel.length) {
+        return;
+      }
+
+      const onChanged = (event) => {
+        if (event.item && Number.isInteger(event.item.index)) {
+          setActiveIndex(event.item.index);
+        }
+      };
+
+      $carousel.owlCarousel({
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        mouseDrag: false,
+        loop: false,
+        rewind: true,
+        margin: 30,
+        dots: false,
+        nav: false,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut',
+        responsive: {
+          1280: { items: 1 },
+          600: { items: 1 },
+          320: { items: 1 }
+        }
+      });
+
+      $carousel.on('changed.owl.carousel', onChanged);
+
+      cleanup = () => {
+        $carousel.off('changed.owl.carousel', onChanged);
+        if ($carousel.data('owl.carousel')) {
+          $carousel.trigger('destroy.owl.carousel');
+        }
+      };
     };
 
-    $carousel.owlCarousel({
-      items: 1,
-      autoplay: true,
-      autoplayTimeout: 2500,
-      autoplayHoverPause: true,
-      mouseDrag: false,
-      loop: false,
-      rewind: true,
-      margin: 30,
-      dots: false,
-      nav: false,
-      animateIn: 'fadeIn',
-      animateOut: 'fadeOut',
-      responsive: {
-        1280: { items: 1 },
-        600: { items: 1 },
-        320: { items: 1 }
-      }
-    });
-
-    $carousel.on('changed.owl.carousel', onChanged);
+    void initCarousel();
 
     return () => {
-      $carousel.off('changed.owl.carousel', onChanged);
-      if ($carousel.data('owl.carousel')) {
-        $carousel.trigger('destroy.owl.carousel');
-      }
+      mounted = false;
+      cleanup();
     };
   }, []);
 
@@ -119,6 +143,10 @@ const FeedbackSection = () => {
                   aria-selected={index === activeIndex}
                   aria-label={`Show testimonial: ${item.name}`}
                   onClick={() => {
+                    const $ = jqueryRef.current;
+                    if (!$) {
+                      return;
+                    }
                     const $c = $(FEEDBACK_CAROUSEL);
                     if ($c.data('owl.carousel')) {
                       $c.trigger('to.owl.carousel', [index, 300]);

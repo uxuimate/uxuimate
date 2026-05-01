@@ -64,7 +64,7 @@ const WorksPage = () => {
         title="Case Studies"
         description="Portfolio: UX design, UI design, UX research, branding, web design and web development case studies from a premium digital studio — Newcastle, Sofia, United Kingdom, Bulgaria and Europe."
         path="/works"
-        image="/img/icons/logo-footer.png"
+        image="/img/icons/logo-footer.webp"
         keywords={[
           'UX case studies UK',
           'branding portfolio Newcastle',

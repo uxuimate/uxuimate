@@ -1,7 +1,7 @@
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CONTACT_BOOK_CALL_ANCHOR } from '@/constants/booking';
-import processBackground from '../assets/img/single-portfolio2.jpg';
+import processBackground from '../assets/img/single-portfolio2.webp';
 
 const processSteps = [
   {

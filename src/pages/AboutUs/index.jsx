@@ -80,7 +80,7 @@ const AboutUsPage = () => {
         title="About UX UI MATE"
         description="About UX UI MATE — premium digital studio for UX design, UI design, UX research, branding, web design, web development, no-code and custom code. Based in Newcastle, UK and Sofia, Bulgaria; serving the United Kingdom, Bulgaria and Europe."
         path="/about-us"
-        image="/img/icons/logo-footer.png"
+        image="/img/icons/logo-footer.webp"
         keywords={[
           'about UX UI MATE',
           'UX design studio Newcastle',

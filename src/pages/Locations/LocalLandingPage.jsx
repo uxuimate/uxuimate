@@ -24,7 +24,7 @@ const LocalLandingPage = ({
       title={`${serviceName} ${city}`}
       description={description}
       path={path}
-      image="/img/icons/logo-footer.png"
+      image="/img/icons/logo-footer.webp"
       keywords={keywords || [
         `UX design ${city}`,
         `UI design ${city}`,

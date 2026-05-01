@@ -8,19 +8,19 @@ import 'swiper/css/pagination';
 
 const HERO_SLIDES = [
   {
-    image: '/img/works/cinematic-escapes/hero-1.jpg',
+    image: '/img/works/cinematic-escapes/hero-1.webp',
     eyebrow: 'Visual Creative Case Study',
     heading: 'Cinematic Escapes',
     text: 'A visual-first creative direction project built for luxury travel, fragrance, and lifestyle campaign storytelling.'
   },
   {
-    image: '/img/works/cinematic-escapes/hero-2.jpg',
+    image: '/img/works/cinematic-escapes/hero-2.webp',
     eyebrow: 'Creative Direction',
     heading: 'Surreal cinematic narratives',
     text: 'Each composition explores emotion, atmosphere, and premium positioning through dream-like visual language.'
   },
   {
-    image: '/img/works/cinematic-escapes/hero-3.jpg',
+    image: '/img/works/cinematic-escapes/hero-3.webp',
     eyebrow: 'Campaign Value',
     heading: 'Key visuals that stop the scroll',
     text: 'The final asset set was designed for cross-channel campaign usage where immediate visual impact matters.'

@@ -18,29 +18,29 @@ const VISUAL_STORIES = [
   {
     title: 'Luxury travel storytelling',
     text: 'A cinematic narrative style crafted to communicate aspiration and emotional belonging from the first frame.',
-    image: '/img/works/cinematic-escapes/hero-1.jpg'
+    image: '/img/works/cinematic-escapes/hero-1.webp'
   },
   {
     title: 'Atmospheric art direction',
     text: 'Color, composition, and depth were tuned for premium positioning and campaign memorability.',
-    image: '/img/works/cinematic-escapes/hero-2.jpg'
+    image: '/img/works/cinematic-escapes/hero-2.webp'
   },
   {
     title: 'Cross-channel visual consistency',
     text: 'The key visual language scales across digital placements while preserving the same cinematic identity.',
-    image: '/img/works/cinematic-escapes/hero-3.jpg'
+    image: '/img/works/cinematic-escapes/hero-3.webp'
   }
 ];
 
 const GALLERY_IMAGES = [
-  '/img/works/cinematic-escapes/hero-1.jpg',
-  '/img/works/cinematic-escapes/hero-2.jpg',
-  '/img/works/cinematic-escapes/hero-3.jpg',
-  '/img/works/cinematic-escapes/hero-4.jpg',
-  '/img/works/cinematic-escapes/hero-5.jpg',
-  '/img/works/cinematic-escapes/hero-6.jpg',
-  '/img/works/cinematic-escapes/hero-7.jpg',
-  '/img/works/cinematic-escapes/hero-8.jpg'
+  '/img/works/cinematic-escapes/hero-1.webp',
+  '/img/works/cinematic-escapes/hero-2.webp',
+  '/img/works/cinematic-escapes/hero-3.webp',
+  '/img/works/cinematic-escapes/hero-4.webp',
+  '/img/works/cinematic-escapes/hero-5.webp',
+  '/img/works/cinematic-escapes/hero-6.webp',
+  '/img/works/cinematic-escapes/hero-7.webp',
+  '/img/works/cinematic-escapes/hero-8.webp'
 ];
 
 const OUTCOMES = [
@@ -174,7 +174,7 @@ const CinematicEscapesCaseStudyPage = () => {
           headingId="cinematic-escapes-outcomes-heading"
           headerOverride={OUTCOMES_HEADER}
           pillarsOverride={OUTCOMES.map(item => ({ num: item.value, title: item.title, text: item.text }))}
-          backgroundImage="/img/works/cinematic-escapes/hero-8.jpg"
+          backgroundImage="/img/works/cinematic-escapes/hero-8.webp"
           className="video-case-outcomes"
         />
 

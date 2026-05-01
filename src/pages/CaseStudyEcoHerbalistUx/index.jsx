@@ -43,21 +43,21 @@ const HOW_SOLVED = [
     eyebrow: 'Readability & Content Clarity',
     heading: 'Information users can trust quickly',
     text: 'Typography, spacing, and section hierarchy were upgraded so users could evaluate products without cognitive overload or uncertainty.',
-    image: '/img/works/eco-herbalist-ux/how-1.jpg'
+    image: '/img/works/eco-herbalist-ux/how-1.webp'
   },
   {
     id: 'how-solved-2',
     eyebrow: 'Checkout Flow Refinement',
     heading: 'Fewer points of hesitation',
     text: 'Checkout structure was simplified with clearer progression, stronger support cues, and persistent order visibility.',
-    image: '/img/works/eco-herbalist-ux/how-2.jpg'
+    image: '/img/works/eco-herbalist-ux/how-2.webp'
   },
   {
     id: 'how-solved-3',
     eyebrow: 'Trust Architecture',
     heading: 'Credibility embedded in UI',
     text: 'Clear product details, transparent sections, and cleaner visual hierarchy built confidence required for wellness-related purchase decisions.',
-    image: '/img/works/eco-herbalist-ux/how-3.jpg'
+    image: '/img/works/eco-herbalist-ux/how-3.webp'
   }
 ];
 
@@ -134,7 +134,7 @@ const EcoHerbalistUxCaseStudyPage = () => {
         heading="How this case study was delivered, step by step."
         intro="Eight clear delivery phases from discovery to post-launch support."
         steps={PROCESS_STEPS}
-        backgroundImage="/img/works/eco-herbalist-ux/hero-1.jpg"
+        backgroundImage="/img/works/eco-herbalist-ux/hero-1.webp"
         showCta={false}
       />
 
@@ -157,7 +157,7 @@ const EcoHerbalistUxCaseStudyPage = () => {
         headingId="eco-herbalist-ux-outcomes-heading"
         headerOverride={OUTCOMES_HEADER}
         pillarsOverride={OUTCOMES.map(item => ({ num: item.value, title: item.title, text: item.text }))}
-        backgroundImage="/img/works/eco-herbalist-ux/hero-3.jpg"
+        backgroundImage="/img/works/eco-herbalist-ux/hero-3.webp"
         className="video-case-outcomes"
       />
 

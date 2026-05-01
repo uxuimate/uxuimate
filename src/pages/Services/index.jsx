@@ -16,10 +16,10 @@ import ServicesSectionDots from './components/ServicesSectionDots';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import OurProcessSection from '@/pages/uxuimate/components/OurProcessSection';
 import SeoHead from '@/components/SeoHead';
-import servicesProcessBg from './assets/img/our-process-bg.jpg';
-import servicesProcessWebdev from './assets/our-process-webdev.jpg';
-import servicesProcessBranding from './assets/our-process-branding.jpg';
-import servicesProcessMobile from './assets/our-process-mobile.jpg';
+import servicesProcessBg from './assets/img/our-process-bg.webp';
+import servicesProcessWebdev from './assets/our-process-webdev.webp';
+import servicesProcessBranding from './assets/our-process-branding.webp';
+import servicesProcessMobile from './assets/our-process-mobile.webp';
 import '@/pages/uxuimate/assets/css/style.css';
 import './assets/services-page-development.css';
 import './assets/services-page-branding.css';
@@ -94,7 +94,7 @@ const ServicesPage = () => {
         title="Services - UX/UI, Branding, Web Development"
         description="UX UI MATE services: UX design, UI design, UX research, branding, web design, web development, no-code builds and custom code — premium digital studio for Newcastle, Sofia, the United Kingdom, Bulgaria and Europe."
         path="/services"
-        image="/img/icons/logo-footer.png"
+        image="/img/icons/logo-footer.webp"
         keywords={[
           'UX UI services Newcastle',
           'branding and web development UK',

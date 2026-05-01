@@ -1,4 +1,4 @@
-import aboutImage from '../assets/img/about-studio-bg.jpg';
+import aboutImage from '../assets/img/about-studio-bg.webp';
 import { Link } from 'react-router-dom';
 import AboutAtmosphere from './AboutAtmosphere';
 

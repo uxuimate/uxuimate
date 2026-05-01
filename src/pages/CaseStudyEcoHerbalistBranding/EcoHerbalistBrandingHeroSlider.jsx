@@ -8,19 +8,19 @@ import 'swiper/css/pagination';
 
 const HERO_SLIDES = [
   {
-    image: '/img/works/eco-herbalist-branding/hero-1.jpg',
+    image: '/img/works/eco-herbalist-branding/hero-1.webp',
     eyebrow: 'Brand Identity Design',
     heading: 'Eco Herbalist Branding',
     text: 'A full visual identity system designed to build trust, consistency, and standout presence in the wellness market.'
   },
   {
-    image: '/img/works/eco-herbalist-branding/hero-2.jpg',
+    image: '/img/works/eco-herbalist-branding/hero-2.webp',
     eyebrow: 'Brand Challenge',
     heading: 'From generic look to distinct identity',
     text: 'The brand needed stronger differentiation and clear visual rules across packaging, digital, and marketing touchpoints.'
   },
   {
-    image: '/img/works/eco-herbalist-branding/hero-3.jpg',
+    image: '/img/works/eco-herbalist-branding/hero-3.webp',
     eyebrow: 'Delivery Impact',
     heading: 'System, not one-off visuals',
     text: 'A complete guideline enabled consistent execution and faster rollouts across all customer-facing materials.'

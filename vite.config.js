@@ -9,7 +9,16 @@ export default defineConfig({
   base: '/',
   plugins: [react()],
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom', 'react-router-dom'],
+          animation: ['gsap', 'lenis'],
+          three: ['three']
+        }
+      }
+    }
   },
   resolve: {
     alias: [{

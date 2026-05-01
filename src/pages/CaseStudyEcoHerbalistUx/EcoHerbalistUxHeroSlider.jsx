@@ -8,19 +8,19 @@ import 'swiper/css/pagination';
 
 const HERO_SLIDES = [
   {
-    image: '/img/works/eco-herbalist-ux/hero-1.jpg',
+    image: '/img/works/eco-herbalist-ux/hero-1.webp',
     eyebrow: 'UX Research & Design',
     heading: 'Eco Herbalist UX',
     text: 'Wellness eCommerce UX/UI designed to build trust, improve discovery, and simplify checkout confidence.'
   },
   {
-    image: '/img/works/eco-herbalist-ux/hero-2.png',
+    image: '/img/works/eco-herbalist-ux/hero-2.webp',
     eyebrow: 'Core UX Goal',
     heading: 'Trust-driven product clarity',
     text: 'The experience was redesigned around clear product information, readability, and lower navigation friction.'
   },
   {
-    image: '/img/works/eco-herbalist-ux/hero-3.jpg',
+    image: '/img/works/eco-herbalist-ux/hero-3.webp',
     eyebrow: 'Delivery Impact',
     heading: 'From hesitation to confident purchase',
     text: 'Symptom-based discovery and a simplified checkout flow improved decision speed and reduced drop-off points.'

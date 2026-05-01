@@ -8,19 +8,19 @@ import 'swiper/css/pagination';
 
 const HERO_SLIDES = [
   {
-    image: '/img/works/videonabliudenie-bg/hero-1.jpg',
+    image: '/img/works/videonabliudenie-bg/hero-1.webp',
     eyebrow: 'UX/UI Design & Web Development',
     heading: 'VideoNabliudenie.bg',
     text: 'A B2B-first digital system that reframed the company from local installer to integrated security partner.'
   },
   {
-    image: '/img/works/videonabliudenie-bg/outcomes.jpg',
+    image: '/img/works/videonabliudenie-bg/outcomes.webp',
     eyebrow: 'Client Feedback',
     heading: 'Built with trust and structure',
     text: 'After several failed attempts with other providers, the client chose UX UI MATE for a clear process, professional communication, and strong understanding of web design and user behavior.'
   },
   {
-    image: '/img/works/videonabliudenie-bg/process.jpg',
+    image: '/img/works/videonabliudenie-bg/process.webp',
     eyebrow: 'Delivery Impact',
     heading: 'From strategy to live launch',
     text: 'The full site was rebuilt from scratch through research, structure, Figma UI, development, usability testing, and post-launch support.'

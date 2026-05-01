@@ -16,8 +16,8 @@ export const SELECTED_WORKS_PROJECTS = [
     outcomeRest: 'qualified inbound lift',
     category: 'Web Development',
     url: '/works/videonabliudenie-bg',
-    image: withBasePath('/img/works/videonabliudenie-bg/hero-1.jpg'),
-    imagePortrait: withBasePath('/img/works/videonabliudenie-bg/card-portrait.jpg'),
+    image: withBasePath('/img/works/videonabliudenie-bg/hero-1.webp'),
+    imagePortrait: withBasePath('/img/works/videonabliudenie-bg/card-portrait.webp'),
     tagline: 'Security-first commerce with a calm, authoritative digital flagship.'
   },
   {
@@ -32,8 +32,8 @@ export const SELECTED_WORKS_PROJECTS = [
     outcomeRest: 'bounce on product pages',
     category: 'Web Development',
     url: '/works/er-clima-solutions',
-    image: withBasePath('/img/works/er-clima/hero-1.jpg'),
-    imagePortrait: withBasePath('/img/works/er-clima/hero-2.jpg'),
+    image: withBasePath('/img/works/er-clima/hero-1.webp'),
+    imagePortrait: withBasePath('/img/works/er-clima/hero-2.webp'),
     tagline: 'Industrial climate control, translated into a precise responsive system.'
   },
   {
@@ -48,8 +48,8 @@ export const SELECTED_WORKS_PROJECTS = [
     outcomeRest: 'average session depth',
     category: 'Web Development',
     url: '/works/soft-play-solutions',
-    image: withBasePath('/img/works/soft-play-solutions/card.jpg'),
-    imagePortrait: withBasePath('/img/works/soft-play-solutions/card-portrait.jpg'),
+    image: withBasePath('/img/works/soft-play-solutions/card.webp'),
+    imagePortrait: withBasePath('/img/works/soft-play-solutions/card-portrait.webp'),
     tagline: 'Playful category storytelling with conversion-grade structure.'
   },
   {
@@ -64,8 +64,8 @@ export const SELECTED_WORKS_PROJECTS = [
     outcomeRest: 'checkout completion',
     category: 'UX/UI Design',
     url: '/works/eco-herbalist-ux',
-    image: withBasePath('/img/works/eco-herbalist-ux/card.jpg'),
-    imagePortrait: withBasePath('/img/works/eco-herbalist-ux/card-portrait.jpg'),
+    image: withBasePath('/img/works/eco-herbalist-ux/card.webp'),
+    imagePortrait: withBasePath('/img/works/eco-herbalist-ux/card-portrait.webp'),
     tagline: 'Heritage wellness UX - clarity, ritual, and trust at every step.'
   },
   {
@@ -80,8 +80,8 @@ export const SELECTED_WORKS_PROJECTS = [
     outcomeRest: 'subscription conversion',
     category: 'UX/UI Redesign',
     url: '/works/healthy-eats-redesign',
-    image: withBasePath('/img/works/healthy-eats/card.jpg'),
-    imagePortrait: withBasePath('/img/works/healthy-eats/card-portrait.jpg'),
+    image: withBasePath('/img/works/healthy-eats/card.webp'),
+    imagePortrait: withBasePath('/img/works/healthy-eats/card-portrait.webp'),
     tagline: 'Nutrition platform redesign with appetite-led visual hierarchy.'
   },
   {
@@ -96,8 +96,8 @@ export const SELECTED_WORKS_PROJECTS = [
     outcomeRest: 'assets in one source of truth',
     category: 'Brand Guidelines',
     url: '/works/eco-herbalist-branding',
-    image: withBasePath('/img/works/eco-herbalist-branding/card.jpg'),
-    imagePortrait: withBasePath('/img/works/eco-herbalist-branding/card-portrait.jpg'),
+    image: withBasePath('/img/works/eco-herbalist-branding/card.webp'),
+    imagePortrait: withBasePath('/img/works/eco-herbalist-branding/card-portrait.webp'),
     tagline: 'Botanical identity system - guidelines built for scale and craft.'
   },
   {
@@ -112,8 +112,8 @@ export const SELECTED_WORKS_PROJECTS = [
     outcomeRest: 'dwell on hero sequence',
     category: 'Visual Creative',
     url: '/works/cinematic-escapes',
-    image: withBasePath('/img/works/cinematic-escapes/card.jpg'),
-    imagePortrait: withBasePath('/img/works/cinematic-escapes/card-portrait.jpg'),
+    image: withBasePath('/img/works/cinematic-escapes/card.webp'),
+    imagePortrait: withBasePath('/img/works/cinematic-escapes/card-portrait.webp'),
     tagline: 'Immersive visual narrative - theatre for the travel imagination.'
   }
 ];

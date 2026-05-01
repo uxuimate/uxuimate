@@ -2,9 +2,9 @@ import { useLayoutEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
-import founderPhoto from '../assets/founder.jpg';
-import founderImage2 from '../assets/founder/2.webp';
-import founderImage6 from '../assets/founder/6.webp';
+import founderPhoto from '../assets/founder-400.webp';
+import founderImage2 from '../assets/founder/2-400.webp';
+import founderImage6 from '../assets/founder/6-400.webp';
 
 const socialLinks = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/uxalexander/', icon: 'fab fa-linkedin-in' },

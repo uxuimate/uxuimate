@@ -43,21 +43,21 @@ const HOW_SOLVED = [
     eyebrow: 'Visual Trust Through Projects',
     heading: 'Proof-first project storytelling',
     text: 'A curated set of completed installations was prioritized to establish credibility quickly and support decision-making in early sales conversations.',
-    image: '/img/works/soft-play-solutions/hero-2.jpg'
+    image: '/img/works/soft-play-solutions/hero-2.webp'
   },
   {
     id: 'how-solved-2',
     eyebrow: 'Service Architecture',
     heading: 'Clear hierarchy for revenue services',
     text: 'Core services were structured with straightforward explanations and direct paths to contact, reducing friction between interest and enquiry.',
-    image: '/img/works/soft-play-solutions/how-2.jpg'
+    image: '/img/works/soft-play-solutions/how-2.webp'
   },
   {
     id: 'how-solved-3',
     eyebrow: 'Conversion & International Reach',
     heading: 'Bilingual journeys with inquiry focus',
     text: 'Bulgarian and English content, strategic CTAs, and form-driven lead capture transformed the site into a continuous sales support channel.',
-    image: '/img/works/soft-play-solutions/how-3.jpg'
+    image: '/img/works/soft-play-solutions/how-3.webp'
   }
 ];
 
@@ -136,7 +136,7 @@ const SoftPlayCaseStudyPage = () => {
         heading="How this case study was delivered, step by step."
         intro="Eight clear delivery phases from discovery to post-launch support."
         steps={PROCESS_STEPS}
-        backgroundImage="/img/works/soft-play-solutions/hero-1.jpg"
+        backgroundImage="/img/works/soft-play-solutions/hero-1.webp"
         showCta={false}
       />
 
@@ -159,7 +159,7 @@ const SoftPlayCaseStudyPage = () => {
         headingId="soft-play-outcomes-heading"
         headerOverride={OUTCOMES_HEADER}
         pillarsOverride={OUTCOMES.map(item => ({ num: item.value, title: item.title, text: item.text }))}
-        backgroundImage="/img/works/soft-play-solutions/how-1.jpg"
+        backgroundImage="/img/works/soft-play-solutions/how-1.webp"
         className="video-case-outcomes"
       />
 

@@ -8,19 +8,19 @@ import 'swiper/css/pagination';
 
 const HERO_SLIDES = [
   {
-    image: '/img/works/healthy-eats/hero-1.jpg',
+    image: '/img/works/healthy-eats/hero-1.webp',
     eyebrow: 'Product UI Redesign',
     heading: 'Healthy Eats Redesign',
     text: 'A production food-ordering app redesign focused on clarity, faster decisions, and lower checkout friction.'
   },
   {
-    image: '/img/works/healthy-eats/hero-2.jpg',
+    image: '/img/works/healthy-eats/hero-2.webp',
     eyebrow: 'Core UX Problem',
     heading: 'Reduce cognitive load',
     text: 'The old product had weak hierarchy and inconsistent patterns, forcing users to think too much for simple actions.'
   },
   {
-    image: '/img/works/healthy-eats/hero-3.jpg',
+    image: '/img/works/healthy-eats/hero-3.webp',
     eyebrow: 'Delivery Impact',
     heading: 'System-driven consistency',
     text: 'A reusable design system and linear checkout flow improved scanability, confidence, and task completion speed.'

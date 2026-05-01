@@ -1,14 +1,14 @@
-import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { CONTACT_BOOK_CALL_ANCHOR, CONTACT_BRIEF_ANCHOR } from '@/constants/booking';
-import codeDevelopmentImage from '../assets/img/code-development.jpg';
-import designThinkingImage from '../assets/img/hero-design-thinking.jpg';
-import researchHeroImage from '../assets/img/hero-research.jpg';
-import growthHeroImage from '../assets/img/hero-growth.jpg';
+import codeDevelopmentImage from '../assets/img/code-development.webp';
+import designThinkingImage from '../assets/img/hero-design-thinking.webp';
+import researchHeroImage from '../assets/img/hero-research.webp';
+import growthHeroImage from '../assets/img/hero-growth.webp';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
+import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 
 const heroSlides = [
@@ -44,13 +44,9 @@ const heroSlides = [
 
 const HeroOfferSlider = () => {
   return <section className="offer-hero" id="home">
-      <Swiper speed={1500} effect="coverflow" coverflowEffect={{
-      rotate: 42,
-      stretch: 0,
-      depth: 520,
-      modifier: 1,
-      slideShadows: true
-    }} modules={[Autoplay, Pagination, EffectCoverflow]} autoplay={{
+      <Swiper speed={700} effect="fade" fadeEffect={{
+      crossFade: true
+    }} modules={[Autoplay, Pagination, EffectFade]} autoplay={{
       delay: 5200,
       disableOnInteraction: false
     }} pagination={{
@@ -60,7 +56,7 @@ const HeroOfferSlider = () => {
     }} className="offer-hero__swiper">
         {heroSlides.map((slide, index) => <SwiperSlide key={slide.eyebrow}>
             <div className="offer-hero__overlay" />
-            <img src={slide.image} alt={slide.alt} loading={index === 0 ? 'eager' : 'lazy'} sizes="100vw" />
+            <img src={slide.image} alt={slide.alt} loading={index === 0 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : 'auto'} decoding="async" sizes="100vw" />
             <Container className="offer-hero__content">
               <Row>
                 <Col xs={12} className="mb-0 mb-md-5">

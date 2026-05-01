@@ -1,31 +1,64 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { SELECTED_WORKS_FOR_PARALLAX } from '@/data/selectedWorksProjects';
 
 const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work', excludedProjectIds = [] }) => {
   const navigate = useNavigate();
+  const cardStateRef = useRef(new WeakMap());
+
+  useEffect(() => {
+    return () => {
+      cardStateRef.current = new WeakMap();
+    };
+  }, []);
   const projects = useMemo(() => {
     const excluded = new Set(excludedProjectIds);
     return SELECTED_WORKS_FOR_PARALLAX.filter(project => !excluded.has(project.id)).slice(0, 3);
   }, [excludedProjectIds]);
 
-  const handleCardMove = event => {
+  const handleCardEnter = event => {
     const card = event.currentTarget;
     const rect = card.getBoundingClientRect();
+    const state = cardStateRef.current.get(card) ?? {};
+    cardStateRef.current.set(card, {
+      ...state,
+      rect
+    });
+  };
+
+  const handleCardMove = event => {
+    const card = event.currentTarget;
+    const prevState = cardStateRef.current.get(card) ?? {};
+    const rect = prevState.rect ?? card.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
     const rotateX = ((y / rect.height) - 0.5) * -8;
     const rotateY = ((x / rect.width) - 0.5) * 10;
+    const rafId = requestAnimationFrame(() => {
+      card.style.setProperty('--tilt-x', `${rotateX}deg`);
+      card.style.setProperty('--tilt-y', `${rotateY}deg`);
+      card.style.setProperty('--glow-x', `${x}px`);
+      card.style.setProperty('--glow-y', `${y}px`);
+    });
 
-    card.style.setProperty('--tilt-x', `${rotateX}deg`);
-    card.style.setProperty('--tilt-y', `${rotateY}deg`);
-    card.style.setProperty('--glow-x', `${x}px`);
-    card.style.setProperty('--glow-y', `${y}px`);
+    if (prevState.rafId) {
+      cancelAnimationFrame(prevState.rafId);
+    }
+    cardStateRef.current.set(card, {
+      ...prevState,
+      rect,
+      rafId
+    });
   };
 
   const handleCardLeave = event => {
     const card = event.currentTarget;
+    const state = cardStateRef.current.get(card);
+    if (state?.rafId) {
+      cancelAnimationFrame(state.rafId);
+    }
+    cardStateRef.current.delete(card);
 
     card.style.setProperty('--tilt-x', '0deg');
     card.style.setProperty('--tilt-y', '0deg');
@@ -69,6 +102,7 @@ const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work'
             >
               <article
                 className="works-card works-card--fan"
+                onPointerEnter={handleCardEnter}
                 onPointerMove={handleCardMove}
                 onPointerLeave={e => {
                   handleCardLeave(e);

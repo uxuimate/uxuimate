@@ -91,21 +91,21 @@ const HOW_SOLVED = [
     eyebrow: 'Research & Usability Testing',
     heading: 'Research-led trust architecture',
     text: 'We ran moderated sessions with technical and commercial profiles to identify where confidence dropped in the first journey steps. Real site photography and visible aftercare signals consistently outperformed generic marketing patterns. These findings shaped hierarchy so high-trust evidence appears early, not buried.',
-    image: '/img/works/videonabliudenie-bg/how-1.jpg'
+    image: '/img/works/videonabliudenie-bg/how-1.webp'
   },
   {
     id: 'how-solved-2',
     eyebrow: 'Information Architecture',
     heading: 'One integrated-system journey',
     text: 'We replaced fragmented page logic with a repeatable structure: intent, integrated scope, proof, then enquiry. This model mirrors how B2B buyers de-risk procurement decisions. Every key page now reinforces the same single-system narrative.',
-    image: '/img/works/videonabliudenie-bg/how-2.jpg'
+    image: '/img/works/videonabliudenie-bg/how-2.webp'
   },
   {
     id: 'how-solved-3',
     eyebrow: 'Results',
     heading: 'Sharper B2B conversion quality',
     text: 'The shipped experience now reads as an integrated systems partner instead of a one-off installer. Qualification conversations start deeper because decision-makers can verify capability and delivery approach faster. UX, UI, code, and SEO stayed under one direction, so quality held from concept to launch.',
-    image: '/img/works/videonabliudenie-bg/how-3.jpg'
+    image: '/img/works/videonabliudenie-bg/how-3.webp'
   }
 ];
 
@@ -207,7 +207,7 @@ const VideoNabliudenieCaseStudyPage = () => {
         heading="How this case study was delivered, step by step."
         intro="Eight clear delivery phases from discovery to post-launch support."
         steps={PROCESS_STEPS}
-        backgroundImage="/img/works/videonabliudenie-bg/process.jpg"
+        backgroundImage="/img/works/videonabliudenie-bg/process.webp"
         showCta={false}
       />
 
@@ -229,7 +229,7 @@ const VideoNabliudenieCaseStudyPage = () => {
         headingId="video-case-outcomes-heading"
         headerOverride={OUTCOMES_HEADER}
         pillarsOverride={OUTCOMES.map(item => ({ num: item.value, title: item.title, text: item.text }))}
-        backgroundImage="/img/works/videonabliudenie-bg/outcomes.jpg"
+        backgroundImage="/img/works/videonabliudenie-bg/outcomes.webp"
         className="video-case-outcomes"
       />
 

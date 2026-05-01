@@ -10,7 +10,7 @@ import BackToTop from '@/pages/uxuimate/components/BackToTop';
 import AnimatedCursor from '@/pages/uxuimate/components/AnimatedCursor';
 import useReveal from '@/pages/uxuimate/hooks/useReveal';
 import WorksHeroBackdrop from '@/pages/Works/components/WorksHeroBackdrop';
-import contactSectionBg from '@/pages/uxuimate/assets/img/contact-section-bg.jpg';
+import contactSectionBg from '@/pages/uxuimate/assets/img/contact-section-bg.webp';
 import '@/pages/Works/assets/works-page.css';
 import '@/pages/uxuimate/assets/css/style.css';
 import './assets/contact-page.css';
@@ -107,6 +107,30 @@ const ContactPage = () => {
   }, []);
 
   useEffect(() => {
+    let cancelled = false;
+
+    const initContactScript = async () => {
+      try {
+        const jqueryModule = await import('jquery');
+        if (cancelled) {
+          return;
+        }
+        const $ = jqueryModule.default;
+        window.$ = window.jQuery = $;
+        await import('@vendor/js/contact_us.js');
+      } catch (error) {
+        console.error('Failed to initialize contact form script:', error);
+      }
+    };
+
+    void initContactScript();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
     const $ = window.jQuery || window.$;
 
     if ($) {
@@ -140,7 +164,7 @@ const ContactPage = () => {
         title="Contact UX UI MATE"
         description="Contact UX UI MATE — premium digital studio for UX design, UI design, UX research, branding, web design, web development, no-code and custom code. Newcastle, UK and Sofia, Bulgaria; United Kingdom, Bulgaria and Europe."
         path="/contact"
-        image="/img/icons/logo-footer.png"
+        image="/img/icons/logo-footer.webp"
         keywords={[
           'contact UX agency Newcastle',
           'hire UX designer UK',

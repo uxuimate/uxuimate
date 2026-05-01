@@ -12,9 +12,14 @@ const revealConfigs = [
 
 const useReveal = () => {
   useEffect(() => {
-    const context = gsap.context(() => {
+    const animatedElements = new WeakSet();
+    const initReveals = () => {
       revealConfigs.forEach(({ selector, from }) => {
         gsap.utils.toArray(selector).forEach(element => {
+          if (animatedElements.has(element)) {
+            return;
+          }
+          animatedElements.add(element);
           const delay = Number(element.dataset.delay || 0);
 
           gsap.fromTo(element, from, {
@@ -34,9 +39,31 @@ const useReveal = () => {
           });
         });
       });
+    };
+
+    const context = gsap.context(() => {
+      initReveals();
     });
 
-    return () => context.revert();
+    let rafId = 0;
+    const observer = new MutationObserver(() => {
+      if (rafId) {
+        return;
+      }
+      rafId = requestAnimationFrame(() => {
+        rafId = 0;
+        initReveals();
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      observer.disconnect();
+      context.revert();
+    };
   }, []);
 };
 
