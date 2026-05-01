@@ -1,19 +1,22 @@
 import { createRoot } from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import App from './App';
-import { lenis } from './lenisInstance';
 
-gsap.registerPlugin(ScrollTrigger);
+const shouldEnableSmoothDesktopScroll = () =>
+  window.matchMedia('(min-width: 992px) and (hover: hover) and (pointer: fine)').matches;
 
-lenis.on('scroll', ScrollTrigger.update);
-
-gsap.ticker.add(time => {
-  lenis.raf(time * 1000);
-});
-
-gsap.ticker.lagSmoothing(0);
+if (shouldEnableSmoothDesktopScroll()) {
+  void Promise.all([import('gsap'), import('gsap/ScrollTrigger'), import('./lenisInstance')]).then(
+    ([{ default: gsap }, { default: ScrollTrigger }, { lenis }]) => {
+      gsap.registerPlugin(ScrollTrigger);
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(time => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+    }
+  );
+}
 
 createRoot(document.getElementById('root')).render(
 // <StrictMode>
