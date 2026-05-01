@@ -392,6 +392,8 @@ header a.logo .uxui-nav-logo {
     margin-left:.5rem;
     color: #fff;
     font-weight: 400;
+    text-decoration: none !important;
+    border-bottom: 0 !important;
 }
 
 .header-appear .navbar-simple .navbar-nav .nav-link{
@@ -435,6 +437,7 @@ header a.logo .uxui-nav-logo {
 .navbar-top-default .navbar-nav a.nav-link.active:hover,
 .navbar-top-default .navbar-nav a.nav-link.active:focus {
     color: var(--nav-accent, #e8195a) !important;
+    text-decoration: none !important;
 }
 
 

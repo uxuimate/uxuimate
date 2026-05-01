@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -43,13 +44,27 @@ const heroSlides = [
 ];
 
 const HeroOfferSlider = () => {
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    const updateViewport = () => {
+      setIsMobileViewport(mediaQuery.matches);
+    };
+    updateViewport();
+    mediaQuery.addEventListener('change', updateViewport);
+    return () => {
+      mediaQuery.removeEventListener('change', updateViewport);
+    };
+  }, []);
+
   return <section className="offer-hero" id="home">
-      <Swiper speed={1200} effect="coverflow" coverflowEffect={{
-      rotate: 30,
+      <Swiper speed={isMobileViewport ? 900 : 1200} effect="coverflow" coverflowEffect={{
+      rotate: isMobileViewport ? 18 : 30,
       stretch: 0,
-      depth: 420,
+      depth: isMobileViewport ? 240 : 420,
       modifier: 1,
-      slideShadows: true
+      slideShadows: !isMobileViewport
     }} modules={[Autoplay, Pagination, EffectCoverflow]} autoplay={{
       delay: 5200,
       disableOnInteraction: false

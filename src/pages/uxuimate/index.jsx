@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { toggleDocumentAttribute } from '@/utils';
 import NavigationBar from './components/NavigationBar';
@@ -21,7 +21,44 @@ const AnimatedCursor = lazy(() => import('./components/AnimatedCursor'));
 
 const InnovativeParallax = () => {
   const location = useLocation();
+  const [showDeferredSections, setShowDeferredSections] = useState(false);
+  const [showDesktopEnhancements, setShowDesktopEnhancements] = useState(false);
   useReveal();
+
+  useEffect(() => {
+    let cancelled = false;
+    const run = () => {
+      if (!cancelled) {
+        setShowDeferredSections(true);
+      }
+    };
+
+    if ('requestIdleCallback' in window) {
+      const id = window.requestIdleCallback(run, { timeout: 1400 });
+      return () => {
+        cancelled = true;
+        window.cancelIdleCallback(id);
+      };
+    }
+
+    const timeoutId = window.setTimeout(run, 450);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 992px) and (hover: hover) and (pointer: fine)');
+    const update = () => {
+      setShowDesktopEnhancements(mediaQuery.matches);
+    };
+    update();
+    mediaQuery.addEventListener('change', update);
+    return () => {
+      mediaQuery.removeEventListener('change', update);
+    };
+  }, []);
 
   useEffect(() => {
     if (!location.hash) {
@@ -77,26 +114,26 @@ const InnovativeParallax = () => {
 
       <HeroOfferSlider />
 
-      <Suspense fallback={null}>
-        <WorksSection />
+      {showDeferredSections ? <Suspense fallback={null}>
+          <WorksSection />
 
-        <ServicesSection />
+          <ServicesSection />
 
-        <AboutSection />
+          <AboutSection />
 
-        <FeedbackSection />
+          <FeedbackSection />
 
-        <ParallaxSections />
+          <ParallaxSections />
 
-        <Footer />
-      </Suspense>
+          <Footer />
+        </Suspense> : null}
 
       <BackToTop />
 
-      <Suspense fallback={null}>
-        <SectionDots />
-        <AnimatedCursor />
-      </Suspense>
+      {showDesktopEnhancements ? <Suspense fallback={null}>
+          <SectionDots />
+          <AnimatedCursor />
+        </Suspense> : null}
     </>;
 };
 export default InnovativeParallax;
