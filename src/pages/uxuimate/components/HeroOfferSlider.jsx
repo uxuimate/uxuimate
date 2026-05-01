@@ -58,6 +58,18 @@ const HeroOfferSlider = () => {
     };
   }, []);
 
+  const swiperModules = isMobileViewport
+    ? [Autoplay, EffectCoverflow]
+    : [Autoplay, Pagination, EffectCoverflow];
+
+  const paginationConfig = isMobileViewport
+    ? false
+    : {
+        el: '.offer-hero__pagination',
+        clickable: true,
+        renderBullet: (index, className) => `<span class="${className}">${index + 1}</span>`
+      };
+
   return <section className="offer-hero" id="home">
       <Swiper speed={isMobileViewport ? 900 : 1200} effect="coverflow" coverflowEffect={{
       rotate: isMobileViewport ? 18 : 30,
@@ -65,14 +77,10 @@ const HeroOfferSlider = () => {
       depth: isMobileViewport ? 240 : 420,
       modifier: 1,
       slideShadows: !isMobileViewport
-    }} modules={[Autoplay, Pagination, EffectCoverflow]} autoplay={{
+    }} modules={swiperModules} autoplay={{
       delay: 5200,
       disableOnInteraction: false
-    }} pagination={{
-      el: '.offer-hero__pagination',
-      clickable: true,
-      renderBullet: (index, className) => `<span class="${className}">${index + 1}</span>`
-    }} className="offer-hero__swiper">
+    }} pagination={paginationConfig} className="offer-hero__swiper">
         {heroSlides.map((slide, index) => <SwiperSlide key={slide.eyebrow}>
             <div className="offer-hero__overlay" />
             <img src={slide.image} alt={slide.alt} loading={index === 0 ? 'eager' : 'lazy'} fetchPriority={index === 0 ? 'high' : 'auto'} decoding="async" sizes="100vw" />
@@ -98,7 +106,7 @@ const HeroOfferSlider = () => {
           </SwiperSlide>)}
       </Swiper>
 
-      <div className="offer-hero__pagination" />
+      {!isMobileViewport ? <div className="offer-hero__pagination" /> : null}
     </section>;
 };
 
