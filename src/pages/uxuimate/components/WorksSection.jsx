@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import MobileSliderHint from '@/components/MobileSliderHint';
 import { SELECTED_WORKS_FOR_PARALLAX } from '@/data/selectedWorksProjects';
 
 const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work', excludedProjectIds = [] }) => {
@@ -85,22 +86,14 @@ const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work'
       <div className="works-section__fan-wrap">
         <div className="works-fan">
           {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className={`works-fan__item works-fan__item--${index}`}
-            >
+            <div key={project.id} className={`works-fan__item works-fan__item--${index}`}>
               <Link
                 className="works-card works-card--fan"
                 to={project.url}
                 aria-label={`${project.name} case study`}
-              >
-                <article
-                className="works-card works-card--fan"
                 onPointerEnter={handleCardEnter}
                 onPointerMove={handleCardMove}
-                onPointerLeave={e => {
-                  handleCardLeave(e);
-                }}
+                onPointerLeave={handleCardLeave}
               >
                 <div
                   className="works-card__image"
@@ -115,11 +108,11 @@ const WorksSection = ({ eyebrow = 'Selected Projects', heading = 'Selected Work'
                     View case study
                   </span>
                 </div>
-                </article>
               </Link>
             </div>
           ))}
         </div>
+        <MobileSliderHint dotCount={projects.length} text="Swipe for more" />
       </div>
     </section>
   );

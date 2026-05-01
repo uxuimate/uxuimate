@@ -18,7 +18,6 @@ import HeroRotatingTypewriter from '@/components/HeroRotatingTypewriter';
 import CalendlyInlineWidget from '@/components/CalendlyInlineWidget';
 import SeoHead from '@/components/SeoHead';
 import { buildStudioContactJsonLd } from '@/constants/siteSeo';
-import MobileSliderHint from '@/components/MobileSliderHint';
 
 const CONTACT_EMAIL = 'uxuimate@gmail.com';
 const MAILTO_HREF = `mailto:${CONTACT_EMAIL}`;
@@ -210,11 +209,11 @@ const ContactPage = () => {
           What happens next
         </h2>
         <Container fluid className="contact-next__container">
-          <div className="contact-next__row mobile-card-slider">
+          <div className="contact-next__row">
             {NEXT_STEPS.map((step, i) => (
               <Fragment key={step.num}>
                 {i > 0 ? <div className="contact-next__rule" aria-hidden="true" /> : null}
-                <div className="contact-next__cell reveal-up mobile-card-slide" data-delay={String(i * 0.06)}>
+                <div className="contact-next__cell reveal-up" data-delay={String(i * 0.06)}>
                   <span className="contact-next__num">{step.num}</span>
                   <h3 className="contact-next__step-title">{step.title}</h3>
                   <p className="contact-next__step-body">{step.body}</p>
@@ -222,7 +221,6 @@ const ContactPage = () => {
               </Fragment>
             ))}
           </div>
-          <MobileSliderHint dotCount={NEXT_STEPS.length} />
         </Container>
       </section>
 

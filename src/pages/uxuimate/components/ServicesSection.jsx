@@ -29,8 +29,8 @@ const ServicesSection = ({
   id = 'services',
   sectionLabel = 'WHAT WE DO',
   heading = 'Services Built Around Your Growth.',
-  statValue = '7+',
-  statLabel = 'Projects Delivered',
+  statValue = '100%',
+  statLabel = 'Client Satisfaction',
   showStat = true,
   items = services,
   footerHref = '/services',
@@ -95,9 +95,20 @@ const ServicesSection = ({
             <span>{sectionLabel}</span>
             <h2>{heading}</h2>
           </div>
-          {showStat ? <div className="services-section__stat">
-              <strong>{statValue}</strong>
-              <span>{statLabel}</span>
+          {showStat ? <div
+            className={
+              'services-section__stat' +
+              (statValue == null || statValue === '' ? ' services-section__stat--phrase' : '')
+            }
+          >
+              {statValue != null && statValue !== '' ? (
+                <>
+                  <strong>{statValue}</strong>
+                  <span>{statLabel}</span>
+                </>
+              ) : (
+                <strong>{statLabel}</strong>
+              )}
             </div> : null}
         </div>
 

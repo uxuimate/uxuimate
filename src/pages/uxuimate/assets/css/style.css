@@ -510,7 +510,11 @@ header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link::after {
     top: 0;
     background: radial-gradient(circle at 12% 18%, rgba(232, 25, 90, 0.2), transparent 32%), linear-gradient(145deg, #09090b 0%, #111116 52%, #050506 100%);
     z-index: 1032;
-    height: 100%;
+    box-sizing: border-box;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
     -webkit-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
     -webkit-transition: -webkit-transform .5s ease;
@@ -617,8 +621,9 @@ header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link::after {
     padding: 3.5rem 2.5rem;
 }
 .side-menu .side-nav {
-    margin-bottom: 30px;
     display: block;
+    margin-bottom: 30px;
+    width: 100%;
 }
 .side-nav .navbar-nav .nav-item{
     display: block;
@@ -723,18 +728,83 @@ header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link::after {
 
 .side-menu .social-icons-simple a:hover,
 .side-menu .social-icons-simple a:focus {
-    color: #e8195a !important;
+    color: var(--nav-accent, #e8195a) !important;
 }
 
-.side-menu p{
-    font-size: 13px;
-    margin-top: .5rem;
-    margin-bottom: 0;
+.side-menu .side-footer__inner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    width: 100%;
+}
+
+.side-menu .side-footer__copyright {
+    color: rgba(253, 252, 250, 0.82);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Muted icons (avoid default link / FA blues on dark glass). */
+.side-menu .side-footer__social.social-icons-simple li a {
+    color: rgba(253, 252, 250, 0.78) !important;
+}
+
+.side-menu .side-footer__social.social-icons-simple li a i {
+    color: inherit !important;
+}
+
+.side-menu .side-footer__social.social-icons-simple li a:hover,
+.side-menu .side-footer__social.social-icons-simple li a:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fdfcfa !important;
 }
 
 .social-icons-simple{
     margin-bottom: 0;
     margin-left: -10px;
+}
+
+.side-menu .side-footer {
+    text-align: center;
+}
+
+.side-menu .side-footer__social.social-icons-simple {
+    align-self: center;
+    margin-left: 0;
+    text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+    .side-menu .side-nav,
+    .side-menu .side-nav .navbar-nav {
+        text-align: right;
+        width: 100%;
+    }
+
+    .side-nav .navbar-nav .nav-link::after {
+        left: auto;
+        right: 0;
+    }
+
+    .side-menu .side-footer__inner {
+        flex-direction: column;
+        gap: 0.85rem;
+    }
+
+    .side-menu .side-footer__copyright {
+        font-size: clamp(0.58rem, 0.34rem + 2.2vw, 0.8125rem);
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
 
 .social-icons-simple li{
@@ -1292,6 +1362,9 @@ header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link::after {
 .offer-hero {
     background: #080808;
     height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
     padding: 0;
     position: relative;
@@ -1945,17 +2018,21 @@ body:has(.services-carousel-page) .scroll-top-arrow {
 /* ===================================
     Media Queries
 ====================================== */
-
+@media screen and (max-width: 991px) {
+    /* Full-bleed drawer: fixed max-width left a strip beside the panel on phones / tablet nav. */
+    .side-menu {
+        max-width: none;
+        width: 100%;
+    }
+}
 
 @media screen and (max-width: 767px){
-    .side-menu {
-        width: 380px;
+    .side-menu .inner-wrapper {
+        padding: 2.5rem clamp(1.25rem, 5vw, 2rem);
     }
-    .single-items h3 {
-        font-size: 2.5rem;}
 
-    .side-menu {
-        width: 380px;
+    .single-items h3 {
+        font-size: 2.5rem;
     }
 }
 
@@ -2262,6 +2339,38 @@ body:has(.services-carousel-page) .scroll-top-arrow {
     padding: 0.55rem 1.05rem;
 }
 
+/* Case cards are router links: kill iOS tap blue + global teal `a:hover` on copy / CTA */
+a.works-card.works-card--fan {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none !important;
+}
+
+a.works-card.works-card--fan:hover,
+a.works-card.works-card--fan:active,
+a.works-card.works-card--fan:focus,
+a.works-card.works-card--fan:focus-visible,
+a.works-card.works-card--fan:visited {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+a.works-card.works-card--fan:hover .works-card__content h3,
+a.works-card.works-card--fan:active .works-card__content h3,
+a.works-card.works-card--fan:focus .works-card__content h3 {
+    color: #ffffff;
+}
+
+a.works-card.works-card--fan:hover .works-card__content > span:first-of-type,
+a.works-card.works-card--fan:active .works-card__content > span:first-of-type {
+    color: rgba(255, 255, 255, 0.52);
+}
+
+a.works-card.works-card--fan:hover .works-card__link-btn,
+a.works-card.works-card--fan:active .works-card__link-btn {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
 .services-section {
     background: #0d0d0d;
     color: #ffffff;
@@ -2350,9 +2459,9 @@ body:has(.services-carousel-page) .scroll-top-arrow {
 
 .services-section__stat strong {
     color: #ffffff;
-    display: block;
+    display: inline-block;
     font-family: 'Deltha', sans-serif;
-    font-size: clamp(4rem, 9vw, 8rem);
+    font-size: clamp(2.6rem, 4.65vw, 3.95rem);
     font-weight: 400;
     letter-spacing: -0.02em;
     line-height: 0.85;
@@ -3603,6 +3712,11 @@ body:has(.services-carousel-page) .scroll-top-arrow {
     display: none;
 }
 
+/* Selected works: hint only with the mobile horizontal strip (not 768–991 desktop fan). */
+.works-section .works-section__fan-wrap > .mobile-card-slider__hint {
+    display: none;
+}
+
 /* Responsive text clamping for desktop/web layouts to prevent card distortion. */
 @media (min-width: 992px) {
     .works-card__content h3,
@@ -3672,7 +3786,7 @@ body:has(.services-carousel-page) .scroll-top-arrow {
         scroll-snap-align: start;
     }
 
-    .contact-next__row .contact-next__rule {
+    .contact-next__row.mobile-card-slider .contact-next__rule {
         display: none;
     }
 
@@ -3952,9 +4066,11 @@ body.custom-cursor-enabled * {
         font-size: 1rem;
     }
 
+    /* Block layout: avoids flex-grow on __fan-wrap stretching empty space below the swipe hint. */
     .works-section {
+        display: block;
         min-height: auto;
-        padding: 96px 20px 120px;
+        padding: 96px 20px 72px;
     }
 
     .works-section__header {
@@ -3965,24 +4081,42 @@ body.custom-cursor-enabled * {
     }
 
     .works-section__fan-wrap {
-        margin-left: 0;
-        margin-right: 0;
-        max-width: 100%;
-        padding-top: clamp(28px, 6vh, 52px);
-        width: 100%;
-    }
-
-    .works-fan {
-        flex-direction: column;
-        gap: 32px;
-        max-width: 520px;
-        perspective: none;
-    }
-
-    .works-fan__item {
         flex: none;
+        margin-left: -20px;
+        margin-right: -20px;
         max-width: none;
-        width: 100%;
+        padding-bottom: 12px;
+        padding-top: clamp(28px, 6vh, 52px);
+        width: calc(100% + 40px);
+    }
+
+    /* Horizontal snap strip: each card keeps desktop proportions (no stacked “fan” distortion). */
+    .works-section .works-fan {
+        align-items: stretch;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 16px;
+        margin: 0;
+        max-width: none;
+        overflow-x: auto;
+        overflow-y: visible;
+        padding: 4px 20px 18px;
+        perspective: none;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .works-section .works-fan::-webkit-scrollbar {
+        display: none;
+    }
+
+    .works-section .works-fan__item {
+        flex: 0 0 min(88vw, 380px);
+        max-width: none;
+        scroll-snap-align: center;
+        width: auto;
     }
 
     .works-fan__item--0,
@@ -4011,7 +4145,10 @@ body.custom-cursor-enabled * {
     .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan,
     .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan,
     .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan {
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42), 0 60px 120px rgba(0, 0, 0, 0.4);
+        box-shadow:
+            0 0 40px rgba(232, 25, 90, 0.2),
+            0 28px 80px rgba(0, 0, 0, 0.58),
+            0 90px 160px rgba(0, 0, 0, 0.48);
         opacity: 1;
         transform: translate3d(0, 0, 0) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
     }
@@ -4042,6 +4179,21 @@ body.custom-cursor-enabled * {
 
     .works-card__image {
         min-height: clamp(300px, 52vh, 420px);
+    }
+
+    .works-section .works-section__fan-wrap > .mobile-card-slider__hint {
+        align-items: center;
+        color: rgba(255, 255, 255, 0.66);
+        display: flex;
+        flex-direction: column;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.72rem;
+        gap: 7px;
+        letter-spacing: 0.12em;
+        margin-top: 14px;
+        padding: 0 20px;
+        text-align: center;
+        text-transform: uppercase;
     }
 
     .our-process-section {
@@ -4092,21 +4244,97 @@ body.custom-cursor-enabled * {
         padding: 86px 32px;
     }
 
+    /*
+     * Service tabs (mobile): full-bleed bar at hero foot — same glass + type as
+     * section-dots / desktop picker, edge-to-edge (no floating pill).
+     */
+    .services-carousel-page .services-hero {
+        padding-bottom: clamp(160px, 36vh, 220px);
+    }
+
     .services-carousel-page .service-picker {
-        bottom: 16px;
-        gap: 0.1rem;
-        left: 12px;
-        max-width: min(220px, 72vw);
-        right: auto;
+        -webkit-backdrop-filter: blur(12px) saturate(1.2);
+        backdrop-filter: blur(12px) saturate(1.2);
+        align-items: stretch;
+        background: rgba(28, 28, 32, 0.62);
+        border: 0;
+        border-radius: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        bottom: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        display: grid;
+        gap: 0;
+        grid-template-columns: 1fr 1fr;
+        justify-content: stretch;
+        left: 0;
+        max-width: none;
+        padding: 0 env(safe-area-inset-right, 0) env(safe-area-inset-bottom, 0) env(safe-area-inset-left, 0);
+        right: 0;
+        top: auto;
+        width: 100%;
     }
 
     .services-carousel-page .service-picker__tab {
-        padding: 0.32rem 0 0.32rem 0.6rem;
+        -webkit-appearance: none;
+        appearance: none;
+        align-items: center;
+        background: transparent;
+        border-radius: 0;
+        border-style: solid;
+        border-width: 0 0 1px 0;
+        border-color: rgba(255, 255, 255, 0.06);
+        border-left: 2px solid transparent;
+        color: rgba(255, 255, 255, 0.45);
+        display: flex;
+        justify-content: flex-start;
+        line-height: 1.45;
+        margin: 0;
+        min-height: 50px;
+        padding: 0.55rem 12px 0.55rem 0.75rem;
+        text-align: left;
+        text-transform: uppercase;
+        -webkit-transition: color 0.2s ease, border-color 0.2s ease;
+        transition: color 0.2s ease, border-color 0.2s ease;
+        width: 100%;
+    }
+
+    .services-carousel-page .service-picker__tab:nth-child(odd) {
+        border-right-width: 1px;
+    }
+
+    .services-carousel-page .service-picker__tab:nth-last-child(-n + 2) {
+        border-bottom-width: 0;
+    }
+
+    .services-carousel-page .service-picker__tab:hover {
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    .services-carousel-page .service-picker__tab:focus-visible {
+        border-radius: 6px;
+        outline: 2px solid #e8195a;
+        outline-offset: 2px;
+    }
+
+    .services-carousel-page .service-picker__tab.is-active,
+    .services-carousel-page .service-picker__tab[aria-selected='true'] {
+        background: transparent;
+        border-left-color: #e8195a;
+        color: #ffffff;
     }
 
     .services-carousel-page .service-picker__text {
-        font-size: 0.58rem;
-        letter-spacing: 0.1em;
+        display: block;
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(0.66rem, 2.6vw, 0.74rem);
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        line-height: 1.35;
+        text-align: left;
+        text-shadow: 0 1px 10px rgba(0, 0, 0, 0.75);
+        white-space: normal;
+        word-wrap: break-word;
     }
 
     .services-carousel-page .services-hero__inner h1.services-hero__headline {

@@ -5,6 +5,17 @@
     border-left-color: #3B82F6;
 }
 
+@media screen and (max-width: 767px) {
+    .services-page--mobile .services-carousel-page .service-picker__tab:focus-visible {
+        outline-color: #60A5FA;
+    }
+
+    .services-page--mobile .services-carousel-page .service-picker__tab.is-active,
+    .services-page--mobile .services-carousel-page .service-picker__tab[aria-selected='true'] {
+        border-left-color: #3B82F6;
+    }
+}
+
 .services-page--mobile .services-ux-theory__eyebrow,
 .services-page--mobile .services-ux-theory__number {
     color: #60A5FA;

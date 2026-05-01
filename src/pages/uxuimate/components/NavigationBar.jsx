@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { lenis } from '@/lenisInstance';
 import { withBasePath } from '@/utils';
 
 /** Matches Footer / Services page themes for nav hover + active pill colour */
@@ -209,6 +210,21 @@ const NavigationBar = ({ accentTheme = 'default' }) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined;
+    }
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    lenis.stop();
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      lenis.start();
+    };
+  }, [isMenuOpen]);
+
   const handleInternalLink = (event, to) => {
     const parts = to.split('#');
     const pathPart = parts[0] || '';
@@ -307,14 +323,18 @@ const NavigationBar = ({ accentTheme = 'default' }) => {
             </ul>
           </nav>
           <div className="side-footer text-white w-100">
-            <ul className="social-icons-simple">
-              {socialLinks.map(({ label, href, icon, hoverClass }) => <li key={label}>
-                  <a className={hoverClass} href={href} target="_blank" rel="noreferrer" aria-label={label}>
-                    <i className={icon} aria-hidden="true" />
-                  </a>
-                </li>)}
-            </ul>
-            <p className="text-white">© {new Date().getFullYear()} UX UI MATE. Premium UX/UI, branding, and web development.</p>
+            <div className="side-footer__inner">
+              <p className="side-footer__copyright">
+                © {new Date().getFullYear()} UX UI MATE · All rights reserved
+              </p>
+              <ul className="social-icons-simple side-footer__social">
+                {socialLinks.map(({ label, href, icon, hoverClass }) => <li key={label}>
+                    <a className={hoverClass} href={href} target="_blank" rel="noreferrer" aria-label={label}>
+                      <i className={icon} aria-hidden="true" />
+                    </a>
+                  </li>)}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
