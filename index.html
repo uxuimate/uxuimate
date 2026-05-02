@@ -1,27 +1,519 @@
-<!doctype html>
-<html lang="en-GB" style="scroll-behavior: smooth;">
-
+<!DOCTYPE html>
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/ico" href="./favicon.ico" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="UXuimate is a premium digital studio in Newcastle, UK and Sofia, Bulgaria: UX design, UI design, UX research, branding, web design, web development, no-code and custom code for the United Kingdom, Bulgaria and Europe." />
-  <meta name="author" content="UXuimate" />
-  <meta name="theme-color" content="#04050a" />
-  <link rel="preload" href="/fonts/Deltha.otf" as="font" type="font/otf" crossorigin />
+  <meta name="application-name" content="UX UI MATE" />
+  <title>UX UI MATE | UX, UI, branding &amp; web studio</title>
+  <meta name="description" content="Premium digital studio UX UI MATE: UX design, UI design, branding, web design, and web development - Newcastle, UK and Sofia, Bulgaria." />
+  <link rel="canonical" href="index.html" />
+  <link rel="icon" type="image/webp" href="img/logo-footer.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700&family=Montserrat:wght@300;500;600;700;800&display=swap" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700&family=Montserrat:wght@300;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700&family=Montserrat:wght@300;500;600;700;800&display=swap" />
-  </noscript>
-  <title>UXuimate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/design-tokens.css" />
+  <link rel="stylesheet" href="css/site.css" />
+  <link rel="stylesheet" href="css/static-extras.css" />
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="./src/main.jsx"></script>
-</body>
+  <div id="root">
+    <header class="header-appear">
+      <nav class="navbar navbar-top-default navbar-expand-lg navbar-simple nav-box-round" aria-label="Primary">
+        <div class="container">
+          <a class="logo scroll" href="#home" title="UX UI MATE - Home">
+            <img src="img/logo-footer.webp" alt="UX UI MATE - Home" class="uxui-nav-logo" width="148" height="48" />
+          </a>
+          <div class="collapse navbar-collapse" id="megaone">
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link scroll nav-link-uxm active" href="#home" data-section="home">Home</a>
+              <a class="nav-link nav-link-uxm" href="ux-ui-design.html">Services</a>
+              <a class="nav-link nav-link-uxm" href="works.html">Work</a>
+              <a class="nav-link nav-link-uxm" href="about.html">About</a>
+              <a class="nav-link nav-link-uxm" href="contact.html">Contact</a>
+            </div>
+          </div>
+          <a href="#" class="d-inline-block sidemenu_btn" id="sidemenu_toggle" aria-label="Open navigation menu"><span></span><span></span><span></span></a>
+        </div>
+      </nav>
+      <div class="side-menu hidden" id="side_menu">
+        <div class="inner-wrapper">
+          <span class="btn-close" id="btn_sideNavClose" role="button" tabindex="0" aria-label="Close menu"><i></i><i></i></span>
+          <nav class="side-nav w-100">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link scroll nav-link-uxm" href="#home">Home</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-uxm" href="ux-ui-design.html">Services</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-uxm" href="works.html">Work</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-uxm" href="about.html">About</a></li>
+              <li class="nav-item"><a class="nav-link nav-link-uxm" href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="side-footer text-white w-100">
+            <div class="side-footer__inner">
+              <p class="side-footer__copyright">© 2026 UX UI MATE · All rights reserved</p>
+              <ul class="social-icons-simple side-footer__social">
+                <li><a class="behance-text-hvr" href="https://www.behance.net/uxuimate" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance" aria-hidden="true"></i></a></li>
+                <li><a class="facebook-text-hvr" href="https://www.facebook.com/uxuimate" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                <li><a class="linkedin-text-hvr" href="https://www.linkedin.com/in/uxalexander/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                <li><a class="medium-text-hvr" href="https://medium.com/@uxuimate" target="_blank" rel="noopener noreferrer" aria-label="Medium"><i class="fab fa-medium-m" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a id="close_side_menu" href="#" aria-hidden="true" aria-label="Close navigation menu"></a>
+    </header>
 
+    <section class="offer-hero" id="home">
+      <div class="offer-hero__swiper offer-hero__slides">
+        <div class="hero-slide swiper-slide active">
+          <div class="offer-hero__overlay"></div>
+          <img src="img/hero-design-thinking.webp" alt="Design collaboration and digital product planning" width="1920" height="1080" fetchpriority="high" decoding="async" />
+          <div class="container offer-hero__content">
+            <div class="row">
+              <div class="col-12 mb-0 mb-md-5">
+                <div class="offer-hero__panel">
+                  <span class="offer-hero__eyebrow">UX Design</span>
+                  <h1 class="offer-hero__heading">Design thinking that turns ideas into clear digital journeys.</h1>
+                  <p class="offer-hero__text">We shape user flows, wireframes, prototypes, and premium interfaces around what your customers actually need.</p>
+                  <div class="offer-hero__ctas">
+                    <a href="#" data-contact="brief" class="btn btn-white btn-rounded btn-large">Send your brief</a>
+                    <a href="#" data-contact="book" class="btn btn-transparent-white btn-rounded btn-large">Book 30-min call</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-slide swiper-slide">
+          <div class="offer-hero__overlay"></div>
+          <img src="img/code-development.webp" alt="Web development and modern responsive interfaces" width="1920" height="1080" loading="lazy" decoding="async" />
+          <div class="container offer-hero__content">
+            <div class="row">
+              <div class="col-12 mb-0 mb-md-5">
+                <div class="offer-hero__panel">
+                  <span class="offer-hero__eyebrow">Web Development</span>
+                  <h2 class="offer-hero__heading">Code development for fast, scalable websites that sell.</h2>
+                  <p class="offer-hero__text">Responsive builds, clean implementation, performance, SEO foundations, and launch-ready delivery.</p>
+                  <div class="offer-hero__ctas">
+                    <a href="#" data-contact="brief" class="btn btn-white btn-rounded btn-large">Send your brief</a>
+                    <a href="#" data-contact="book" class="btn btn-transparent-white btn-rounded btn-large">Book 30-min call</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-slide swiper-slide">
+          <div class="offer-hero__overlay"></div>
+          <img src="img/hero-research.webp" alt="Team research and product discovery workshop" width="1920" height="1080" loading="lazy" decoding="async" />
+          <div class="container offer-hero__content">
+            <div class="row">
+              <div class="col-12 mb-0 mb-md-5">
+                <div class="offer-hero__panel">
+                  <span class="offer-hero__eyebrow">Research &amp; Insight</span>
+                  <h2 class="offer-hero__heading">Insight before design, so every decision has a reason.</h2>
+                  <p class="offer-hero__text">We uncover user needs, business goals, and market opportunities before shaping the experience.</p>
+                  <div class="offer-hero__ctas">
+                    <a href="#" data-contact="brief" class="btn btn-white btn-rounded btn-large">Send your brief</a>
+                    <a href="#" data-contact="book" class="btn btn-transparent-white btn-rounded btn-large">Book 30-min call</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-slide swiper-slide">
+          <div class="offer-hero__overlay"></div>
+          <img src="img/hero-growth.webp" alt="Strategy, analytics, and business growth on screen" width="1920" height="1080" loading="lazy" decoding="async" />
+          <div class="container offer-hero__content">
+            <div class="row">
+              <div class="col-12 mb-0 mb-md-5">
+                <div class="offer-hero__panel">
+                  <span class="offer-hero__eyebrow">Premium Digital Growth</span>
+                  <h2 class="offer-hero__heading">A sharper website can turn more visitors into serious enquiries.</h2>
+                  <p class="offer-hero__text">We combine strategy, UX, branding, and conversion-focused development to make your offer easier to trust, choose, and buy.</p>
+                  <div class="offer-hero__ctas">
+                    <a href="#" data-contact="brief" class="btn btn-white btn-rounded btn-large">Send your brief</a>
+                    <a href="#" data-contact="book" class="btn btn-transparent-white btn-rounded btn-large">Book 30-min call</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="offer-hero__pagination d-none d-md-flex" role="tablist" aria-label="Hero slides">
+        <button type="button" data-hero-index="0" class="active" aria-label="Slide 1">1</button>
+        <button type="button" data-hero-index="1" aria-label="Slide 2">2</button>
+        <button type="button" data-hero-index="2" aria-label="Slide 3">3</button>
+        <button type="button" data-hero-index="3" aria-label="Slide 4">4</button>
+      </div>
+    </section>
+
+    <aside class="about-trusted">
+      <p class="about-trusted__sr-only">Trusted by VideoNabliudenie.bg, Soft Play Solutions, Er Clima, Eco Herbalist, Northshore Digital, Bloom &amp; Co. Studio, Atlas Freight Group, Medilink Partners, Studio Verge, Kettlewell Interiors, Harborlight Finance, Urban Field Architects, Silverline Hospitality, Cairn Analytics, Velvet Row Retail.</p>
+      <p class="about-trusted__heading">Trusted by</p>
+      <div class="about-trusted__marquee" aria-hidden="true">
+        <div class="about-trusted__marquee-track">
+          <div class="about-trusted__group">
+            <span class="about-trusted__client">VideoNabliudenie.bg</span>
+            <span class="about-trusted__client">Soft Play Solutions</span>
+            <span class="about-trusted__client">Er Clima</span>
+            <span class="about-trusted__client">Eco Herbalist</span>
+            <span class="about-trusted__client">Northshore Digital</span>
+            <span class="about-trusted__client">Bloom &amp; Co. Studio</span>
+            <span class="about-trusted__client">Atlas Freight Group</span>
+            <span class="about-trusted__client">Medilink Partners</span>
+            <span class="about-trusted__client">Studio Verge</span>
+            <span class="about-trusted__client">Kettlewell Interiors</span>
+            <span class="about-trusted__client">Harborlight Finance</span>
+            <span class="about-trusted__client">Urban Field Architects</span>
+            <span class="about-trusted__client">Silverline Hospitality</span>
+            <span class="about-trusted__client">Cairn Analytics</span>
+            <span class="about-trusted__client">Velvet Row Retail</span>
+          </div>
+          <div class="about-trusted__group about-trusted__group--duplicate">
+            <span class="about-trusted__client">VideoNabliudenie.bg</span>
+            <span class="about-trusted__client">Soft Play Solutions</span>
+            <span class="about-trusted__client">Er Clima</span>
+            <span class="about-trusted__client">Eco Herbalist</span>
+            <span class="about-trusted__client">Northshore Digital</span>
+            <span class="about-trusted__client">Bloom &amp; Co. Studio</span>
+            <span class="about-trusted__client">Atlas Freight Group</span>
+            <span class="about-trusted__client">Medilink Partners</span>
+            <span class="about-trusted__client">Studio Verge</span>
+            <span class="about-trusted__client">Kettlewell Interiors</span>
+            <span class="about-trusted__client">Harborlight Finance</span>
+            <span class="about-trusted__client">Urban Field Architects</span>
+            <span class="about-trusted__client">Silverline Hospitality</span>
+            <span class="about-trusted__client">Cairn Analytics</span>
+            <span class="about-trusted__client">Velvet Row Retail</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section id="projects" class="works-section">
+      <div class="works-section__header">
+        <div class="reveal-up">
+          <span class="works-section__eyebrow">Selected projects</span>
+          <h2>Selected Projects</h2>
+        </div>
+        <div class="works-section__actions reveal-up">
+          <a href="works.html" class="btn btn-white btn-rounded btn-large works-section__btn">View all work</a>
+        </div>
+      </div>
+      <div class="works-section__fan-wrap">
+        <div class="works-fan">
+          <div class="works-fan__item works-fan__item--0">
+            <a class="works-card works-card--fan" href="works-nistravel-bg.html" aria-label="Nistravel.bg - open project">
+              <div class="works-card__image works-card__image--nistravel"></div>
+              <div class="works-card__content">
+                <span>Web Redesign</span>
+                <h3>Nistravel.bg</h3>
+                <span class="btn btn-transparent-white btn-rounded works-card__link-btn">View project</span>
+              </div>
+            </a>
+          </div>
+          <div class="works-fan__item works-fan__item--1">
+            <a class="works-card works-card--fan" href="works-videonabliudenie-bg.html" aria-label="VideoNabliudenie.bg - open project">
+              <div class="works-card__image works-card__image--videonabliudenie"></div>
+              <div class="works-card__content">
+                <span>Web Development</span>
+                <h3>VideoNabliudenie.bg</h3>
+                <span class="btn btn-transparent-white btn-rounded works-card__link-btn">View project</span>
+              </div>
+            </a>
+          </div>
+          <div class="works-fan__item works-fan__item--2">
+            <a class="works-card works-card--fan" href="works-eco-herbalist-ux.html" aria-label="Eco Herbalist UX - open project">
+              <div class="works-card__image works-card__image--eco-herbalist"></div>
+              <div class="works-card__content">
+                <span>UX/UI Design</span>
+                <h3>Eco Herbalist UX</h3>
+                <span class="btn btn-transparent-white btn-rounded works-card__link-btn">View project</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section" id="services">
+      <div class="services-section__container">
+        <div class="services-section__top reveal-up">
+          <div class="services-section__intro">
+            <span>WHAT WE DO</span>
+            <h2>Services Built Around Your Growth.</h2>
+          </div>
+          <div class="services-section__stat">
+            <strong>100%</strong>
+            <span>Client Satisfaction</span>
+          </div>
+        </div>
+        <div class="services-section__divider reveal-up"></div>
+        <div class="services-grid">
+          <article class="service-item reveal-up" data-delay="0">
+            <span>01</span>
+            <h3>UX/UI DESIGN</h3>
+            <div class="service-item__line"></div>
+            <p>Visitors who understand your offer in seconds stay longer, trust faster, and buy more confidently.</p>
+          </article>
+          <article class="service-item reveal-up" data-delay="0.1">
+            <span>02</span>
+            <h3>WEB DEVELOPMENT</h3>
+            <div class="service-item__line"></div>
+            <p>A site that loads fast, ranks on Google, and doesn't break when traffic spikes - so you never lose a lead to a technical failure.</p>
+          </article>
+          <article class="service-item reveal-up" data-delay="0.2">
+            <span>03</span>
+            <h3>BRANDING</h3>
+            <div class="service-item__line"></div>
+            <p>When your brand looks like it charges more, clients stop questioning your price and start asking when you're available.</p>
+          </article>
+          <article class="service-item reveal-up" data-delay="0.3">
+            <span>04</span>
+            <h3>MOBILE &amp; SAAS</h3>
+            <div class="service-item__line"></div>
+            <p>An app your users open out of habit, not obligation - because the experience was designed around how they actually think.</p>
+          </article>
+        </div>
+        <div class="services-section__footer reveal-up">
+          <a href="ux-ui-design.html" class="btn btn-white btn-rounded btn-large services-section__btn-link">View all services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-studio-section model-agency-parallax-bg" id="about">
+      <div class="about-studio__container">
+        <div class="about-studio__content reveal-right">
+          <span class="about-studio__eyebrow">Who We Are</span>
+          <h2 class="about-heading">ABOUT THE STUDIO</h2>
+          <p>We're a small, focused digital studio operating between Newcastle, UK and Sofia, Bulgaria.</p>
+          <p>We don't take on 50 clients a year. We take on the right ones - businesses that want design that actually moves the needle, not just something that looks good in a screenshot.</p>
+          <p>Every project is led by Alexander personally. No account managers, no handoffs, no surprises.</p>
+          <a href="about.html" class="btn btn-white btn-rounded btn-large">Meet the founder →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-team feedback-section" id="feedback">
+      <div class="bg-overlay bg-black opacity-4"></div>
+      <div class="container-fluid feedback-section__container">
+        <div class="row justify-content-center">
+          <div class="col-12 feedback-section__col">
+            <div id="innovative-testimonial-quote">
+              <div class="item active">
+                <div class="testimonial-quote whitecolor">
+                  <div class="team-img mb-4">
+                    <img src="img/feedback/uxm-face-dimitar.webp" alt="Dimitar Ermenliev, Bomi Clima (ER CLIMA)" width="135" height="135" />
+                  </div>
+                  <h1 class="font-weight-light mb-3 alt-font">Dimitar Ermenliev</h1>
+                  <div class="mb-3 testimonial-line"></div>
+                  <div class="mb-1 mb-md-5"><span>Bomi Clima (ER CLIMA)</span></div>
+                  <div class="team-description mb-1 mb-md-5">
+                    <p class="m-0">I had the pleasure of working with this creative agency, and I must say, they truly impressed me. They consistently think outside the box, resulting in impressive and impactful work. I highly recommend this agency for their consistent delivery of exceptional creative solutions.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimonial-quote whitecolor">
+                  <div class="team-img mb-4">
+                    <img src="img/feedback/uxm-face-mohaan.webp" alt="Mohaan Biswas, Gateshead College" width="135" height="135" />
+                  </div>
+                  <h1 class="font-weight-light mb-3 alt-font">Mohaan Biswas</h1>
+                  <div class="mb-3 testimonial-line"></div>
+                  <div class="mb-1 mb-md-5"><span>Gateshead College - Level 5 Diploma</span></div>
+                  <div class="team-description mb-1 mb-md-5">
+                    <p class="m-0">A strong, research-led UX project with clear, evidence-based design decisions. User insights were effectively translated into well-structured flows and polished, user-friendly prototypes.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimonial-quote whitecolor">
+                  <div class="team-img mb-4">
+                    <img src="img/feedback/uxm-face-iva.webp" alt="Iva Kostadinova, Digital Marketing Manager" width="135" height="135" />
+                  </div>
+                  <h1 class="font-weight-light mb-3 alt-font">Iva Kostadinova</h1>
+                  <div class="mb-3 testimonial-line"></div>
+                  <div class="mb-1 mb-md-5"><span>Digital Marketing Manager &amp; Brand Strategist</span></div>
+                  <div class="team-description mb-1 mb-md-5">
+                    <p class="m-0">Working with Alexander was extremely pleasant and professional. Communication throughout the entire process was clear, timely, and very smooth, which made the collaboration easy and effective.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimonial-quote whitecolor">
+                  <div class="team-img mb-4">
+                    <img src="img/feedback/uxm-face-stanislav.webp" alt="Stanislav Hristov, Soft Play Solutions" width="135" height="135" />
+                  </div>
+                  <h1 class="font-weight-light mb-3 alt-font">Stanislav Hristov</h1>
+                  <div class="mb-3 testimonial-line"></div>
+                  <div class="mb-1 mb-md-5"><span>Soft Play Solutions</span></div>
+                  <div class="team-description mb-1 mb-md-5">
+                    <p class="m-0">We've been absolutely blown away by the team. Their creativity is on another level - they don't just follow trends, they come up with bold, original concepts that perfectly fit our brand.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feedback-section__thumbs" role="tablist" aria-label="Choose testimonial">
+              <button type="button" class="feedback-section__thumb link active" aria-label="Dimitar"><img src="img/feedback/uxm-face-dimitar.webp" alt="" /></button>
+              <button type="button" class="feedback-section__thumb link" aria-label="Mohaan"><img src="img/feedback/uxm-face-mohaan.webp" alt="" /></button>
+              <button type="button" class="feedback-section__thumb link" aria-label="Iva"><img src="img/feedback/uxm-face-iva.webp" alt="" /></button>
+              <button type="button" class="feedback-section__thumb link" aria-label="Stanislav"><img src="img/feedback/uxm-face-stanislav.webp" alt="" /></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="our-process-section our-process-timeline-section" id="process">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 our-process__content our-process-timeline__heading text-center reveal-up">
+            <span class="our-process__eyebrow">Our Process</span>
+            <h2>Here's exactly what happens when you work with us.</h2>
+            <span class="our-process__line"></span>
+            <p class="our-process__intro">No vague steps, no hidden surprises. Just a clear path from first conversation to launch.</p>
+          </div>
+          <div class="col-12">
+            <div class="our-process-timeline">
+              <article class="our-process-timeline__item is-left reveal-up">
+                <div class="our-process-timeline__card"><span>01</span><h3>You get in touch</h3><p>Fill the form or book a call. No commitment, no pressure.</p></div>
+              </article>
+              <article class="our-process-timeline__item is-right reveal-up">
+                <div class="our-process-timeline__card"><span>02</span><h3>Free 30-min call</h3><p>We learn about your business, your goals, and what's not working right now.</p></div>
+              </article>
+              <article class="our-process-timeline__item is-left reveal-up">
+                <div class="our-process-timeline__card"><span>03</span><h3>You receive a proposal</h3><p>A clear document: what we'll build, what's included, and exactly how much it costs.</p></div>
+              </article>
+              <article class="our-process-timeline__item is-right reveal-up">
+                <div class="our-process-timeline__card"><span>04</span><h3>Agreement signed</h3><p>Simple terms. Clear scope. Payment split into milestones.</p></div>
+              </article>
+              <article class="our-process-timeline__item is-left reveal-up">
+                <div class="our-process-timeline__card"><span>05</span><h3>We get to work</h3><p>Weekly updates. You see progress at every stage and approve before we move forward.</p></div>
+              </article>
+              <article class="our-process-timeline__item is-right reveal-up">
+                <div class="our-process-timeline__card"><span>06</span><h3>Launch &amp; handoff</h3><p>Your site goes live. You get all files, a walkthrough, and 30 days of included support.</p></div>
+              </article>
+            </div>
+          </div>
+          <div class="col-12 our-process__cta text-center py-4 py-md-5 reveal-up">
+            <a href="#" data-contact="book" class="btn btn-transparent-white btn-rounded btn-large">Book your free 30-min call</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="single-items innovative-contact-section center-block model-agency-parallax-bg" id="contact">
+      <div class="container">
+        <div class="row pb-5 innovative-contact__header">
+          <div class="col-12 col-md-7">
+            <span class="innovative-contact__eyebrow">Contact Us</span>
+            <h2>Let's Get In Touch</h2>
+            <p>Tell us what you are building and we will come back with a clear next step.</p>
+          </div>
+          <div class="col-12 col-md-5 innovative-contact__brand text-md-end pt-4 pt-md-0">
+            <h3>UX UI MATE</h3>
+            <p>Newcastle, UK / Sofia, Bulgaria</p>
+          </div>
+        </div>
+        <form class="innovative-contact-form contact-form" id="contact-form-data">
+          <div class="row pt-3">
+            <div class="col-md-4 innovative-contact-form__details">
+              <div class="form-group">
+                <input class="form-control" type="text" placeholder="Name" id="first_name" name="firstName" />
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="tel" placeholder="Phone Number" id="phone" name="userPhone" />
+              </div>
+              <div class="form-group">
+                <input class="form-control" type="email" placeholder="Email" required id="email" name="userEmail" />
+              </div>
+            </div>
+            <div class="col-12 col-md-6 offset-md-1 innovative-contact-form__message">
+              <div class="form-group">
+                <textarea class="form-control" placeholder="Type Your Message Here" id="message" name="userMessage"></textarea>
+              </div>
+            </div>
+            <div class="col-12 px-md-0">
+              <div class="innovative-contact__button pt-5 text-center text-lg-start">
+                <button type="button" class="btn btn-transparent-white btn-rounded btn-large text-capitalize contact_btn">Contact Now</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="innovative-footer" id="page-footer">
+      <h2 class="d-none">Footer</h2>
+      <div class="container">
+        <div class="row innovative-footer__top align-items-start">
+          <div class="col-md-6">
+            <div class="innovative-footer__brand reveal-up">
+              <h3>UX UI MATE</h3>
+              <p>Crafted for premium digital experiences.</p>
+            </div>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <div class="innovative-footer__studios reveal-up">
+              <span>Our Studios</span>
+              <p>Newcastle, UK <em>/</em> Sofia, Bulgaria</p>
+            </div>
+          </div>
+        </div>
+        <div class="innovative-footer__divider reveal-up"></div>
+        <div class="innovative-footer__meta reveal-up">
+          <p class="innovative-footer__copyright">© 2026 UX UI MATE. All rights reserved.</p>
+          <nav class="innovative-footer__legal" aria-label="Legal links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+            <a href="cookie-policy.html">Cookie Policy</a>
+          </nav>
+          <ul class="social-icons-simple innovative-footer__social" aria-label="Social media">
+            <li><a class="behance-text-hvr" href="https://www.behance.net/uxuimate" target="_blank" rel="noopener noreferrer" aria-label="Behance"><i class="fab fa-behance" aria-hidden="true"></i></a></li>
+            <li><a class="facebook-text-hvr" href="https://www.facebook.com/uxuimate" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+            <li><a class="linkedin-text-hvr" href="https://www.linkedin.com/company/ux-ui-mate/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a class="medium-text-hvr" href="https://medium.com/@uxuimate" target="_blank" rel="noopener noreferrer" aria-label="Medium"><i class="fab fa-medium-m" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <nav class="section-dots" aria-label="Page sections">
+      <ul>
+        <li>
+          <button type="button" data-section-dot="home" aria-label="Go to Home" aria-current="true"><span></span></button>
+        </li>
+        <li>
+          <button type="button" data-section-dot="projects" aria-label="Go to Projects"><span></span></button>
+        </li>
+        <li>
+          <button type="button" data-section-dot="services" aria-label="Go to Services"><span></span></button>
+        </li>
+        <li>
+          <button type="button" data-section-dot="about" aria-label="Go to About"><span></span></button>
+        </li>
+        <li>
+          <button type="button" data-section-dot="feedback" aria-label="Go to Feedback"><span></span></button>
+        </li>
+        <li>
+          <button type="button" data-section-dot="process" aria-label="Go to Process"><span></span></button>
+        </li>
+        <li>
+          <button type="button" data-section-dot="contact" aria-label="Go to Contact"><span></span></button>
+        </li>
+      </ul>
+    </nav>
+
+    <a class="scroll-top-arrow" href="#" id="scroll_top_btn" aria-label="Back to top">
+      <i class="fas fa-angle-up" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
 </html>

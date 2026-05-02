@@ -1,0 +1,71 @@
+/**
+ * UX UI MATE - global design tokens (brand colour + shared variables).
+ * Load before site.css so other stylesheets can use var(--uxm-*).
+ */
+:root {
+  --uxm-brand: #e8195a;
+  --uxm-brand-rgb: 232, 25, 90;
+  --uxm-brand-soft: rgba(232, 25, 90, 0.14);
+  --uxm-page-bg: #050506;
+  --uxm-text-on-dark: rgba(255, 255, 255, 0.92);
+  --uxm-text-muted-on-dark: rgba(210, 206, 218, 0.72);
+  /* Two-family stack: Montserrat (headings + UI), Roboto (body). Optional local Deltha in /fonts/Deltha is reserved, not loaded here. */
+  --uxm-font-heading: 'Montserrat', sans-serif;
+  --uxm-font-body: 'Roboto', sans-serif;
+  --uxm-font-ui: 'Montserrat', sans-serif;
+  --uxm-hero-heading-weight: 500;
+
+  --nav-accent: var(--uxm-brand);
+}
+
+/* Case study + dark inner flows: one heading stack (uses native h1-h3 + existing utility classes) */
+.video-case-page .services-section__intro h2,
+.video-case-page .works-section__header h2,
+.video-case-page .our-process-timeline__heading h2,
+.video-case-page .about-heading,
+.video-case-page .services-ux-theory__statement,
+.video-case-page .video-case-book-banner h2,
+.video-case-page .cinematic-brief h2,
+.video-case-page .nistravel-tools__header h2,
+.video-case-page .he-before-after__header h2,
+.video-case-page .he-video-showcase__header h2 {
+  color: var(--uxm-text-on-dark);
+  font-family: var(--uxm-font-heading);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.video-case-page .services-section__intro span,
+.video-case-page .works-section__eyebrow,
+.video-case-page .our-process__eyebrow,
+.video-case-page .about-studio__eyebrow,
+.video-case-page .services-ux-theory__eyebrow,
+.video-case-page .cinematic-eyebrow,
+.video-case-page .he-before-after__eyebrow,
+.video-case-page .he-video-showcase__eyebrow {
+  color: var(--uxm-brand);
+}
+
+.video-case-page .service-item h3,
+.video-case-page .works-card__content h3,
+.video-case-page .our-process-timeline__card h3,
+.video-case-page .services-ux-theory__title,
+.video-case-page .nistravel-tools__item h3 {
+  color: var(--uxm-text-on-dark);
+  font-family: var(--uxm-font-ui);
+  font-weight: 600;
+}
+
+.video-case-page .offer-hero__eyebrow {
+  color: var(--uxm-brand);
+}
+
+.video-case-page .video-case-meta-bar__num {
+  color: var(--uxm-brand);
+}
+
+/* Hero carousel: only first slide is h1 (SEO); others use h2 with identical visual class */
+.video-case-page .offer-hero h2.offer-hero__heading {
+  margin: 0 0 18px;
+}

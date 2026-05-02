@@ -1,0 +1,50 @@
+/* Static inner pages - fallbacks where React used WebGL or runtime-only behaviour */
+
+.contact-page__hero-shell .works-hero__webgl.works-hero__webgl--static {
+  background:
+    linear-gradient(102deg, transparent 40%, rgba(120, 200, 160, 0.07) 50%, transparent 60%),
+    radial-gradient(ellipse 120% 28% at 54% 46%, rgba(50, 85, 70, 0.38) 0%, transparent 62%),
+    radial-gradient(ellipse 32% 72% at 50% 48%, rgba(40, 70, 58, 0.26) 0%, transparent 55%),
+    linear-gradient(168deg, #040a08 0%, #030a07 42%, #050c0a 100%);
+}
+
+.contact-page__hero-shell .works-hero__webgl.works-hero__webgl--static canvas {
+  display: none;
+}
+
+/* Projects hero: centre the rotating word */
+.works-page .works-hero__cycle {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.works-page .works-hero__cycle-inner::after {
+  content: none;
+  display: none;
+}
+
+.works-page .works-hero__cycle-inner {
+  display: inline-block;
+  min-width: 6.5ch;
+  text-align: center;
+}
+
+.contact-page__rotating-wrap {
+  display: inline-block;
+  margin-left: 0.12em;
+  max-height: 1.2em;
+  overflow: hidden;
+  vertical-align: baseline;
+}
+
+.contact-page .works-hero__cycle-inner.contact-page__rotating-word {
+  display: inline-block;
+  min-width: 5.5ch;
+  text-align: left;
+}
+
+/* Works hero: accent word is solid brand pink (contact keeps gradient via .contact-page__rotating-word). */
+.works-page .works-hero__cycle-inner.text-brand-rose {
+  color: var(--works-pink, #e8195a);
+}

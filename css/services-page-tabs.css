@@ -1,0 +1,169 @@
+/* Services page: tab theming + swap visibility (matches React body.services-page--*). */
+
+body.page-services {
+  background-color: #04050a;
+}
+
+body.page-services #root {
+  min-height: 100%;
+}
+
+/* React bundle hid .services-carousel-page until jQuery ran; static HTML must show it. */
+body.page-services .main-page-section.services-carousel-page {
+  display: block;
+}
+
+/* Left rail uses real links (separate HTML per area) but same look as tab buttons */
+.services-carousel-page a.service-picker__tab {
+  box-sizing: border-box;
+  display: block;
+  text-decoration: none;
+}
+
+/* Nav accent per tab (matches React NavigationBar ACCENT_BY_THEME) */
+body.services-page--ux header.header-appear {
+  --nav-accent: var(--uxm-brand, #e8195a);
+}
+
+body.services-page--development header.header-appear {
+  --nav-accent: #a855f7;
+}
+
+body.services-page--branding header.header-appear {
+  --nav-accent: #92680a;
+}
+
+body.services-page--mobile header.header-appear {
+  --nav-accent: #3b82f6;
+}
+
+/* Fluid canvas placeholder (no WebGL in static build) */
+.services-fluid-bg--static {
+  background: radial-gradient(ellipse 85% 55% at 50% 38%, rgba(232, 25, 90, 0.12), transparent 62%), linear-gradient(165deg, #0a0609 0%, #050308 100%);
+  height: 100%;
+  inset: 0;
+  opacity: 1;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+body.services-page--development .services-fluid-bg--static {
+  background: radial-gradient(ellipse 85% 55% at 50% 38%, rgba(168, 85, 247, 0.14), transparent 62%), linear-gradient(165deg, #0a0609 0%, #050308 100%);
+}
+
+body.services-page--branding .services-fluid-bg--static {
+  background: radial-gradient(ellipse 85% 55% at 50% 38%, rgba(146, 104, 10, 0.16), transparent 62%), linear-gradient(165deg, #0a0609 0%, #050308 100%);
+}
+
+body.services-page--mobile .services-fluid-bg--static {
+  background: radial-gradient(ellipse 85% 55% at 50% 38%, rgba(59, 130, 246, 0.14), transparent 62%), linear-gradient(165deg, #0a0609 0%, #050308 100%);
+}
+
+/* Hero copy: one inner block visible per theme */
+.services-hero__inner-swap > .services-hero__inner {
+  display: none;
+}
+
+body.services-page--ux .services-hero__inner-swap > .services-hero__inner--ux,
+body.services-page--development .services-hero__inner-swap > .services-hero__inner--development,
+body.services-page--branding .services-hero__inner-swap > .services-hero__inner--branding,
+body.services-page--mobile .services-hero__inner-swap > .services-hero__inner--mobile {
+  display: block;
+}
+
+/* Theory backgrounds */
+#services-ux-theory {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body.services-page--ux #services-ux-theory {
+  background-image: url('../img/services/design-thinking.webp');
+}
+
+body.services-page--development #services-ux-theory {
+  background-image: url('../img/services/web-dev-theory.webp');
+}
+
+body.services-page--branding #services-ux-theory {
+  background-image: url('../img/services/branding-theory.webp');
+}
+
+body.services-page--mobile #services-ux-theory {
+  background-image: url('../img/services/mobile-saas-theory.webp');
+}
+
+/* Theory header + pillars swap */
+.svc-theory-swap {
+  display: none;
+}
+
+body.services-page--ux .svc-theory-swap--ux,
+body.services-page--development .svc-theory-swap--development,
+body.services-page--branding .svc-theory-swap--branding,
+body.services-page--mobile .svc-theory-swap--mobile {
+  display: block;
+}
+
+.svc-theory-pillars {
+  display: none;
+}
+
+body.services-page--ux .svc-theory-pillars--ux,
+body.services-page--development .svc-theory-pillars--development,
+body.services-page--branding .svc-theory-pillars--branding,
+body.services-page--mobile .svc-theory-pillars--mobile {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Deliverables block swap (container + header + tier row) */
+.svc-deliverables-swap {
+  display: none !important;
+}
+
+body.services-page--ux .svc-deliverables-swap--ux,
+body.services-page--development .svc-deliverables-swap--development,
+body.services-page--branding .svc-deliverables-swap--branding,
+body.services-page--mobile .svc-deliverables-swap--mobile {
+  display: block !important;
+}
+
+/* Testimonial swap */
+.svc-testimonial-swap {
+  display: none;
+}
+
+body.services-page--ux .svc-testimonial-swap--ux,
+body.services-page--development .svc-testimonial-swap--development,
+body.services-page--branding .svc-testimonial-swap--branding,
+body.services-page--mobile .svc-testimonial-swap--mobile {
+  display: block;
+}
+
+/* Process section background per tab */
+#services-our-process {
+  background-attachment: scroll;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body.services-page--ux #services-our-process {
+  background-image: url('../img/services/our-process-bg.webp');
+}
+
+body.services-page--development #services-our-process {
+  background-image: url('../img/services/our-process-webdev.webp');
+}
+
+body.services-page--branding #services-our-process {
+  background-image: url('../img/services/our-process-branding.webp');
+}
+
+body.services-page--mobile #services-our-process {
+  background-image: url('../img/services/our-process-mobile.webp');
+}

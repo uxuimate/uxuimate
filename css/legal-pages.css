@@ -1,0 +1,121 @@
+/* UX UI MATE - legal documents (privacy, terms, cookies) */
+.legal-page {
+  background: var(--uxm-page-bg, #050506);
+  min-height: 100vh;
+}
+
+.legal-hero {
+  padding: clamp(4.5rem, 12vw, 6.5rem) 0 2rem;
+  text-align: center;
+}
+
+.legal-hero__eyebrow {
+  color: var(--uxm-brand, #e8195a);
+  display: block;
+  font-family: var(--uxm-font-ui, "Montserrat", sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.legal-hero__title {
+  color: var(--uxm-text-on-dark, rgba(255, 255, 255, 0.92));
+  font-family: var(--uxm-font-heading, "Montserrat", sans-serif);
+  font-size: clamp(1.75rem, 4vw, 2.35rem);
+  font-weight: var(--uxm-hero-heading-weight, 500);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 auto;
+  max-width: 18ch;
+}
+
+.legal-hero__meta {
+  color: var(--uxm-text-muted-on-dark, rgba(210, 206, 218, 0.72));
+  font-family: var(--uxm-font-body, "Roboto", sans-serif);
+  font-size: 0.9rem;
+  margin: 1rem auto 0;
+  max-width: 36rem;
+}
+
+.legal-prose {
+  color: rgba(255, 255, 255, 0.88);
+  font-family: var(--uxm-font-body, "Roboto", sans-serif);
+  font-size: 1rem;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 0 1.25rem 4rem;
+}
+
+.legal-prose > p:first-of-type {
+  margin-top: 0;
+}
+
+.legal-prose h2 {
+  color: var(--uxm-text-on-dark, #fff);
+  font-family: var(--uxm-font-heading, "Montserrat", sans-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 2.25rem 0 0.75rem;
+}
+
+.legal-prose h2:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.legal-prose h3 {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--uxm-font-ui, "Montserrat", sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.legal-prose p {
+  margin: 0 0 1rem;
+}
+
+.legal-prose ul,
+.legal-prose ol {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+}
+
+.legal-prose li {
+  margin-bottom: 0.35rem;
+}
+
+.legal-prose a {
+  color: var(--uxm-brand, #e8195a);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.legal-prose a:hover,
+.legal-prose a:focus-visible {
+  color: #ff4d84;
+}
+
+.legal-prose .legal-note {
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 3px solid var(--uxm-brand, #e8195a);
+  font-size: 0.92rem;
+  margin: 1.5rem 0;
+  padding: 1rem 1.1rem;
+}
+
+.legal-cross {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: var(--uxm-font-ui, "Montserrat", sans-serif);
+  font-size: 0.9rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+}
+
+.legal-cross a {
+  font-weight: 500;
+  margin-right: 1rem;
+}
