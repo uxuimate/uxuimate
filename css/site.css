@@ -2485,6 +2485,21 @@ a.works-card.works-card--fan:active .works-card__link-btn {
     grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.service-item {
+    position: relative;
+}
+
+.service-item__link {
+    inset: -10px;
+    position: absolute;
+    z-index: 3;
+}
+
+.service-item__link:focus-visible {
+    outline: 2px solid rgba(232, 25, 90, 0.75);
+    outline-offset: 8px;
+}
+
 .service-item > span {
     color: #e8195a;
 }
@@ -4475,8 +4490,6 @@ body.custom-cursor-enabled * {
         display: none;
     }
 }
-
-
 
 
 
