@@ -11,6 +11,12 @@
   <meta property="og:description" content="A short, private review after a project wraps." />
   <meta property="og:url" content="https://www.uxuimate.com/feedback.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:image" content="https://www.uxuimate.com/img/feedback/team-bg.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Client review | UX UI MATE" />
+  <meta name="twitter:description" content="A short, private review after a project wraps." />
+  <meta name="twitter:image" content="https://www.uxuimate.com/img/feedback/team-bg.webp" />
   <link rel="icon" type="image/webp" href="img/logo-footer.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -100,7 +106,9 @@
           <span class="feedback-page__step-dot" data-feedback-step-dot aria-label="Step 3"></span>
         </div>
 
-        <form id="feedback-form" novalidate>
+        <form id="feedback-form" novalidate action="https://formsubmit.co/uxuimate@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Client review — UX UI MATE" />
+          <input type="hidden" name="_next" value="https://www.uxuimate.com/feedback-thank-you.html" />
           <div id="feedback-step-1" class="feedback-page__step is-active" data-step="1">
             <span class="feedback-page__step-label">Step 1 of 3 – Overall satisfaction</span>
 

@@ -69,7 +69,21 @@
     { id: 'page-footer', label: 'Footer' }
   ];
 
+  /** Cinematic Escapes: five content sections only (not works / contact / footer). */
+  var CINEMATIC_DOT_SECTIONS = [
+    { id: 'home', label: 'Hero' },
+    { id: 'brief', label: 'Brief' },
+    { id: 'visual-language', label: 'Stories' },
+    { id: 'gallery', label: 'Gallery' },
+    { id: 'outcomes', label: 'Outcomes' }
+  ];
+
   function resolveSections() {
+    if (root && root.classList.contains('video-case-page--cinematic')) {
+      return CINEMATIC_DOT_SECTIONS.filter(function (s) {
+        return document.getElementById(s.id);
+      });
+    }
     return CANDIDATES.filter(function (s) {
       return document.getElementById(s.id);
     });

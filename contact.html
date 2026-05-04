@@ -11,6 +11,12 @@
   <meta property="og:description" content="Send your brief or book a free 30-minute call - we reply within 24 hours." />
   <meta property="og:url" content="https://www.uxuimate.com/contact.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:image" content="https://www.uxuimate.com/img/contact-section-bg.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact UX UI MATE" />
+  <meta name="twitter:description" content="Send your brief or book a free 30-minute call - we reply within 24 hours." />
+  <meta name="twitter:image" content="https://www.uxuimate.com/img/contact-section-bg.webp" />
   <link rel="icon" type="image/webp" href="img/logo-footer.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -123,7 +129,7 @@
         <div class="contact-bar__grid">
           <div class="contact-bar__cell reveal-up">
             <span class="contact-bar__label">Email</span>
-            <p class="contact-bar__value"><a href="mailto:uxuimate@gmail.com">uxuimate@gmail.com</a></p>
+            <p class="contact-bar__value">uxuimate@gmail.com</p>
           </div>
           <div class="contact-bar__cell reveal-up" data-delay="0.05">
             <span class="contact-bar__label">WhatsApp &amp; mobile</span>
@@ -146,7 +152,9 @@
           <h2 id="contact-form-section-heading" class="contact-page__block-title">Send us your brief.</h2>
           <p class="contact-page__block-lede">We&apos;ll come back with a clear next step within 24 hours.</p>
         </header>
-        <form class="innovative-contact-form contact-form contact-form--extended" id="contact-form-data" data-validate-message="true">
+        <form class="innovative-contact-form contact-form contact-form--extended" id="contact-form-data" data-validate-message="true" action="https://formsubmit.co/uxuimate@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Website enquiry — extended brief" />
+          <input type="hidden" name="_next" value="https://www.uxuimate.com/contact-thank-you.html" />
           <div class="px-0 mb-3" id="result"></div>
           <div class="contact-form-wide__fields">
             <div class="contact-form__group contact-form__group--details" role="group" aria-labelledby="contact-details-label">
@@ -156,7 +164,7 @@
                   <input class="form-control" type="text" placeholder="Name" required id="first_name" name="firstName" autocomplete="name" />
                 </div>
                 <div class="form-group contact-form__field">
-                  <input class="form-control" type="email" placeholder="Email" required id="email" name="userEmail" autocomplete="email" />
+                  <input class="form-control" type="email" placeholder="Email" required id="email" name="email" autocomplete="email" />
                 </div>
                 <div class="form-group contact-form__field">
                   <input class="form-control" type="tel" placeholder="Phone" required id="phone" name="userPhone" autocomplete="tel" />
@@ -196,7 +204,7 @@
             </div>
           </div>
           <div class="contact-form__submit-wrap">
-            <button type="button" class="btn btn-transparent-white btn-rounded btn-large contact_btn contact-form__submit">Send your brief →</button>
+            <button type="submit" class="btn btn-transparent-white btn-rounded btn-large contact_btn contact-form__submit">Send your brief →</button>
           </div>
         </form>
       </div>

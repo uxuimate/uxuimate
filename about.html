@@ -11,6 +11,12 @@
   <meta property="og:description" content="Clarity, craft, and accountability - from first question to final handoff." />
   <meta property="og:url" content="https://www.uxuimate.com/about.html" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:image" content="https://www.uxuimate.com/img/about-studio-bg.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About UX UI MATE" />
+  <meta name="twitter:description" content="Clarity, craft, and accountability - from first question to final handoff." />
+  <meta name="twitter:image" content="https://www.uxuimate.com/img/about-studio-bg.webp" />
   <link rel="icon" type="image/webp" href="img/logo-footer.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -334,7 +340,9 @@
             <p>Newcastle, UK / Sofia, Bulgaria</p>
           </div>
         </div>
-        <form class="innovative-contact-form contact-form" id="contact-form-data">
+        <form class="innovative-contact-form contact-form" id="contact-form-data" action="https://formsubmit.co/uxuimate@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Website enquiry" />
+          <input type="hidden" name="_next" value="https://www.uxuimate.com/contact-thank-you.html" />
           <div class="row pt-3">
             <div class="col-12"><div class="col-sm-12 px-0" id="result"></div></div>
             <div class="col-md-4 innovative-contact-form__details">
@@ -345,7 +353,7 @@
                 <input class="form-control" type="tel" placeholder="Phone Number" id="phone" name="userPhone" autocomplete="tel" />
               </div>
               <div class="form-group">
-                <input class="form-control" type="email" placeholder="Email" required id="email" name="userEmail" autocomplete="email" />
+                <input class="form-control" type="email" placeholder="Email" required id="email" name="email" autocomplete="email" />
               </div>
             </div>
             <div class="col-12 col-md-6 offset-md-1 innovative-contact-form__message">
@@ -355,7 +363,7 @@
             </div>
             <div class="col-12 px-md-0">
               <div class="innovative-contact__button pt-5 text-center text-lg-start">
-                <button type="button" class="btn btn-transparent-white btn-rounded btn-large text-capitalize contact_btn">Contact Now</button>
+                <button type="submit" class="btn btn-transparent-white btn-rounded btn-large text-capitalize contact_btn">Contact Now</button>
               </div>
             </div>
           </div>

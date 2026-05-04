@@ -476,39 +476,4 @@
     a.setAttribute('href', CONTACT_BOOK);
   });
 
-  var contactForm = qs('#contact-form-data');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-    });
-  }
-
-  /* Contact form → mailto */
-  var contactBtn = qs('.contact_btn');
-  if (contactBtn) {
-    contactBtn.addEventListener('click', function () {
-      var name = (qs('#first_name') && qs('#first_name').value) || '';
-      var phone = (qs('#phone') && qs('#phone').value) || '';
-      var email = (qs('#email') && qs('#email').value) || '';
-      var message = (qs('#message') && qs('#message').value) || '';
-      if (!email) {
-        window.alert('Please enter your email so we can reply.');
-        return;
-      }
-      var body =
-        'Name: ' +
-        name +
-        '\r\nPhone: ' +
-        phone +
-        '\r\nEmail: ' +
-        email +
-        '\r\n\r\n' +
-        message;
-      window.location.href =
-        'mailto:uxuimate@gmail.com?subject=' +
-        encodeURIComponent('Website enquiry') +
-        '&body=' +
-        encodeURIComponent(body);
-    });
-  }
 })();

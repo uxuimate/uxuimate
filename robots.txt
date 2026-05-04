@@ -1,4 +1,6 @@
+# https://www.uxuimate.com/
 User-agent: *
 Allow: /
 
+# Thank-you views use HTML noindex; keep crawlable for redirect UX.
 Sitemap: https://www.uxuimate.com/sitemap.xml

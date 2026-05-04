@@ -2,6 +2,7 @@
 
 .feedback-page {
     background: var(--uxm-page-bg, #050506);
+    color-scheme: dark;
     min-height: 100vh;
 }
 
@@ -76,7 +77,17 @@
 .feedback-page__form-wrap {
     background: #03040a;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-    padding: clamp(3rem, 8vw, 4.5rem) clamp(1.25rem, 4vw, 2rem) clamp(4rem, 10vw, 5.5rem);
+    /* Global `section { overflow: hidden }` would clip the glass dropdown; footer follows in DOM and would paint over overflow. */
+    overflow: visible;
+    padding: clamp(3rem, 8vw, 4.5rem) clamp(1.25rem, 4vw, 2rem) clamp(8rem, 22vw, 14rem);
+    position: relative;
+    z-index: 10;
+}
+
+/* Keep footer below the form layer so the open communication list stays visible and clickable */
+.feedback-page > .innovative-footer {
+    position: relative;
+    z-index: 0;
 }
 
 .feedback-page__form-inner {
@@ -203,16 +214,22 @@
     margin-bottom: 0.55rem;
 }
 
+/* Same treatment as .innovative-contact-form .form-control — no solid “paper” fill */
 .feedback-page__input,
 .feedback-page__textarea {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    appearance: none;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 0;
-    color: #fdfcfa;
-    font-family: "Roboto", sans-serif;
+    box-shadow: none;
+    color: rgba(253, 252, 250, 0.95);
+    font-family: var(--uxm-font-body, "Roboto", sans-serif);
     font-size: 0.95rem;
+    font-weight: 300;
     min-height: 48px;
-    padding: 0.65rem 0.85rem;
+    padding: 0.65rem 0;
+    transition: border-color 0.25s ease;
     width: 100%;
 }
 
@@ -337,7 +354,7 @@
     position: absolute;
     right: 0;
     top: 100%;
-    z-index: 40;
+    z-index: 80;
 }
 
 .feedback-page__glass-select-panel[hidden] {
@@ -379,6 +396,7 @@
 
 .feedback-page__textarea {
     min-height: 120px;
+    padding-top: 0.85rem;
     resize: vertical;
 }
 
@@ -389,14 +407,44 @@
 
 .feedback-page__input:focus,
 .feedback-page__textarea:focus {
-    border-color: rgba(232, 25, 90, 0.55);
-    box-shadow: 0 0 0 1px rgba(232, 25, 90, 0.25);
+    border-bottom-color: rgba(255, 255, 255, 0.92);
+    box-shadow: none;
     outline: none;
+}
+
+/* Chrome / Edge autofill — otherwise a bright “paper” background overrides our styles */
+.feedback-page__input:-webkit-autofill,
+.feedback-page__input:-webkit-autofill:hover,
+.feedback-page__textarea:-webkit-autofill,
+.feedback-page__textarea:-webkit-autofill:hover {
+    -webkit-text-fill-color: rgba(253, 252, 250, 0.95) !important;
+    border: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 0 0 1000px #03040a inset !important;
+    caret-color: rgba(253, 252, 250, 0.95);
+    transition: background-color 99999s ease-out;
+}
+
+.feedback-page__input:-webkit-autofill:focus,
+.feedback-page__textarea:-webkit-autofill:focus {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.92) !important;
+}
+
+.feedback-page__input:autofill,
+.feedback-page__textarea:autofill {
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 1000px #03040a inset;
 }
 
 .feedback-page__field.is-invalid .feedback-page__input,
 .feedback-page__field.is-invalid .feedback-page__textarea {
-    border-color: rgba(232, 25, 90, 0.75);
+    border-bottom-color: rgba(232, 25, 90, 0.85);
+}
+
+.feedback-page__field.is-invalid .feedback-page__input:-webkit-autofill,
+.feedback-page__field.is-invalid .feedback-page__textarea:-webkit-autofill {
+    border-bottom-color: rgba(232, 25, 90, 0.85) !important;
 }
 
 .feedback-page__field.is-invalid .feedback-page__glass-select-trigger {

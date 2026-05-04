@@ -206,102 +206,6 @@
     return ok;
   }
 
-  var FEEDBACK_MAILTO = 'uxuimate@gmail.com';
-
-  function labelSatisfaction(v) {
-    var m = {
-      '5': 'Very satisfied',
-      '4': 'Satisfied',
-      '3': 'Somewhat satisfied',
-      '2': 'Neutral',
-      '1': 'Dissatisfied',
-    };
-    return m[v] || v || '(not set)';
-  }
-
-  function labelScope(v) {
-    var m = { 'yes-fully': 'Yes, fully', mostly: 'Mostly', partly: 'Partly', no: 'No' };
-    return m[v] || v || '(not set)';
-  }
-
-  function labelCommunication(v) {
-    var m = {
-      excellent: 'Excellent — always clear and proactive',
-      good: 'Good — mostly clear, minor gaps',
-      okay: 'Okay — some friction, but manageable',
-      poor: 'Poor — communication was a challenge',
-    };
-    return m[v] || v || '(not set)';
-  }
-
-  function labelAttribution(v) {
-    var m = {
-      'full-name-company': 'Full name and company',
-      'first-name-company': 'First name and company',
-      'company-only': 'Company only',
-      anonymous: 'Anonymous',
-    };
-    return m[v] || v || '(not set)';
-  }
-
-  function buildFeedbackEmailBody(p) {
-    var lines = [];
-    lines.push('=== Client review (website form) ===');
-    lines.push('Submitted (UTC): ' + (p.submittedAt || ''));
-    lines.push('');
-    lines.push('Name: ' + p.fullName);
-    lines.push('Email: ' + p.email);
-    lines.push('Company or project: ' + (p.company ? p.company : '(not provided)'));
-    lines.push('');
-    lines.push('Overall satisfaction: ' + labelSatisfaction(p.satisfaction));
-    lines.push('NPS (0–10): ' + (p.nps !== '' && p.nps != null ? p.nps : '(not set)'));
-    lines.push('Communication: ' + labelCommunication(p.communication));
-    lines.push('');
-    lines.push('Scope / expectations: ' + labelScope(p.scopeDelivery));
-    lines.push('');
-    lines.push('Most valuable outcome:');
-    lines.push(p.valuableOutcome || '');
-    lines.push('');
-    lines.push('What stood out:');
-    lines.push(p.stoodOut ? p.stoodOut : '(not provided)');
-    lines.push('');
-    lines.push('Words for someone considering working with us:');
-    lines.push(p.testimonialDraft ? p.testimonialDraft : '(not provided)');
-    lines.push('');
-    lines.push('Portfolio / case study feature allowed: ' + (p.portfolioFeature ? 'Yes' : 'No'));
-    lines.push('Attribution if published: ' + labelAttribution(p.attribution));
-    return lines.join('\r\n');
-  }
-
-  function openFeedbackMailto(subject, body) {
-    var href =
-      'mailto:' +
-      FEEDBACK_MAILTO +
-      '?subject=' +
-      encodeURIComponent(subject) +
-      '&body=' +
-      encodeURIComponent(body);
-    if (href.length > 65000) {
-      var cut = Math.max(500, Math.floor(body.length * 0.55));
-      body =
-        body.slice(0, cut) +
-        '\r\n\r\n[Message was shortened because it exceeded email link limits. Reply to this thread for the full text if needed.]';
-      href =
-        'mailto:' +
-        FEEDBACK_MAILTO +
-        '?subject=' +
-        encodeURIComponent(subject + ' (truncated)') +
-        '&body=' +
-        encodeURIComponent(body);
-    }
-    var a = document.createElement('a');
-    a.href = href;
-    a.rel = 'noopener noreferrer';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-
   function updateStepUI() {
     steps.forEach(function (el, i) {
       if (!el) return;
@@ -460,36 +364,18 @@
   });
 
   form.addEventListener('submit', function (e) {
-    e.preventDefault();
     if (!validateStep1() || !validateStep2() || !validateStep3()) {
+      e.preventDefault();
       if (!validateStep1()) goStep(1);
       else if (!validateStep2()) goStep(2);
       else goStep(3);
       return;
     }
-    var submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) submitBtn.disabled = true;
-
-    var payload = readValues();
-    payload.stepCompleted = 3;
-    payload.submittedAt = new Date().toISOString();
-
-    var subject = 'Client review: ' + String(payload.fullName || 'Client').slice(0, 100);
-    var body = buildFeedbackEmailBody(payload);
-    try {
-      openFeedbackMailto(subject, body);
-    } catch (err) {
-      if (typeof console !== 'undefined' && console.error) {
-        console.error('[feedback] mailto open failed', err);
-      }
-    }
-
     try {
       sessionStorage.removeItem(STORAGE_KEY);
     } catch (err2) {
       /* ignore */
     }
-    window.location.href = 'feedback-thank-you.html';
   });
 
   initCommunicationGlassSelect();
