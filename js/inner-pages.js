@@ -231,8 +231,8 @@
   }
 
   function formatBudget(n) {
-    var BUDGET_MAX = 20000;
-    if (n >= BUDGET_MAX) return '£20,000+';
+    var BUDGET_MAX = 50000;
+    if (n >= BUDGET_MAX) return '£50,000+';
     return '£' + Number(n).toLocaleString('en-GB');
   }
 
