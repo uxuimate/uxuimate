@@ -844,3 +844,20 @@
     }
 
 }
+
+/* Tablet / small laptop: show full catalog stack (no horizontal mosaic strip). */
+@media (max-width: 991px) {
+    .works-showcase__grid--catalog {
+        grid-template-columns: 1fr;
+        row-gap: clamp(20px, 4vw, 32px);
+    }
+
+    .works-showcase__grid--catalog .works-showcase__cell,
+    .works-showcase__grid--catalog .works-showcase__cell--wl,
+    .works-showcase__grid--catalog .works-showcase__cell--nr,
+    .works-showcase__grid--catalog .works-showcase__cell--nl,
+    .works-showcase__grid--catalog .works-showcase__cell--wr,
+    .works-showcase__grid--catalog .works-showcase__cell--span-all {
+        grid-column: 1 / -1;
+    }
+}

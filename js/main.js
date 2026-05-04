@@ -275,34 +275,198 @@
     updateBackToTopVisibility();
   }
 
-  /* Works card tilt - only custom properties are set per pointer (no layout in HTML). */
+  /* Works card tilt: fine pointer + real hover only (avoids fighting touch scroll on phones/tablets). */
   var cards = qsa('.works-card--fan');
-  cards.forEach(function (card) {
-    function onEnter() {
-      var rect = card.getBoundingClientRect();
-      card._rect = rect;
+  var cardTiltMql = window.matchMedia('(hover: hover) and (pointer: fine)');
+  var worksCardTiltBound = false;
+  function bindWorksCardTilt() {
+    if (worksCardTiltBound || !cardTiltMql.matches) return;
+    worksCardTiltBound = true;
+    cards.forEach(function (card) {
+      function onEnter() {
+        var rect = card.getBoundingClientRect();
+        card._rect = rect;
+      }
+      function onMove(ev) {
+        var rect = card._rect || card.getBoundingClientRect();
+        var x = ev.clientX - rect.left;
+        var y = ev.clientY - rect.top;
+        var rotateX = ((y / rect.height) - 0.5) * -8;
+        var rotateY = ((x / rect.width) - 0.5) * 10;
+        card.style.setProperty('--tilt-x', rotateX + 'deg');
+        card.style.setProperty('--tilt-y', rotateY + 'deg');
+        card.style.setProperty('--glow-x', x + 'px');
+        card.style.setProperty('--glow-y', y + 'px');
+      }
+      function onLeave() {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+        card.style.setProperty('--glow-x', '50%');
+        card.style.setProperty('--glow-y', '0%');
+      }
+      card.addEventListener('pointerenter', onEnter);
+      card.addEventListener('pointermove', onMove);
+      card.addEventListener('pointerleave', onLeave);
+    });
+  }
+  if (cardTiltMql.matches) {
+    bindWorksCardTilt();
+  } else if (cardTiltMql.addEventListener) {
+    cardTiltMql.addEventListener('change', bindWorksCardTilt);
+  }
+
+  /* Selected projects: scroll-synced 3D on tablet/mobile + dot pagination */
+  var worksFanEl = qs('.works-section .works-fan');
+  var worksFanItemEls = qsa('.works-section .works-fan__item');
+  var worksFanBullets = qsa('.works-fan-pagination [data-works-fan-index]');
+  var worksFanMql = window.matchMedia('(max-width: 991px)');
+  var worksFanReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var worksFanRaf = 0;
+
+  function worksFanActiveIndex() {
+    if (!worksFanEl) return 0;
+    var fanRect = worksFanEl.getBoundingClientRect();
+    var centerX = fanRect.left + fanRect.width / 2;
+    var bestIdx = 0;
+    var bestDist = Number.POSITIVE_INFINITY;
+    worksFanItemEls.forEach(function (item, idx) {
+      var r = item.getBoundingClientRect();
+      var mid = r.left + r.width / 2;
+      var d = Math.abs(mid - centerX);
+      if (d < bestDist) {
+        bestDist = d;
+        bestIdx = idx;
+      }
+    });
+    return bestIdx;
+  }
+
+  function syncWorksFanBullets(active) {
+    worksFanBullets.forEach(function (btn, idx) {
+      var on = idx === active;
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+
+  function applyWorksFanCarousel() {
+    if (!worksFanEl || worksFanItemEls.length < 2) return;
+    if (!worksFanMql.matches) {
+      worksFanEl.classList.remove('works-fan--carousel');
+      worksFanEl.removeAttribute('data-active-index');
+      worksFanItemEls.forEach(function (item) {
+        item.classList.remove('is-works-fan-active');
+        item.style.transform = '';
+        item.style.opacity = '';
+        item.style.zIndex = '';
+      });
+      worksFanBullets.forEach(function (btn) {
+        btn.classList.remove('is-active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      return;
     }
-    function onMove(ev) {
-      var rect = card._rect || card.getBoundingClientRect();
-      var x = ev.clientX - rect.left;
-      var y = ev.clientY - rect.top;
-      var rotateX = ((y / rect.height) - 0.5) * -8;
-      var rotateY = ((x / rect.width) - 0.5) * 10;
-      card.style.setProperty('--tilt-x', rotateX + 'deg');
-      card.style.setProperty('--tilt-y', rotateY + 'deg');
-      card.style.setProperty('--glow-x', x + 'px');
-      card.style.setProperty('--glow-y', y + 'px');
+
+    worksFanEl.classList.add('works-fan--carousel');
+    var active = worksFanActiveIndex();
+    worksFanEl.setAttribute('data-active-index', String(active));
+
+    worksFanItemEls.forEach(function (item, idx) {
+      item.classList.toggle('is-works-fan-active', idx === active);
+    });
+
+    var motionOff = worksFanReduce.matches;
+    if (motionOff) {
+      worksFanItemEls.forEach(function (item, idx) {
+        var rel = idx - active;
+        var away = Math.abs(rel);
+        var sc = away === 0 ? 1.03 : away === 1 ? 0.97 : 0.94;
+        item.style.transform = 'translateZ(0) scale(' + sc + ')';
+        item.style.opacity = away === 0 ? '1' : String(Math.max(0.82, 0.92 - away * 0.05));
+        item.style.zIndex = away === 0 ? '5' : String(Math.max(1, 3 - away));
+      });
+      syncWorksFanBullets(active);
+      return;
     }
-    function onLeave() {
-      card.style.setProperty('--tilt-x', '0deg');
-      card.style.setProperty('--tilt-y', '0deg');
-      card.style.setProperty('--glow-x', '50%');
-      card.style.setProperty('--glow-y', '0%');
+
+    worksFanItemEls.forEach(function (item, idx) {
+      var rel = idx - active;
+      var ry = 0;
+      var tz = 0;
+      var sc = 1;
+      var op = 1;
+      /* Shallower Z than desktop fan — less clipping inside overflow-x scrollport on small screens. */
+      if (rel < 0) {
+        ry = 8 * -rel;
+        tz = -8 - 7 * (-rel - 1);
+        sc = 0.96 - 0.03 * (-rel - 1);
+        op = 0.9 - 0.05 * (-rel - 1);
+      } else if (rel > 0) {
+        ry = -8 * rel;
+        tz = -8 - 7 * (rel - 1);
+        sc = 0.96 - 0.03 * (rel - 1);
+        op = 0.9 - 0.05 * (rel - 1);
+      } else {
+        ry = 0;
+        tz = 18;
+        sc = 1.04;
+        op = 1;
+      }
+      var z = rel === 0 ? 5 : Math.max(1, 4 - Math.abs(rel));
+      item.style.transform =
+        'rotateY(' + ry + 'deg) translateZ(' + tz + 'px) scale(' + sc + ')';
+      item.style.opacity = String(Math.max(0.82, Math.min(1, op)));
+      item.style.zIndex = String(z);
+    });
+
+    syncWorksFanBullets(active);
+  }
+
+  function scheduleWorksFanCarousel() {
+    if (worksFanRaf) return;
+    worksFanRaf = window.requestAnimationFrame(function () {
+      worksFanRaf = 0;
+      applyWorksFanCarousel();
+    });
+  }
+
+  function bindWorksFanMql(mql, fn) {
+    if (mql.addEventListener) mql.addEventListener('change', fn);
+    else if (mql.addListener) mql.addListener(fn);
+  }
+
+  if (worksFanEl && worksFanItemEls.length) {
+    bindWorksFanMql(worksFanMql, applyWorksFanCarousel);
+    bindWorksFanMql(worksFanReduce, applyWorksFanCarousel);
+    worksFanEl.addEventListener('scroll', scheduleWorksFanCarousel, { passive: true });
+    worksFanEl.addEventListener('scrollend', scheduleWorksFanCarousel, { passive: true });
+    window.addEventListener('scroll', scheduleWorksFanCarousel, { passive: true });
+    window.addEventListener('resize', scheduleWorksFanCarousel);
+    worksFanBullets.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var i = parseInt(btn.getAttribute('data-works-fan-index'), 10);
+        if (!isNaN(i) && worksFanItemEls[i]) {
+          worksFanItemEls[i].scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center'
+          });
+        }
+      });
+    });
+    if (typeof IntersectionObserver !== 'undefined') {
+      var fanIo = new IntersectionObserver(
+        function () {
+          scheduleWorksFanCarousel();
+        },
+        { root: worksFanEl, rootMargin: '0px', threshold: [0.08, 0.35, 0.65, 0.92] }
+      );
+      worksFanItemEls.forEach(function (item) {
+        fanIo.observe(item);
+      });
     }
-    card.addEventListener('pointerenter', onEnter);
-    card.addEventListener('pointermove', onMove);
-    card.addEventListener('pointerleave', onLeave);
-  });
+    applyWorksFanCarousel();
+  }
 
   /* Contact CTA links in hero */
   qsa('a[data-contact="brief"]').forEach(function (a) {

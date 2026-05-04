@@ -532,6 +532,29 @@ header.header-appear .navbar.navbar-top-default .navbar-nav .nav-link::after {
     margin: 0 0 2.5rem 0;
 }
 
+.side-menu__logo {
+    display: block;
+    left: clamp(1.1rem, 4vw, 2.75rem);
+    line-height: 0;
+    position: absolute;
+    top: clamp(1.35rem, 3.2vw, 1.75rem);
+    z-index: 2;
+}
+
+.side-menu__logo:focus-visible {
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px rgba(232, 25, 90, 0.55);
+    outline: none;
+}
+
+.side-menu__logo-img {
+    display: block;
+    height: auto;
+    max-height: 44px;
+    width: auto;
+    max-width: min(148px, 42vw);
+}
+
 /*Side overlay*/
 #close_side_menu {
     position: fixed;
@@ -2041,6 +2064,8 @@ body:has(.services-carousel-page) .scroll-top-arrow {
     }
 }
 
+/* Beat generic `section { overflow: hidden }` — 3D fan + image lift need visible overflow. */
+section.works-section,
 .works-section {
     background: #080808;
     box-sizing: border-box;
@@ -2147,66 +2172,68 @@ body:has(.services-carousel-page) .scroll-top-arrow {
     z-index: 1;
 }
 
-/* Idle: centre forward, sides turned toward middle */
-.works-fan__item--0 {
-    transform: rotateY(16deg) translateZ(-36px) scale(0.93);
-}
+@media (min-width: 992px) {
+    /* Idle: centre forward, sides turned toward middle */
+    .works-fan__item--0 {
+        transform: rotateY(16deg) translateZ(-36px) scale(0.93);
+    }
 
-.works-fan__item--1 {
-    transform: rotateY(0deg) translateZ(52px) scale(1.03);
-    z-index: 3;
-}
+    .works-fan__item--1 {
+        transform: rotateY(0deg) translateZ(52px) scale(1.03);
+        z-index: 3;
+    }
 
-.works-fan__item--2 {
-    transform: rotateY(-16deg) translateZ(-36px) scale(0.93);
-}
+    .works-fan__item--2 {
+        transform: rotateY(-16deg) translateZ(-36px) scale(0.93);
+    }
 
-/* Hover left: card 0 leads; others yaw toward it */
-.works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 {
-    transform: rotateY(5deg) translateZ(88px) scale(1.05);
-    z-index: 5;
-}
+    /* Hover left: card 0 leads; others yaw toward it */
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 {
+        transform: rotateY(5deg) translateZ(88px) scale(1.05);
+        z-index: 5;
+    }
 
-.works-fan:has(.works-fan__item--0:hover) .works-fan__item--1 {
-    transform: rotateY(-12deg) translateZ(-28px) scale(0.9);
-    z-index: 1;
-}
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--1 {
+        transform: rotateY(-12deg) translateZ(-28px) scale(0.9);
+        z-index: 1;
+    }
 
-.works-fan:has(.works-fan__item--0:hover) .works-fan__item--2 {
-    transform: rotateY(-20deg) translateZ(-52px) scale(0.87);
-    z-index: 0;
-}
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--2 {
+        transform: rotateY(-20deg) translateZ(-52px) scale(0.87);
+        z-index: 0;
+    }
 
-/* Hover centre */
-.works-fan:has(.works-fan__item--1:hover) .works-fan__item--0 {
-    transform: rotateY(20deg) translateZ(-40px) scale(0.9);
-    z-index: 1;
-}
+    /* Hover centre */
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--0 {
+        transform: rotateY(20deg) translateZ(-40px) scale(0.9);
+        z-index: 1;
+    }
 
-.works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 {
-    transform: rotateY(0deg) translateZ(96px) scale(1.08);
-    z-index: 5;
-}
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 {
+        transform: rotateY(0deg) translateZ(96px) scale(1.08);
+        z-index: 5;
+    }
 
-.works-fan:has(.works-fan__item--1:hover) .works-fan__item--2 {
-    transform: rotateY(-20deg) translateZ(-40px) scale(0.9);
-    z-index: 1;
-}
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--2 {
+        transform: rotateY(-20deg) translateZ(-40px) scale(0.9);
+        z-index: 1;
+    }
 
-/* Hover right */
-.works-fan:has(.works-fan__item--2:hover) .works-fan__item--0 {
-    transform: rotateY(20deg) translateZ(-52px) scale(0.87);
-    z-index: 0;
-}
+    /* Hover right */
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--0 {
+        transform: rotateY(20deg) translateZ(-52px) scale(0.87);
+        z-index: 0;
+    }
 
-.works-fan:has(.works-fan__item--2:hover) .works-fan__item--1 {
-    transform: rotateY(12deg) translateZ(-28px) scale(0.9);
-    z-index: 1;
-}
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--1 {
+        transform: rotateY(12deg) translateZ(-28px) scale(0.9);
+        z-index: 1;
+    }
 
-.works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 {
-    transform: rotateY(-5deg) translateZ(88px) scale(1.05);
-    z-index: 5;
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 {
+        transform: rotateY(-5deg) translateZ(88px) scale(1.05);
+        z-index: 5;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2228,7 +2255,7 @@ body:has(.services-carousel-page) .scroll-top-arrow {
     display: flex;
     flex-direction: column;
     height: 100%;
-    min-height: clamp(520px, 58vh, 720px);
+    min-height: clamp(460px, 52vh, 720px);
     overflow: hidden;
     position: relative;
     transform: translate3d(0, 0, 0) scale(0.84) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
@@ -2270,32 +2297,44 @@ body:has(.services-carousel-page) .scroll-top-arrow {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 28%, rgba(255, 255, 255, 0.04) 62%, transparent);
 }
 
-.works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan,
-.works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan,
-.works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan {
-    box-shadow: 0 0 46px rgba(240, 51, 181, 0.22), 0 0 92px rgba(3, 169, 245, 0.2), 0 28px 80px rgba(0, 0, 0, 0.58), 0 90px 160px rgba(0, 0, 0, 0.48);
-    opacity: 1;
-    transform: translate3d(0, 0, 14px) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-}
+@media (min-width: 992px) {
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan,
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan,
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan {
+        box-shadow:
+            0 0 46px rgba(240, 51, 181, 0.22),
+            0 0 92px rgba(3, 169, 245, 0.2),
+            0 28px 80px rgba(0, 0, 0, 0.58),
+            0 90px 160px rgba(0, 0, 0, 0.48);
+        opacity: 1;
+        transform: translate3d(0, 0, 14px) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    }
 
-.works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::after,
-.works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan::after,
-.works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan::after {
-    background: radial-gradient(circle at 18% 12%, rgba(240, 51, 181, 0.26), transparent 30%), radial-gradient(circle at 86% 6%, rgba(3, 169, 245, 0.24), transparent 28%), linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 28%, rgba(255, 255, 255, 0.05) 62%, transparent);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 0 rgba(255, 255, 255, 0.07), 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::after,
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan::after,
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan::after {
+        background:
+            radial-gradient(circle at 18% 12%, rgba(240, 51, 181, 0.26), transparent 30%),
+            radial-gradient(circle at 86% 6%, rgba(3, 169, 245, 0.24), transparent 28%),
+            linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 28%, rgba(255, 255, 255, 0.05) 62%, transparent);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.22),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.07),
+            0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
 
-.works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::before,
-.works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan::before,
-.works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan::before {
-    opacity: 1;
-}
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::before,
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan::before,
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan::before {
+        opacity: 1;
+    }
 
-.works-fan:has(.works-fan__item--0:hover) .works-fan__item:not(.works-fan__item--0) .works-card--fan,
-.works-fan:has(.works-fan__item--1:hover) .works-fan__item:not(.works-fan__item--1) .works-card--fan,
-.works-fan:has(.works-fan__item--2:hover) .works-fan__item:not(.works-fan__item--2) .works-card--fan {
-    opacity: 0.72;
-    transform: translate3d(0, 0, 0) scale(0.98) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item:not(.works-fan__item--0) .works-card--fan,
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item:not(.works-fan__item--1) .works-card--fan,
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item:not(.works-fan__item--2) .works-card--fan {
+        opacity: 0.72;
+        transform: translate3d(0, 0, 0) scale(0.98) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    }
 }
 
 .works-card__image {
@@ -2304,7 +2343,7 @@ body:has(.services-carousel-page) .scroll-top-arrow {
     background-size: cover;
     backface-visibility: hidden;
     flex: 1 1 auto;
-    min-height: clamp(400px, 44vh, 580px);
+    min-height: clamp(280px, 36vh, 580px);
     position: relative;
     transform: translate3d(0, 0, 22px) scale(1.02);
     width: 100%;
@@ -2330,11 +2369,13 @@ body:has(.services-carousel-page) .scroll-top-arrow {
 
 .works-card__content h3 {
     color: #ffffff;
-    font-size: clamp(1.45rem, 2.4vw, 2.15rem);
+    font-size: clamp(1.15rem, 0.88rem + 2.1vw, 2.05rem);
     font-weight: 400;
     letter-spacing: -0.015em;
-    line-height: 1.05;
+    line-height: 1.12;
     margin-bottom: 24px;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
 }
 
 .works-card__link-btn {
@@ -3735,9 +3776,50 @@ a.works-card.works-card--fan:active .works-card__link-btn {
     display: none;
 }
 
-/* Selected works: hint only with the mobile horizontal strip (not 768-991 desktop fan). */
-.works-section .works-section__fan-wrap > .mobile-card-slider__hint {
+/* Selected works: dot page indicator (shown from 991px down in media block). */
+.works-section .works-fan-pagination {
     display: none;
+}
+
+/* Apple-style page control: inactive dot, active stretches to a soft capsule. */
+.uxm-page-dots {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 7px;
+    justify-content: center;
+    padding: 7px 12px;
+}
+
+.uxm-page-dot {
+    background: rgba(255, 255, 255, 0.32);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    display: block;
+    flex-shrink: 0;
+    height: 7px;
+    padding: 0;
+    transition:
+        width 0.28s cubic-bezier(0.2, 0.85, 0.25, 1),
+        background 0.22s ease,
+        transform 0.22s ease;
+    width: 7px;
+}
+
+.uxm-page-dot:hover {
+    background: rgba(255, 255, 255, 0.48);
+}
+
+.uxm-page-dot:focus-visible {
+    box-shadow: 0 0 0 2px rgba(232, 25, 90, 0.45);
+    outline: none;
+}
+
+.uxm-page-dot.is-active {
+    background: rgba(255, 255, 255, 0.92);
+    width: 24px;
 }
 
 /* Responsive text clamping for desktop/web layouts to prevent card distortion. */
@@ -3785,28 +3867,31 @@ a.works-card.works-card--fan:active .works-card__link-btn {
 }
 
 @media (max-width: 991px) {
-    .mobile-card-slider {
+    /* Works catalog is a static grid on small screens — never force it into a horizontal strip. */
+    .mobile-card-slider:not(.works-showcase__grid--catalog) {
         display: flex !important;
         flex-wrap: nowrap !important;
-        gap: 12px;
+        gap: clamp(16px, 4vw, 24px);
         margin-left: 0;
         margin-right: 0;
         overflow-x: auto;
         padding-bottom: 8px;
+        padding-inline: clamp(4px, 1.5vw, 12px);
+        scroll-padding-inline: clamp(12px, 4vw, 28px);
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
     }
 
-    .mobile-card-slider::-webkit-scrollbar {
+    .mobile-card-slider:not(.works-showcase__grid--catalog)::-webkit-scrollbar {
         display: none;
     }
 
-    .mobile-card-slide {
+    .mobile-card-slider:not(.works-showcase__grid--catalog) > .mobile-card-slide {
         display: block;
-        flex: 0 0 84vw !important;
-        max-width: 84vw !important;
-        min-width: 84vw !important;
-        scroll-snap-align: start;
+        flex: 0 0 min(82vw, 360px) !important;
+        max-width: min(82vw, 360px) !important;
+        min-width: min(82vw, 360px) !important;
+        scroll-snap-align: center;
     }
 
     .contact-next__row.mobile-card-slider .contact-next__rule {
@@ -3826,7 +3911,13 @@ a.works-card.works-card--fan:active .works-card__link-btn {
         text-transform: uppercase;
     }
 
-    .mobile-card-slider__dots {
+    .mobile-card-slider__dots.uxm-page-dots {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Legacy span dots (replaced by JS with .uxm-page-dot buttons where hints init). */
+    .mobile-card-slider__dots:not(.uxm-page-dots) {
         align-items: center;
         display: inline-flex;
         gap: 6px;
@@ -3848,7 +3939,7 @@ a.works-card.works-card--fan:active .works-card__link-btn {
     }
 
     /* Keep horizontal scroll behavior on mobile slider rows. */
-    .mobile-card-slider {
+    .mobile-card-slider:not(.works-showcase__grid--catalog) {
         overflow-x: auto !important;
         overflow-y: visible;
         width: 100%;
@@ -4076,6 +4167,182 @@ body.custom-cursor-enabled * {
     width: 6px;
 }
 
+/*
+ * Selected projects fan: below desktop the three-up 3D row stays too cramped on tablets.
+ * From 991px down, use the same horizontal snap strip as phones so cards get a readable width.
+ */
+@media screen and (max-width: 991px) {
+    /* Block layout: avoids flex-grow on __fan-wrap stretching empty space below the swipe hint. */
+    .works-section {
+        display: block;
+        min-height: auto;
+        padding: clamp(72px, 10vw, 96px) clamp(18px, 4vw, 28px) clamp(56px, 8vw, 72px);
+    }
+
+    .works-section__header {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: clamp(28px, 4vw, 40px);
+        text-align: left;
+    }
+
+    .works-section__header h2 {
+        font-size: clamp(1.65rem, 5vw + 0.5rem, 3.2rem);
+    }
+
+    .works-section__fan-wrap {
+        flex: none;
+        margin-left: calc(-1 * clamp(18px, 4vw, 28px));
+        margin-right: calc(-1 * clamp(18px, 4vw, 28px));
+        max-width: none;
+        overflow: visible;
+        padding-bottom: clamp(20px, 4vw, 40px);
+        padding-top: clamp(40px, 9vw, 72px);
+        width: calc(100% + 2 * clamp(18px, 4vw, 28px));
+    }
+
+    /* Horizontal snap strip + 3D perspective (item transforms set in main.js when .works-fan--carousel). */
+    .works-section .works-fan {
+        align-items: stretch;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: clamp(28px, 7vw, 48px);
+        margin: 0;
+        max-width: none;
+        overflow-x: auto;
+        overflow-y: visible;
+        overscroll-behavior-x: contain;
+        /* Room for translateZ + scaled centre card — scrollports clip 3D without padding. */
+        padding: clamp(36px, 8vw, 64px) clamp(24px, 6vw, 52px) clamp(32px, 7vw, 56px);
+        perspective: clamp(880px, 125vw, 1500px);
+        perspective-origin: 50% 42%;
+        scroll-padding-inline: clamp(28px, 7vw, 56px);
+        scroll-snap-type: x mandatory;
+        touch-action: pan-x;
+        transform-style: preserve-3d;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    /* Prefer horizontal scroll over link activation when dragging on cards. */
+    .works-section .works-fan--carousel a.works-card.works-card--fan {
+        touch-action: pan-x pinch-zoom;
+    }
+
+    .works-section .works-fan::-webkit-scrollbar {
+        display: none;
+    }
+
+    .works-section .works-fan__item {
+        flex: 0 0 min(68vw, 280px);
+        max-width: none;
+        scroll-snap-align: center;
+        transform-style: preserve-3d;
+        transition:
+            transform 0.55s cubic-bezier(0.2, 0.85, 0.25, 1),
+            opacity 0.45s ease,
+            filter 0.45s ease;
+        width: auto;
+        will-change: transform;
+    }
+
+    .works-section .works-fan--carousel .works-card.works-card--fan {
+        box-shadow:
+            0 18px 40px rgba(0, 0, 0, 0.42),
+            0 48px 100px rgba(0, 0, 0, 0.38);
+        filter: saturate(1.02);
+        opacity: 1 !important;
+        transform: translate3d(0, 0, 0) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) !important;
+        transition:
+            transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.45s ease,
+            opacity 0.45s ease;
+    }
+
+    .works-section .works-fan--carousel .works-card.works-card--fan::after {
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    /* Scroll-centred “focus” (touch / tablet has no desktop fan hover). */
+    .works-section .works-fan--carousel .works-fan__item.is-works-fan-active .works-card.works-card--fan {
+        box-shadow:
+            0 0 40px rgba(240, 51, 181, 0.2),
+            0 0 80px rgba(3, 169, 245, 0.18),
+            0 22px 70px rgba(0, 0, 0, 0.55),
+            0 72px 140px rgba(0, 0, 0, 0.45);
+    }
+
+    .works-section .works-fan--carousel .works-fan__item.is-works-fan-active .works-card.works-card--fan::after {
+        background:
+            radial-gradient(circle at 18% 12%, rgba(240, 51, 181, 0.24), transparent 32%),
+            radial-gradient(circle at 86% 8%, rgba(3, 169, 245, 0.22), transparent 30%),
+            linear-gradient(135deg, rgba(255, 255, 255, 0.17), transparent 28%, rgba(255, 255, 255, 0.05) 62%, transparent);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.22),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.07),
+            0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .works-section .works-fan--carousel .works-fan__item.is-works-fan-active .works-card.works-card--fan::before {
+        opacity: 0.88;
+    }
+
+    .works-section .works-fan-pagination {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 8px;
+        padding: 0 clamp(18px, 4vw, 28px) 4px;
+    }
+
+    .works-section .works-fan-pagination__hint {
+        color: rgba(255, 255, 255, 0.52);
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    /* Case study “More works” uses .works-fan, not .mobile-card-slider — hide copy-pasted slider hints. */
+    .works-section__fan-wrap > .mobile-card-slider__hint {
+        display: none !important;
+    }
+
+    .works-section .works-card {
+        min-height: clamp(420px, 58vh, 560px);
+    }
+
+    .works-section .works-card__image {
+        min-height: clamp(240px, 42vw, 400px);
+        transform: translate3d(0, 0, 6px) scale(1.008);
+    }
+
+    .works-section .works-card__content {
+        padding: clamp(20px, 3.5vw, 36px) clamp(18px, 3vw, 32px);
+    }
+
+    .works-section .works-card__content > span:first-of-type {
+        font-size: clamp(0.65rem, 1.6vw, 0.76rem);
+        letter-spacing: 0.1em;
+        margin-bottom: clamp(8px, 1.5vw, 14px);
+    }
+
+    .works-section .works-card__content h3 {
+        font-size: clamp(1.1rem, 2.4vw + 0.35rem, 1.65rem);
+        line-height: 1.15;
+        margin-bottom: clamp(14px, 2.5vw, 22px);
+    }
+
+    .works-section .works-card__link-btn {
+        font-size: clamp(0.68rem, 1.4vw, 0.76rem);
+        padding: 0.48rem 0.95rem;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .offer-hero__panel {
         margin: 0 16px;
@@ -4089,134 +4356,8 @@ body.custom-cursor-enabled * {
         font-size: 1rem;
     }
 
-    /* Block layout: avoids flex-grow on __fan-wrap stretching empty space below the swipe hint. */
-    .works-section {
-        display: block;
-        min-height: auto;
-        padding: 96px 20px 72px;
-    }
-
-    .works-section__header {
-        align-items: flex-start;
-        flex-direction: column;
-        margin-bottom: 36px;
-        text-align: left;
-    }
-
-    .works-section__fan-wrap {
-        flex: none;
-        margin-left: -20px;
-        margin-right: -20px;
-        max-width: none;
-        padding-bottom: 12px;
-        padding-top: clamp(28px, 6vh, 52px);
-        width: calc(100% + 40px);
-    }
-
-    /* Horizontal snap strip: each card keeps desktop proportions (no stacked “fan” distortion). */
-    .works-section .works-fan {
-        align-items: stretch;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        gap: 16px;
-        margin: 0;
-        max-width: none;
-        overflow-x: auto;
-        overflow-y: visible;
-        padding: 4px 20px 18px;
-        perspective: none;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-    }
-
-    .works-section .works-fan::-webkit-scrollbar {
-        display: none;
-    }
-
     .works-section .works-fan__item {
-        flex: 0 0 min(88vw, 380px);
-        max-width: none;
-        scroll-snap-align: center;
-        width: auto;
-    }
-
-    .works-fan__item--0,
-    .works-fan__item--1,
-    .works-fan__item--2,
-    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0,
-    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--1,
-    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--2,
-    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--0,
-    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1,
-    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--2,
-    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--0,
-    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--1,
-    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 {
-        transform: none;
-        z-index: auto;
-    }
-
-    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0,
-    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1,
-    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 {
-        transform: scale(1.02);
-        z-index: 2;
-    }
-
-    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan,
-    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan,
-    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan {
-        box-shadow:
-            0 0 40px rgba(232, 25, 90, 0.2),
-            0 28px 80px rgba(0, 0, 0, 0.58),
-            0 90px 160px rgba(0, 0, 0, 0.48);
-        opacity: 1;
-        transform: translate3d(0, 0, 0) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-    }
-
-    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::after,
-    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan::after,
-    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan::after {
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 28%, rgba(255, 255, 255, 0.04) 62%, transparent);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
-    }
-
-    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::before,
-    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan::before,
-    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan::before {
-        opacity: 0;
-    }
-
-    .works-fan:has(.works-fan__item--0:hover) .works-fan__item:not(.works-fan__item--0) .works-card--fan,
-    .works-fan:has(.works-fan__item--1:hover) .works-fan__item:not(.works-fan__item--1) .works-card--fan,
-    .works-fan:has(.works-fan__item--2:hover) .works-fan__item:not(.works-fan__item--2) .works-card--fan {
-        opacity: 1;
-        transform: translate3d(0, 0, 0) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
-    }
-
-    .works-card {
-        min-height: 480px;
-    }
-
-    .works-card__image {
-        min-height: clamp(300px, 52vh, 420px);
-    }
-
-    .works-section .works-section__fan-wrap > .mobile-card-slider__hint {
-        align-items: center;
-        color: rgba(255, 255, 255, 0.66);
-        display: flex;
-        flex-direction: column;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.72rem;
-        gap: 7px;
-        letter-spacing: 0.12em;
-        margin-top: 14px;
-        padding: 0 20px;
-        text-align: center;
-        text-transform: uppercase;
+        flex: 0 0 min(76vw, 320px);
     }
 
     .our-process-section {
