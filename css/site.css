@@ -2555,6 +2555,12 @@ a.works-card.works-card--fan:active .works-card__link-btn {
     transition: color 0.35s ease, transform 0.35s ease;
 }
 
+.service-item h3 i {
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.88em;
+    margin-right: 8px;
+}
+
 .service-item__line {
     background: #e8195a;
     height: 1px;
@@ -3646,16 +3652,11 @@ a.works-card.works-card--fan:active .works-card__link-btn {
 .about-studio-section {
     background-color: #090909;
     color: #ffffff;
-    min-height: 100vh;
+    min-height: auto;
     overflow: visible;
     padding: 140px clamp(56px, 8vw, 120px);
     position: relative;
     scroll-margin-top: 90px;
-}
-
-/* Anchor cover image to the top so the bridge (upper area of the photo) stays in view */
-.about-studio-section.model-agency-parallax-bg {
-    background-position: center top;
 }
 
 .about-studio-section::before {
@@ -3704,8 +3705,8 @@ a.works-card.works-card--fan:active .works-card__link-btn {
 
 .about-studio__container {
     align-items: center;
-    display: flex;
-    min-height: calc(100vh - 280px);
+    display: block;
+    min-height: auto;
     margin: 0 auto;
     max-width: 1200px;
     position: relative;
@@ -3713,9 +3714,47 @@ a.works-card.works-card--fan:active .works-card__link-btn {
     z-index: 3;
 }
 
+.about-studio__media {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.about-studio__media::after {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.28));
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+.about-studio__media img {
+    display: block;
+    height: 100%;
+    min-height: 460px;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+}
+
 .about-studio__content {
+    margin: 0;
     max-width: 100%;
     width: 100%;
+}
+
+.about-studio__split {
+    align-items: start;
+    column-gap: clamp(44px, 6vw, 112px);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.about-studio__main {
+    flex: 1 1 50%;
+    min-width: 0;
+    padding-right: 0;
 }
 
 .about-studio__eyebrow {
@@ -3755,6 +3794,45 @@ a.works-card.works-card--fan:active .works-card__link-btn {
 
 .about-studio__content p:last-child {
     margin-bottom: 0 !important;
+}
+
+.about-studio__trust-list {
+    display: grid;
+    flex: 1 1 50%;
+    gap: 12px;
+    list-style: none;
+    margin: 8px 0 0;
+    max-width: none;
+    padding: 0;
+    width: 100%;
+}
+
+.about-studio__trust-list li {
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.03rem;
+    font-weight: 500;
+    line-height: 1.45;
+    padding-left: 34px;
+    position: relative;
+}
+
+.about-studio__trust-list li::before {
+    align-items: center;
+    background: rgba(232, 25, 90, 0.18);
+    border: 1px solid rgba(232, 25, 90, 0.5);
+    border-radius: 7px;
+    color: #e8195a;
+    content: "\f00c";
+    display: inline-flex;
+    font: var(--fa-font-solid);
+    font-size: 0.7rem;
+    height: 20px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 2px;
+    width: 20px;
 }
 
 .about-studio__link {
@@ -4558,7 +4636,24 @@ body.custom-cursor-enabled * {
     }
 
     .about-studio__container {
-        min-height: 520px;
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .about-studio__split {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+    }
+
+    .about-studio__trust-list {
+        margin-top: 4px;
+        max-width: 100%;
+    }
+
+
+    .about-studio__media img {
+        min-height: 320px;
     }
 
     .about-atmosphere {
