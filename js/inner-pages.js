@@ -1,8 +1,8 @@
 (function () {
   'use strict';
 
-  var CONTACT_BRIEF = 'contact.html?section=contact';
-  var CONTACT_BOOK = 'contact.html?section=book-a-call';
+  var CONTACT_BRIEF = '/contact.html?section=contact';
+  var CONTACT_BOOK = '/contact.html?section=book-a-call';
   var CALENDLY_URL =
     'https://calendly.com/uxuimate/30min?hide_event_type_details=1&background_color=d5d9e2&text_color=1a1b20&primary_color=e8195a';
   var CALENDLY_SCRIPT = 'https://assets.calendly.com/assets/external/widget.js';

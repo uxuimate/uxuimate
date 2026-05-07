@@ -1,0 +1,288 @@
+/* 404 — full-viewport hero; smooth typographic numerals; premium motion (respects reduced-motion) */
+
+@keyframes uxm404-hero-in {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 2rem, 0) scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes uxm404-rise-in {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 1.35rem, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes uxm404-ambient-drift {
+    0%,
+    100% {
+        opacity: 0.4;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    33% {
+        opacity: 0.52;
+        transform: translate(-51%, -53%) scale(1.05) rotate(1deg);
+    }
+    66% {
+        opacity: 0.46;
+        transform: translate(-49%, -48.5%) scale(1.03) rotate(-0.8deg);
+    }
+}
+
+@keyframes uxm404-grad-breathe {
+    0%,
+    100% {
+        background-position: 12% 42%;
+    }
+    50% {
+        background-position: 88% 58%;
+    }
+}
+
+.error-404-page {
+    background: var(--uxm-page-bg, #050506);
+    color-scheme: dark;
+}
+
+.error-404 {
+    align-items: center;
+    /* Fixed nav (.navbar-top-default) is 70px — keep content in the visible viewport */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 52rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: calc(70px + clamp(1rem, 4vh, 2.5rem)) clamp(1.25rem, 4vw, 2rem) clamp(2rem, 6vh, 3.5rem);
+    position: relative;
+    text-align: center;
+}
+
+.error-404__ambient {
+    animation: uxm404-ambient-drift 18s ease-in-out infinite;
+    height: min(52vh, 440px);
+    left: 50%;
+    opacity: 0.48;
+    pointer-events: none;
+    position: absolute;
+    top: 42%;
+    transform: translate(-50%, -50%);
+    width: min(110%, 620px);
+    z-index: 0;
+}
+
+.error-404__ambient::before,
+.error-404__ambient::after {
+    border-radius: 50%;
+    content: "";
+    filter: blur(68px);
+    position: absolute;
+}
+
+.error-404__ambient::before {
+    background: radial-gradient(circle, rgba(var(--uxm-brand-rgb, 232, 25, 90), 0.42) 0%, transparent 68%);
+    height: 100%;
+    left: 12%;
+    top: 0;
+    width: 76%;
+}
+
+.error-404__ambient::after {
+    background: radial-gradient(circle, rgba(232, 168, 50, 0.2) 0%, transparent 72%);
+    height: 65%;
+    right: -4%;
+    top: 28%;
+    width: 50%;
+}
+
+.error-404__inner {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+.error-404__code-wrap {
+    animation: uxm404-hero-in 1.05s cubic-bezier(0.22, 1, 0.32, 1) 0.08s both;
+    line-height: 1;
+    margin: 0 0 clamp(1.1rem, 2.8vw, 1.6rem);
+}
+
+.error-404__subline {
+    animation: uxm404-rise-in 0.85s cubic-bezier(0.22, 1, 0.32, 1) 0.22s both;
+}
+
+.error-404__lede {
+    animation: uxm404-rise-in 0.85s cubic-bezier(0.22, 1, 0.32, 1) 0.34s both;
+}
+
+.error-404__cta {
+    animation: uxm404-rise-in 0.85s cubic-bezier(0.22, 1, 0.32, 1) 0.46s both;
+}
+
+.error-404__links li:nth-child(1) {
+    animation: uxm404-rise-in 0.7s cubic-bezier(0.22, 1, 0.32, 1) 0.52s both;
+}
+
+.error-404__links li:nth-child(2) {
+    animation: uxm404-rise-in 0.7s cubic-bezier(0.22, 1, 0.32, 1) 0.62s both;
+}
+
+.error-404__links li:nth-child(3) {
+    animation: uxm404-rise-in 0.7s cubic-bezier(0.22, 1, 0.32, 1) 0.72s both;
+}
+
+/* Single smooth glyph run — continuous shapes; slow gradient drift for a lit-from-within feel */
+.error-404__code {
+    animation: uxm404-grad-breathe 11s ease-in-out infinite;
+    -webkit-background-clip: text;
+    background:
+        linear-gradient(
+            152deg,
+            #fff 6%,
+            rgba(255, 255, 255, 0.96) 20%,
+            var(--uxm-brand, #e8195a) 46%,
+            #c4552a 68%,
+            #e8a832 92%,
+            #fffefb 100%
+        );
+    background-clip: text;
+    background-size: 220% 220%;
+    color: transparent;
+    display: inline-block;
+    font-family: var(--uxm-font-heading, "Montserrat", sans-serif);
+    font-size: clamp(6.25rem, 20vw, 12rem);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 0.95;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-fill-color: transparent;
+}
+
+@supports not (-webkit-background-clip: text) {
+    .error-404__code {
+        color: var(--uxm-text-on-dark, rgba(255, 255, 255, 0.92));
+        -webkit-text-fill-color: unset;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .error-404__ambient {
+        animation: none;
+    }
+
+    .error-404__code-wrap,
+    .error-404__subline,
+    .error-404__lede,
+    .error-404__cta,
+    .error-404__links li {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
+
+    .error-404__code {
+        animation: none;
+        background: none;
+        background-clip: unset;
+        -webkit-background-clip: unset;
+        background-size: auto;
+        color: rgba(253, 252, 250, 0.94);
+        -webkit-text-fill-color: rgba(253, 252, 250, 0.94);
+    }
+
+    .error-404__cta .btn.btn-white,
+    .error-404__cta .btn.btn-white:hover,
+    .error-404__cta .btn.btn-white:focus-visible {
+        box-shadow: none;
+        transform: none;
+        transition: none;
+    }
+}
+
+.error-404__subline {
+    color: rgba(253, 252, 250, 0.94);
+    font-family: var(--uxm-font-heading, "Montserrat", sans-serif);
+    font-size: clamp(1.1rem, 2.4vw, 1.3rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    margin: 0 0 clamp(0.35rem, 1.5vw, 0.5rem);
+}
+
+.error-404__lede {
+    color: rgba(210, 206, 218, 0.78);
+    font-family: var(--uxm-font-body, "Roboto", sans-serif);
+    font-size: clamp(0.95rem, 2.1vw, 1.05rem);
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0 auto clamp(1.6rem, 3.5vw, 2.1rem);
+    max-width: 28rem;
+}
+
+.error-404__cta {
+    margin-bottom: clamp(1.5rem, 3.5vw, 2.25rem);
+}
+
+.error-404__cta .btn.btn-white {
+    font-family: var(--uxm-font-ui, "Montserrat", sans-serif);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    min-width: 12rem;
+    text-transform: uppercase;
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.32, 1),
+        box-shadow 0.45s ease,
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.error-404__cta .btn.btn-white:hover,
+.error-404__cta .btn.btn-white:focus-visible {
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.35);
+    transform: translateY(-3px);
+}
+
+.error-404__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.25rem;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.error-404__links a {
+    color: rgba(210, 206, 218, 0.65);
+    font-family: var(--uxm-font-ui, "Montserrat", sans-serif);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.error-404__links a:hover,
+.error-404__links a:focus-visible {
+    color: var(--uxm-brand, #e8195a);
+}
+
+.error-404__links a:focus-visible {
+    outline: 2px solid rgba(232, 25, 90, 0.45);
+    outline-offset: 3px;
+}
