@@ -37,9 +37,36 @@ body.services-page--mobile header.header-appear {
   --nav-accent: #3b82f6;
 }
 
-/* Fluid canvas placeholder (no WebGL in static build) */
+/* Project mockup behind services hero (same treatment as home hero). */
+.services-hero__image {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  object-position: 68% center;
+  position: absolute;
+  top: 0;
+  transform: scale(1.04);
+  width: 100%;
+  z-index: 0;
+}
+
+body.services-page--development .services-hero__image {
+  object-position: 72% center;
+}
+
+body.services-page--branding .services-hero__image {
+  object-position: 70% center;
+}
+
+body.services-page--mobile .services-hero__image {
+  object-position: 78% center;
+}
+
 .services-fluid-bg--static {
-  background: radial-gradient(ellipse 85% 55% at 50% 38%, rgba(232, 25, 90, 0.12), transparent 62%), linear-gradient(165deg, #0a0609 0%, #050308 100%);
+  background:
+    radial-gradient(ellipse 70% 50% at 78% 36%, rgba(232, 25, 90, 0.12), transparent 58%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.74) 42%, rgba(0, 0, 0, 0.38) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 42%);
   height: 100%;
   inset: 0;
   opacity: 1;
@@ -50,15 +77,28 @@ body.services-page--mobile header.header-appear {
 }
 
 body.services-page--development .services-fluid-bg--static {
-  background: radial-gradient(ellipse 85% 55% at 50% 38%, rgba(168, 85, 247, 0.14), transparent 62%), linear-gradient(165deg, #0a0609 0%, #050308 100%);
+  background:
+    radial-gradient(ellipse 70% 50% at 78% 36%, rgba(168, 85, 247, 0.14), transparent 58%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.74) 42%, rgba(0, 0, 0, 0.38) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent 42%);
 }
 
 body.services-page--branding .services-fluid-bg--static {
-  background: radial-gradient(ellipse 85% 55% at 50% 38%, rgba(146, 104, 10, 0.16), transparent 62%), linear-gradient(165deg, #0a0609 0%, #050308 100%);
+  background:
+    radial-gradient(ellipse 70% 50% at 78% 36%, rgba(146, 104, 10, 0.16), transparent 58%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.8) 44%, rgba(0, 0, 0, 0.48) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.52), transparent 40%);
 }
 
 body.services-page--mobile .services-fluid-bg--static {
-  background: radial-gradient(ellipse 85% 55% at 50% 38%, rgba(59, 130, 246, 0.14), transparent 62%), linear-gradient(165deg, #0a0609 0%, #050308 100%);
+  background:
+    radial-gradient(ellipse 70% 50% at 78% 36%, rgba(59, 130, 246, 0.14), transparent 58%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.8) 44%, rgba(0, 0, 0, 0.5) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.52), transparent 40%);
+}
+
+body.page-services .services-carousel-page .services-hero__inner h1.services-hero__headline {
+  text-shadow: 0 16px 50px rgba(0, 0, 0, 0.52);
 }
 
 /* Hero copy: one inner block visible per theme */
@@ -166,4 +206,23 @@ body.services-page--branding #services-our-process {
 
 body.services-page--mobile #services-our-process {
   background-image: url('../img/services/our-process-mobile.webp');
+}
+
+@media (max-width: 991px) {
+  .services-hero__image {
+    object-position: 62% center;
+  }
+
+  body.services-page--mobile .services-hero__image {
+    object-position: 70% center;
+  }
+
+  .services-fluid-bg--static,
+  body.services-page--development .services-fluid-bg--static,
+  body.services-page--branding .services-fluid-bg--static,
+  body.services-page--mobile .services-fluid-bg--static {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.78) 100%),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.42) 100%);
+  }
 }

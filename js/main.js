@@ -66,6 +66,43 @@
     });
   });
 
+  /* Home showreel: play in view, pause off-screen; never autoplay with reduced motion. */
+  var showVideo = qs('.home-show__video');
+  if (showVideo) {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var syncShowVideo = function (entryVisible) {
+      if (reduceMotion.matches) {
+        showVideo.pause();
+        return;
+      }
+      if (entryVisible) {
+        var playPromise = showVideo.play();
+        if (playPromise && playPromise.catch) playPromise.catch(function () {});
+      } else {
+        showVideo.pause();
+      }
+    }
+    if ('IntersectionObserver' in window) {
+      showVideo.pause();
+      var showVideoIo = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (en) {
+            syncShowVideo(en.isIntersecting);
+          });
+        },
+        { threshold: 0.28 }
+      );
+      showVideoIo.observe(showVideo);
+    } else if (reduceMotion.matches) {
+      showVideo.pause();
+    }
+    if (reduceMotion.addEventListener) {
+      reduceMotion.addEventListener('change', function () {
+        syncShowVideo(!reduceMotion.matches);
+      });
+    }
+  }
+
   /* Hero slides */
   var slides = qsa('.offer-hero .hero-slide');
   var bullets = qsa('.offer-hero__pagination [data-hero-index]');
@@ -197,7 +234,7 @@
   updateNavActive();
 
   /* Fixed section dots (same logic as React SectionDots.jsx) */
-  var sectionDotIds = ['home', 'projects', 'services', 'about', 'feedback', 'process', 'contact'];
+  var sectionDotIds = ['home', 'show', 'problems', 'projects', 'services', 'about', 'feedback', 'process', 'contact'];
   var sectionDotButtons = qsa('.section-dots [data-section-dot]');
   var sectionDotsRaf = 0;
 

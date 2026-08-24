@@ -9,7 +9,7 @@
   --uxm-page-bg: #050506;
   --uxm-text-on-dark: rgba(255, 255, 255, 0.92);
   --uxm-text-muted-on-dark: rgba(210, 206, 218, 0.72);
-  /* Two-family stack: Montserrat (headings + UI), Roboto (body). Optional local Deltha in /fonts/Deltha is reserved, not loaded here. */
+  /* Two-family stack: Montserrat (headings + UI), Roboto (body). Loaded via Google Fonts in each page head. */
   --uxm-font-heading: 'Montserrat', sans-serif;
   --uxm-font-body: 'Roboto', sans-serif;
   --uxm-font-ui: 'Montserrat', sans-serif;
