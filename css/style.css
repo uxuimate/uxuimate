@@ -2,15 +2,15 @@
    UX UI MATE - https://uxuimate.com
    hello@uxuimate.com
 ------------------------------------------- */
-@import url("animated-gallery.css");
-@import url("works-fan.css");
-@import url("fan-cards.css"); /* Design system: 3D fan cards (pricing + Growth Systems) */
-@import url("hero.css"); /* Design system: split hero / banner */
-@import url("about-page.css"); /* About: principles list */
-@import url("contact.css");
-@import url("case-studies.css");
-@import url("founder.css"); /* Founder / CV page */
-@import url("feedback.css"); /* Feedback form page */
+@import url("animated-gallery.css?v=20260827");
+@import url("works-fan.css?v=20260827");
+@import url("fan-cards.css?v=20260827"); /* Design system: 3D fan cards (pricing + Growth Systems) */
+@import url("hero.css?v=20260827"); /* Design system: split hero / banner */
+@import url("about-page.css?v=20260827"); /* About: principles list */
+@import url("contact.css?v=20260827");
+@import url("case-studies.css?v=20260827");
+@import url("founder.css?v=20260827"); /* Founder / CV page */
+@import url("feedback.css?v=20260827"); /* Feedback form page */
 /*--------------------------------------------
 
 1. common

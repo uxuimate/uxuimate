@@ -9,7 +9,7 @@
     var base = el.src.replace(/main\.js(\?.*)?$/i, '');
     ['consent-analytics.js', 'forms-mail.js'].forEach(function (file) {
         var s = document.createElement('script');
-        s.src = base + file;
+        s.src = base + file + '?v=20260827';
         s.async = false;
         (document.body || document.head).appendChild(s);
     });
