@@ -1,0 +1,328 @@
+/**
+ * =============================================================================
+ * Design system — Hero / banner (mil-banner)
+ * =============================================================================
+ * Primary hero pattern for homepage + service pages: copy left, photo right.
+ *
+ * Variants
+ * --------
+ * .mil-banner--split   Full-bleed visual right, readable copy left (default hero)
+ *
+ * Markup
+ * ------
+ * <section class="mil-banner mil-white-bg mil-banner--split">
+ *   <!-- No mil-animation-frame here — geo ornaments fight the photo -->
+ *   <div class="mil-banner-visual" aria-hidden="true">
+ *     <img src="…" alt="" width="…" height="…" fetchpriority="high" decoding="async">
+ *   </div>
+ *   <div class="container">
+ *     <div class="mil-banner-content mil-up">
+ *       <div class="mil-banner-copy">
+ *         <ul class="mil-breadcrumbs mil-dark mil-mb-30">…</ul>
+ *         <h1>…</h1>
+ *         <p class="mil-hero-subtitle|mil-dark-soft">…</p>
+ *         <a class="mil-button …">…</a>
+ *         <a class="mil-link …">…</a>
+ *       </div>
+ *     </div>
+ *   </div>
+ *   <div class="mil-circle-text">…</div>
+ * </section>
+ *
+ * Image guidance: use a real project / process photo (not abstract gradients).
+ * Prefer webp when available; keep JPG only if no webp exists.
+ * =============================================================================
+ */
+
+:root {
+  --mil-hero-scrim: #ffffff;
+  --mil-hero-scrim-rgb: 255, 255, 255;
+  --mil-hero-visual-w: min(58vw, 900px);
+  --mil-hero-img-filter: saturate(0.68) contrast(1.06) brightness(0.58);
+}
+
+/* -------------------------------------------
+   Split hero
+------------------------------------------- */
+.mil-banner.mil-banner--split {
+  overflow: hidden;
+  position: relative;
+}
+
+.mil-banner.mil-banner--split .mil-animation-frame {
+  z-index: 2;
+}
+
+.mil-banner.mil-banner--split .mil-animation {
+  opacity: 0.18;
+}
+
+.mil-banner.mil-banner--split .mil-banner-visual {
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: var(--mil-hero-visual-w);
+  z-index: 0;
+}
+
+.mil-banner.mil-banner--split .mil-banner-visual img {
+  display: block;
+  filter: var(--mil-hero-img-filter);
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% center;
+  width: 100%;
+}
+
+.mil-banner.mil-banner--split .mil-banner-visual::after {
+  background:
+    linear-gradient(
+      180deg,
+      rgb(var(--mil-hero-scrim-rgb)) 0%,
+      rgba(var(--mil-hero-scrim-rgb), 0.82) 18%,
+      rgba(var(--mil-hero-scrim-rgb), 0.28) 42%,
+      transparent 62%
+    ),
+    linear-gradient(
+      90deg,
+      rgb(var(--mil-hero-scrim-rgb)) 0%,
+      rgba(var(--mil-hero-scrim-rgb), 0.82) 12%,
+      rgba(var(--mil-hero-scrim-rgb), 0.22) 34%,
+      transparent 54%
+    );
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.mil-banner.mil-banner--split .container {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  /* Clear fixed nav above; leave room for scroll circle below */
+  padding-bottom: clamp(72px, 10vh, 120px);
+  padding-top: clamp(96px, 12vh, 120px);
+  position: relative;
+  z-index: 3;
+}
+
+/* Breadcrumbs sit in the copy stack (same as contact / blog) so the rule line stays next to the text */
+.mil-banner.mil-banner--split .mil-banner-content {
+  padding-bottom: 0;
+  padding-top: 0;
+  width: 100%;
+}
+
+.mil-banner.mil-banner--split .mil-banner-copy {
+  max-width: min(640px, 100%);
+  position: relative;
+  width: 100%;
+  z-index: 3;
+}
+
+/* Homepage: give the headline a bit more room */
+.mil-banner.mil-banner--split .mil-banner-copy--home {
+  max-width: min(760px, 100%);
+}
+
+.mil-banner.mil-banner--split .mil-banner-copy > .mil-breadcrumbs {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+/* Tighter rhythm so the block reads as one centered unit */
+.mil-banner.mil-banner--split .mil-banner-copy > h1 {
+  margin-bottom: 1.15rem;
+}
+
+.mil-banner.mil-banner--split .mil-banner-copy > p {
+  margin-bottom: 0.85rem;
+}
+
+.mil-banner.mil-banner--split .mil-banner-copy > p:last-of-type {
+  margin-bottom: 1.85rem;
+}
+
+.mil-banner.mil-banner--split .mil-banner-copy .mil-breadcrumbs a {
+  color: rgba(22, 22, 22, 0.55);
+}
+
+.mil-banner.mil-banner--split .mil-banner-copy .mil-breadcrumbs a:hover {
+  color: var(--mil-accent, #e5526a);
+}
+
+.mil-banner.mil-banner--split .mil-circle-text {
+  bottom: 88px;
+  pointer-events: auto;
+  right: 4%;
+  z-index: 4;
+}
+
+@media screen and (max-width: 1400px) {
+  .mil-banner.mil-banner--split .mil-position-4 {
+    display: block;
+    opacity: 0.16;
+    right: 6%;
+    top: 80px;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .mil-banner.mil-banner--split {
+    --mil-hero-visual-w: min(52vw, 680px);
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .mil-banner.mil-banner--split {
+    --mil-hero-visual-w: 100%;
+  }
+
+  .mil-banner.mil-banner--split .mil-banner-visual img {
+    object-position: 72% 22%;
+  }
+
+  .mil-banner.mil-banner--split .mil-banner-visual::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(var(--mil-hero-scrim-rgb), 0.1) 0%,
+        rgba(var(--mil-hero-scrim-rgb), 0.42) 32%,
+        rgba(var(--mil-hero-scrim-rgb), 0.92) 58%,
+        rgb(var(--mil-hero-scrim-rgb)) 74%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(var(--mil-hero-scrim-rgb), 0.55) 0%,
+        rgba(var(--mil-hero-scrim-rgb), 0.18) 42%,
+        transparent 70%
+      );
+  }
+
+  .mil-banner.mil-banner--split .container {
+    align-items: flex-end;
+    padding-bottom: clamp(88px, 14vh, 120px);
+    padding-top: clamp(88px, 12vh, 110px);
+  }
+
+  .mil-banner.mil-banner--split .mil-banner-copy {
+    max-width: 100%;
+  }
+
+  .mil-banner.mil-banner--split .mil-banner-content {
+    padding-bottom: 0;
+  }
+
+  .mil-banner.mil-banner--split .mil-circle-text {
+    bottom: 40px;
+    right: 3%;
+  }
+}
+
+/* -------------------------------------------
+   Dark theme
+------------------------------------------- */
+body.mil-theme-dark {
+  --mil-hero-scrim: #0d0d0d;
+  --mil-hero-scrim-rgb: 13, 13, 13;
+  --mil-hero-img-filter: saturate(0.7) contrast(1.06) brightness(0.55);
+}
+
+body.mil-theme-dark .mil-content .mil-banner.mil-banner--split {
+  background-color: var(--mil-hero-scrim);
+}
+
+body.mil-theme-dark .mil-banner.mil-banner--split .mil-banner-copy .mil-breadcrumbs a {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+body.mil-theme-dark .mil-banner.mil-banner--split .mil-banner-copy .mil-breadcrumbs a:hover {
+  color: var(--mil-dark-accent, #ff9800);
+}
+
+/* -------------------------------------------
+   Product mockup hero (phones / UI shots on light grounds)
+------------------------------------------- */
+.mil-banner.mil-banner--split.mil-banner--mockup {
+  --mil-hero-img-filter: none;
+  --mil-hero-visual-w: min(62vw, 960px);
+}
+
+.mil-banner.mil-banner--split.mil-banner--mockup .mil-banner-visual {
+  background: #e8dfd2;
+}
+
+.mil-banner.mil-banner--split.mil-banner--mockup .mil-banner-visual img {
+  object-fit: cover;
+  object-position: 62% center;
+  padding: 0;
+}
+
+.mil-banner.mil-banner--split.mil-banner--mockup .mil-banner-visual::after {
+  background:
+    linear-gradient(
+      180deg,
+      rgb(var(--mil-hero-scrim-rgb)) 0%,
+      rgba(var(--mil-hero-scrim-rgb), 0.55) 12%,
+      transparent 36%
+    ),
+    linear-gradient(
+      90deg,
+      rgb(var(--mil-hero-scrim-rgb)) 0%,
+      rgba(var(--mil-hero-scrim-rgb), 0.92) 10%,
+      rgba(var(--mil-hero-scrim-rgb), 0.35) 28%,
+      transparent 48%
+    );
+}
+
+/* Keep copy + CTAs above the scroll control; avoid a dead empty band */
+.mil-banner.mil-banner--split.mil-banner--mockup .container {
+  align-items: flex-end;
+  padding-bottom: clamp(120px, 16vh, 160px);
+}
+
+.mil-banner.mil-banner--split.mil-banner--mockup .mil-circle-text {
+  bottom: 96px;
+  right: 5%;
+}
+
+/* White mockups: scroll ring must be dark, not white-on-white */
+.mil-banner.mil-white-bg.mil-banner--split .mil-circle-text .mil-ct-svg text {
+  fill: rgba(0, 0, 0, 0.45);
+}
+
+.mil-banner.mil-white-bg.mil-banner--split .mil-circle-text:hover .mil-ct-svg text {
+  fill: rgba(0, 0, 0, 0.9);
+}
+
+/* Drop bottom-heavy wireframes that get clipped under the CTAs */
+.mil-banner.mil-banner--split.mil-banner--mockup .mil-position-2,
+.mil-banner.mil-banner--split.mil-banner--mockup .mil-position-3 {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .mil-banner.mil-banner--split.mil-banner--mockup .mil-banner-visual img {
+    object-fit: cover;
+    object-position: 55% 28%;
+    opacity: 0.5;
+    padding: 0;
+  }
+
+  .mil-banner.mil-banner--split.mil-banner--mockup .mil-banner-visual::after {
+    background: linear-gradient(
+      180deg,
+      rgb(var(--mil-hero-scrim-rgb)) 0%,
+      rgba(var(--mil-hero-scrim-rgb), 0.88) 42%,
+      rgba(var(--mil-hero-scrim-rgb), 0.55) 72%,
+      rgba(var(--mil-hero-scrim-rgb), 0.92) 100%
+    );
+  }
+
+  .mil-banner.mil-banner--split.mil-banner--mockup .container {
+    padding-bottom: clamp(88px, 14vh, 120px);
+  }
+}

@@ -1,0 +1,4 @@
+/* Font Awesome delivery fix:
+   Project was missing local webfont files, causing square icons.
+   Load full icon set from CDN for all pages that reference this file. */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");

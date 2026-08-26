@@ -1,0 +1,831 @@
+/* Feedback page — extracted from inline <style> */
+.mil-feedback-page .mil-inner-banner.mil-p-0-120 {
+    padding-bottom: 72px;
+}
+
+#contact.mil-feedback-section .mil-form-error-box {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+#contact.mil-feedback-section .mil-form-error-box p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    font-weight: 400;
+}
+
+.mil-map-frame .mil-map.mil-map-image {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mil-map-frame .mil-map.mil-map-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.mil-feedback-page #contact.mil-feedback-section > .container {
+    padding-top: 72px !important;
+    padding-bottom: 80px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .mil-feedback-page #contact.mil-feedback-section > .container {
+        padding-top: 48px !important;
+        padding-bottom: 56px !important;
+    }
+}
+
+#contact.mil-feedback-section .mil-form-block {
+    margin-bottom: 36px;
+}
+
+#contact.mil-feedback-section .mil-form-block:last-of-type {
+    margin-bottom: 0;
+}
+
+#contact.mil-feedback-section .mil-feedback-form-wrap {
+    max-width: none;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#contact.mil-feedback-section .mil-feedback-form-wrap .mil-button span {
+    text-transform: none;
+    letter-spacing: 0.06em;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#contact.mil-feedback-section .mil-feedback-page-title {
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+#contact.mil-feedback-section .mil-feedback-section-lead {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: rgba(0, 0, 0, 0.52);
+    max-width: 46em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact.mil-feedback-section .mil-feedback-time-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 28px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    color: rgba(0, 0, 0, 0.42);
+    padding: 8px 18px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-time-badge {
+    color: rgba(255, 236, 242, 0.55);
+    border-color: rgba(255, 152, 0, 0.25);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-section-lead {
+    color: rgba(255, 236, 242, 0.62);
+}
+
+#contact.mil-feedback-section .mil-feedback-field-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    color: rgba(0, 0, 0, 0.78);
+}
+
+#contact.mil-feedback-section .mil-feedback-hint {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.55;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(0, 0, 0, 0.48);
+    margin: -2px 0 14px;
+    max-width: 40em;
+}
+
+#contact.mil-feedback-section .mil-feedback-footnote {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.55;
+    letter-spacing: 0;
+    text-transform: none;
+    color: rgba(0, 0, 0, 0.52);
+}
+
+#contact.mil-feedback-section .mil-feedback-step {
+    display: none;
+    animation: milFbFade .28s ease;
+}
+
+#contact.mil-feedback-section .mil-feedback-step.is-active {
+    display: block;
+}
+
+@keyframes milFbFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#contact.mil-feedback-section .mil-feedback-step-meta {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+#contact.mil-feedback-section .mil-feedback-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+#contact.mil-feedback-section .mil-feedback-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.14);
+    transition: background .2s ease, transform .2s ease;
+}
+
+#contact.mil-feedback-section .mil-feedback-dots span.is-done {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+#contact.mil-feedback-section .mil-feedback-dots span.is-active {
+    background: #000;
+    transform: scale(1.25);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-dots span {
+    background: rgba(255, 236, 242, 0.2);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-dots span.is-done {
+    background: rgba(255, 152, 0, 0.55);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-dots span.is-active {
+    background: #ff9800;
+}
+
+#contact.mil-feedback-section .mil-feedback-step-heading {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: none;
+    color: rgba(0, 0, 0, 0.42);
+    margin: 0;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-step-heading {
+    color: rgba(255, 236, 242, 0.55);
+}
+
+#contact.mil-feedback-section .mil-feedback-nps-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+#contact.mil-feedback-section .mil-feedback-nps-pill {
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+}
+
+#contact.mil-feedback-section .mil-feedback-nps-pill input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+#contact.mil-feedback-section .mil-feedback-nps-pill span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 10px;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.75);
+    transition: border-color .2s, background .2s, color .2s;
+}
+
+#contact.mil-feedback-section .mil-feedback-nps-pill:hover span {
+    border-color: rgba(0, 0, 0, 0.35);
+}
+
+#contact.mil-feedback-section .mil-feedback-nps-pill input:checked + span {
+    background: #E5526A;
+    border-color: #E5526A;
+    color: #fff;
+}
+
+#contact.mil-feedback-section .mil-feedback-nps-pill input:focus-visible + span {
+    outline: 2px solid rgba(229, 82, 106, 0.65);
+    outline-offset: 2px;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-nps-pill span {
+    border-color: rgba(255, 236, 242, 0.14);
+    color: rgba(255, 236, 242, 0.9);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-nps-pill:hover span {
+    border-color: rgba(255, 236, 242, 0.28);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-nps-pill input:checked + span {
+    background: #ffeb3b;
+    border-color: #ffeb3b;
+    color: #14141a;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-nps-pill input:focus-visible + span {
+    outline: 2px solid rgba(255, 235, 59, 0.9);
+    outline-offset: 2px;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-legend {
+    padding: 0;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-hint {
+    margin-top: 0;
+    margin-bottom: 14px;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-grid.mil-field-invalid {
+    outline: 2px solid #c62828;
+    outline-offset: 3px;
+    border-radius: 12px;
+    padding: 4px;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-card {
+    position: relative;
+    margin: 0;
+    cursor: pointer;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-card input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-card-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 56px;
+    padding: 14px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.65);
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+@media screen and (max-width: 420px) {
+    #contact.mil-feedback-section .mil-feedback-sat-card-inner {
+        flex-wrap: wrap;
+    }
+
+    #contact.mil-feedback-section .mil-feedback-sat-stars {
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-label {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+    color: rgba(0, 0, 0, 0.82);
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-stars {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    flex-shrink: 0;
+    align-items: center;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-stars .fa-star {
+    font-size: 15px;
+    line-height: 1;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-stars .fas.fa-star {
+    color: #8a7030;
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-stars .far.fa-star {
+    color: rgba(0, 0, 0, 0.22);
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-stars--none .far.fa-star {
+    color: rgba(0, 0, 0, 0.18);
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-card:hover .mil-feedback-sat-card-inner {
+    border-color: rgba(0, 0, 0, 0.22);
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-card input:checked + .mil-feedback-sat-card-inner {
+    box-shadow: 0 0 0 2px #E5526A;
+    background: rgba(229, 82, 106, 0.07);
+    border-color: rgba(229, 82, 106, 0.35);
+}
+
+#contact.mil-feedback-section .mil-feedback-sat-card input:focus-visible + .mil-feedback-sat-card-inner {
+    outline: 2px solid rgba(229, 82, 106, 0.65);
+    outline-offset: 2px;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-sat-card-inner {
+    background: rgba(20, 20, 26, 0.85);
+    border-color: rgba(255, 152, 0, 0.22);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-sat-label {
+    color: rgba(255, 236, 242, 0.92);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-sat-stars .fas.fa-star {
+    color: #e6a936;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-sat-stars .far.fa-star {
+    color: rgba(255, 236, 242, 0.28);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-sat-stars--none .far.fa-star {
+    color: rgba(255, 236, 242, 0.22);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-sat-card input:checked + .mil-feedback-sat-card-inner {
+    box-shadow: 0 0 0 2px #ffeb3b;
+    background: rgba(255, 235, 59, 0.1);
+    border-color: rgba(255, 235, 59, 0.45);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-sat-card input:focus-visible + .mil-feedback-sat-card-inner {
+    outline: 2px solid rgba(255, 235, 59, 0.9);
+    outline-offset: 2px;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-sat-grid.mil-field-invalid {
+    outline-color: #ff6b6b;
+}
+
+#contact.mil-feedback-section .mil-contact-radio-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+@media screen and (min-width: 576px) {
+    #contact.mil-feedback-section .mil-contact-radio-wrap.mil-feedback-radio-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px 28px;
+    }
+}
+
+#contact.mil-feedback-section .mil-contact-radio-label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    min-height: 44px;
+    padding: 4px 0;
+}
+
+#contact.mil-feedback-section .mil-contact-radio-label input {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+
+#contact.mil-feedback-section .mil-contact-radio-label .mil-contact-radio-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    margin-right: 14px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    transition: background .2s ease;
+}
+
+#contact.mil-feedback-section .mil-contact-radio-label input:checked + .mil-contact-radio-dot {
+    background: #E5526A;
+}
+
+#contact.mil-feedback-section .mil-contact-radio-label:hover input:not(:checked) + .mil-contact-radio-dot {
+    background: rgba(229, 82, 106, 0.38);
+}
+
+#contact.mil-feedback-section .mil-contact-radio-label:hover input:checked + .mil-contact-radio-dot {
+    background: #c44562;
+}
+
+#contact.mil-feedback-section .mil-contact-radio-label .mil-text-sm {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    line-height: 1.45;
+    color: rgba(0, 0, 0, 0.78);
+}
+
+#contact.mil-feedback-section .mil-feedback-consent-card {
+    padding: 22px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.52);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.04),
+        0 10px 36px rgba(15, 20, 40, 0.09),
+        inset 0 1px 0 rgba(255, 255, 255, 0.98);
+    margin-bottom: 24px;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-consent-card {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.07);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+#contact.mil-feedback-section .mil-feedback-consent-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contact.mil-feedback-section .mil-feedback-consent-title {
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-consent-title {
+    color: rgba(255, 236, 242, 0.95);
+}
+
+#contact.mil-feedback-section .mil-feedback-consent-intro {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.55);
+    margin: 0 0 14px;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-consent-intro {
+    color: rgba(255, 236, 242, 0.65);
+}
+
+#contact.mil-feedback-section .mil-feedback-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 0;
+    min-height: 0;
+    padding: 2px 0;
+}
+
+#contact.mil-feedback-section .mil-feedback-checkbox input {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: #E5526A;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-checkbox input {
+    accent-color: #ffeb3b;
+}
+
+#contact.mil-feedback-section .mil-feedback-checkbox label {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.76);
+    cursor: pointer;
+}
+
+#contact.mil-feedback-section .mil-feedback-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 8px;
+}
+
+#contact.mil-feedback-section .mil-feedback-btn-secondary {
+    background: none;
+    border: none;
+    font-family: "Outfit", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+    padding: 12px 8px 12px 0;
+    min-height: 48px;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+#contact.mil-feedback-section .mil-feedback-btn-secondary:hover {
+    color: #000;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-btn-secondary {
+    color: rgba(255, 236, 242, 0.65);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-btn-secondary:hover {
+    color: #ff9800;
+}
+
+#contact.mil-feedback-section .mil-feedback-nav-actions {
+    margin-left: auto;
+}
+
+#contact.mil-feedback-section input[type="text"],
+#contact.mil-feedback-section input[type="email"],
+#contact.mil-feedback-section textarea {
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-size: 16px;
+    font-weight: 400;
+    height: auto;
+    min-height: 52px;
+    padding: 14px 0 16px;
+    font-family: "Outfit", sans-serif;
+}
+
+#contact.mil-feedback-section textarea {
+    min-height: 120px;
+    height: auto !important;
+    padding-top: 16px;
+    line-height: 1.55;
+    resize: vertical;
+}
+
+#contact.mil-feedback-section textarea.mil-feedback-textarea-lg {
+    min-height: 140px;
+}
+
+#contact.mil-feedback-section input::placeholder,
+#contact.mil-feedback-section textarea::placeholder {
+    text-transform: none;
+    letter-spacing: 0.01em;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+#contact.mil-feedback-section .mil-field-invalid {
+    border-bottom-color: #c62828 !important;
+}
+
+#contact.mil-feedback-section select.mil-field-invalid {
+    border-color: #c62828 !important;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section select.mil-field-invalid,
+body.mil-theme-dark #contact.mil-feedback-section textarea.mil-field-invalid,
+body.mil-theme-dark #contact.mil-feedback-section input.mil-field-invalid {
+    border-color: #ff6b6b !important;
+}
+
+.mil-feedback-banner h1 {
+    color: rgb(0, 0, 0);
+    letter-spacing: -0.03em;
+    font-weight: 500;
+}
+
+.mil-feedback-banner .mil-intro {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.62;
+    letter-spacing: 0.01em;
+    max-width: min(56em, 92vw);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mil-feedback-banner .mil-breadcrumbs li a {
+    text-transform: none;
+    letter-spacing: 0.06em;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.mil-feedback-banner .mil-breadcrumbs li:after {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+body.mil-theme-dark .mil-feedback-banner .mil-breadcrumbs li a {
+    color: rgba(255, 236, 242, 0.85);
+}
+
+body.mil-theme-dark .mil-feedback-banner .mil-breadcrumbs li:after {
+    color: rgba(255, 236, 242, 0.35);
+}
+
+.mil-feedback-banner .mil-breadcrumbs li span {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+body.mil-theme-dark .mil-feedback-banner .mil-breadcrumbs li span {
+    color: rgba(255, 236, 242, 0.55);
+}
+
+#contact.mil-feedback-section #contact-thank-you p {
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: rgba(0, 0, 0, 0.62);
+    max-width: min(54em, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact.mil-feedback-section select {
+    width: 100%;
+    margin-bottom: 0;
+    padding: 14px 0 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    color: #000;
+    border-radius: 0;
+    cursor: pointer;
+    appearance: auto;
+    font-family: "Outfit", sans-serif;
+    min-height: 52px;
+}
+
+#contact.mil-feedback-section .mil-form-block select {
+    margin-bottom: 0;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section input[type="text"],
+body.mil-theme-dark #contact.mil-feedback-section input[type="email"],
+body.mil-theme-dark #contact.mil-feedback-section textarea,
+body.mil-theme-dark #contact.mil-feedback-section select {
+    background: #14141a;
+    color: #f6f1f3;
+    border: 1px solid rgba(255, 236, 242, 0.14);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section input[type="text"]::placeholder,
+body.mil-theme-dark #contact.mil-feedback-section input[type="email"]::placeholder,
+body.mil-theme-dark #contact.mil-feedback-section textarea::placeholder {
+    color: rgba(255, 240, 245, 0.62);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-field-label {
+    color: rgba(255, 236, 242, 0.9);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-hint {
+    color: rgba(255, 236, 242, 0.55);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-footnote {
+    color: rgba(255, 236, 242, 0.62);
+}
+
+body.mil-theme-dark .mil-feedback-banner h1 {
+    color: var(--mil-dark-headline);
+}
+
+body.mil-theme-dark .mil-feedback-banner .mil-intro {
+    color: rgba(255, 236, 242, 0.78);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-contact-radio-label .mil-text-sm {
+    color: rgba(255, 236, 242, 0.92);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-feedback-checkbox label {
+    color: rgba(255, 236, 242, 0.88);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section #contact-thank-you p {
+    color: rgba(255, 236, 242, 0.82);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-contact-radio-label .mil-contact-radio-dot {
+    background: rgba(255, 236, 242, 0.18);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-contact-radio-label input:checked + .mil-contact-radio-dot {
+    background: #ffeb3b;
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-contact-radio-label:hover input:not(:checked) + .mil-contact-radio-dot {
+    background: rgba(255, 235, 59, 0.32);
+}
+
+body.mil-theme-dark #contact.mil-feedback-section .mil-contact-radio-label:hover input:checked + .mil-contact-radio-dot {
+    background: #fff176;
+}
+
+@media screen and (max-width: 768px) {
+    #contact.mil-feedback-section .mil-form-block {
+        margin-bottom: 28px;
+    }
+}

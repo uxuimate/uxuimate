@@ -1,0 +1,529 @@
+/**
+ * Selected projects 3D fan (image cards).
+ * Scoped to `.works-section` / `.works-fan` / `.works-card--fan`.
+ *
+ * Package pricing + Growth Systems use the shared design-system fan:
+ *   css/fan-cards.css → `.mil-fan` / `.mil-fan-card--price` / `.mil-fan-card--offer`
+ */
+
+.works-section {
+    background: transparent;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    font-family: "Outfit", sans-serif;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+}
+
+.works-section a:not(.mil-button) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.works-section__fan-wrap {
+    flex: 1 1 auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1320px;
+    overflow: visible;
+    padding-bottom: clamp(24px, 4vh, 48px);
+    padding-top: clamp(24px, 4vh, 56px);
+    width: 100%;
+}
+
+.works-fan {
+    align-items: stretch;
+    display: flex;
+    gap: clamp(20px, 2.8vw, 36px);
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1240px;
+    perspective: 1800px;
+    transform-style: preserve-3d;
+}
+
+.works-fan__item {
+    flex: 1 1 0;
+    max-width: 400px;
+    min-width: 0;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.2, 0.85, 0.25, 1);
+    z-index: 1;
+}
+
+@media (min-width: 992px) {
+    .works-fan__item--0 {
+        transform: rotateY(16deg) translateZ(-36px) scale(0.93);
+    }
+
+    .works-fan__item--1 {
+        transform: rotateY(0deg) translateZ(52px) scale(1.03);
+        z-index: 3;
+    }
+
+    .works-fan__item--2 {
+        transform: rotateY(-16deg) translateZ(-36px) scale(0.93);
+    }
+
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 {
+        transform: rotateY(5deg) translateZ(88px) scale(1.05);
+        z-index: 5;
+    }
+
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--1 {
+        transform: rotateY(-12deg) translateZ(-28px) scale(0.9);
+        z-index: 1;
+    }
+
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--2 {
+        transform: rotateY(-20deg) translateZ(-52px) scale(0.87);
+        z-index: 0;
+    }
+
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--0 {
+        transform: rotateY(20deg) translateZ(-40px) scale(0.9);
+        z-index: 1;
+    }
+
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 {
+        transform: rotateY(0deg) translateZ(96px) scale(1.08);
+        z-index: 5;
+    }
+
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--2 {
+        transform: rotateY(-20deg) translateZ(-40px) scale(0.9);
+        z-index: 1;
+    }
+
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--0 {
+        transform: rotateY(20deg) translateZ(-52px) scale(0.87);
+        z-index: 0;
+    }
+
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--1 {
+        transform: rotateY(12deg) translateZ(-28px) scale(0.9);
+        z-index: 1;
+    }
+
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 {
+        transform: rotateY(-5deg) translateZ(88px) scale(1.05);
+        z-index: 5;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .works-fan__item,
+    .works-card.works-card--fan {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+.works-card {
+    --glow-x: 50%;
+    --glow-y: 0%;
+    --rotate-x: 0deg;
+    --rotate-y: 0deg;
+    background: #151515;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42), 0 60px 120px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: clamp(460px, 52vh, 720px);
+    overflow: hidden;
+    position: relative;
+    transform: translate3d(0, 0, 0) scale(0.84) rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+    transform-origin: center;
+    transform-style: preserve-3d;
+    opacity: 0.48;
+    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.works-card.works-card--fan {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.works-card::before,
+.works-card::after {
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+}
+
+.works-card::before {
+    background: radial-gradient(circle at var(--glow-x) var(--glow-y), rgba(255, 255, 255, 0.22), transparent 32%);
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.works-card::after {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 28%, rgba(255, 255, 255, 0.04) 62%, transparent);
+    border-radius: inherit;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 992px) {
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan,
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan,
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan {
+        box-shadow:
+            0 0 46px rgba(229, 82, 106, 0.28),
+            0 28px 80px rgba(0, 0, 0, 0.28),
+            0 90px 160px rgba(0, 0, 0, 0.18);
+        opacity: 1;
+        transform: translate3d(0, 0, 14px) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    }
+
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::after,
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan::after,
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan::after {
+        background:
+            radial-gradient(circle at 18% 12%, rgba(229, 82, 106, 0.28), transparent 30%),
+            linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 28%, rgba(255, 255, 255, 0.05) 62%, transparent);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.22),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.07),
+            0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::before,
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item--1 .works-card--fan::before,
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item--2 .works-card--fan::before {
+        opacity: 1;
+    }
+
+    .works-fan:has(.works-fan__item--0:hover) .works-fan__item:not(.works-fan__item--0) .works-card--fan,
+    .works-fan:has(.works-fan__item--1:hover) .works-fan__item:not(.works-fan__item--1) .works-card--fan,
+    .works-fan:has(.works-fan__item--2:hover) .works-fan__item:not(.works-fan__item--2) .works-card--fan {
+        opacity: 0.72;
+        transform: translate3d(0, 0, 0) scale(0.98) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    }
+
+    .works-section .works-card__content h3 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+
+    .works-section .works-card__content > span:first-of-type {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
+}
+
+.works-card__image {
+    background-color: #202020;
+    background-position: center;
+    background-size: cover;
+    backface-visibility: hidden;
+    flex: 1 1 auto;
+    min-height: clamp(280px, 36vh, 580px);
+    position: relative;
+    transform: translate3d(0, 0, 22px) scale(1.02);
+    width: 100%;
+    will-change: transform;
+}
+
+.works-card__image--nistravel,
+.works-card__image--videonabliudenie,
+.works-card__image--eco-herbalist,
+.works-card__image--softplay {
+    background-position: center;
+    background-size: cover;
+}
+
+.works-card__image--nistravel {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.35) 100%), url('../img/works/Nistravel/card.webp');
+}
+
+.works-card__image--videonabliudenie {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.35) 100%), url('../img/works/videonabliudenie-bg/hero-1.webp');
+}
+
+.works-card__image--eco-herbalist {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.35) 100%), url('../img/works/Eco%20Herbalist%20UX%20Design/card.webp');
+}
+
+.works-card__image--softplay {
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.35) 100%), url('../img/works/Soft%20Play%20Solutions/3%20Vertical.jpg');
+}
+
+.works-card__content {
+    flex-shrink: 0;
+    padding: clamp(32px, 3.5vh, 48px) clamp(28px, 3vw, 40px);
+    position: relative;
+    transform: translate3d(0, 0, 42px);
+    z-index: 3;
+}
+
+.works-card__content span {
+    color: rgba(255, 255, 255, 0.52);
+    display: block;
+    font-family: "Outfit", sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.works-card__content h3 {
+    color: #ffffff;
+    font-family: "Outfit", sans-serif;
+    font-size: clamp(1.15rem, 0.88rem + 2.1vw, 2.05rem);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.12;
+    margin-bottom: 0;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+}
+
+a.works-card.works-card--fan {
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none !important;
+}
+
+a.works-card.works-card--fan:hover,
+a.works-card.works-card--fan:active,
+a.works-card.works-card--fan:focus,
+a.works-card.works-card--fan:focus-visible,
+a.works-card.works-card--fan:visited {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+a.works-card.works-card--fan:hover .works-card__content h3,
+a.works-card.works-card--fan:active .works-card__content h3,
+a.works-card.works-card--fan:focus .works-card__content h3 {
+    color: #ffffff;
+}
+
+a.works-card.works-card--fan:hover .works-card__content > span:first-of-type,
+a.works-card.works-card--fan:active .works-card__content > span:first-of-type {
+    color: rgba(255, 255, 255, 0.52);
+}
+
+.works-section .works-fan-pagination {
+    display: none;
+}
+
+.works-section .uxm-page-dots {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 7px;
+    justify-content: center;
+    padding: 7px 12px;
+}
+
+.works-section .uxm-page-dot {
+    background: rgba(0, 0, 0, 0.22);
+    border: 0;
+    border-radius: 999px;
+    cursor: pointer;
+    display: block;
+    flex-shrink: 0;
+    height: 7px;
+    padding: 0;
+    transition:
+        width 0.28s cubic-bezier(0.2, 0.85, 0.25, 1),
+        background 0.22s ease,
+        transform 0.22s ease;
+    width: 7px;
+}
+
+.works-section .uxm-page-dot:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.works-section .uxm-page-dot:focus-visible {
+    box-shadow: 0 0 0 2px rgba(229, 82, 106, 0.45);
+    outline: none;
+}
+
+.works-section .uxm-page-dot.is-active {
+    background: #E5526A;
+    width: 24px;
+}
+
+@media screen and (max-width: 991px) {
+    .works-section {
+        display: block;
+        min-height: auto;
+        padding: 0;
+    }
+
+    .works-section__fan-wrap {
+        flex: none;
+        margin-left: 0;
+        margin-right: 0;
+        max-width: none;
+        overflow: visible;
+        padding-bottom: clamp(20px, 4vw, 40px);
+        padding-top: clamp(16px, 4vw, 32px);
+        width: 100%;
+    }
+
+    .works-section .works-fan {
+        align-items: stretch;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: clamp(28px, 7vw, 48px);
+        margin: 0;
+        max-width: none;
+        overflow-x: auto;
+        overflow-y: visible;
+        overscroll-behavior-x: contain;
+        padding: clamp(36px, 8vw, 64px) clamp(24px, 6vw, 52px) clamp(32px, 7vw, 56px);
+        perspective: clamp(880px, 125vw, 1500px);
+        perspective-origin: 50% 42%;
+        scroll-padding-inline: clamp(28px, 7vw, 56px);
+        scroll-snap-type: x mandatory;
+        touch-action: pan-x;
+        transform-style: preserve-3d;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .works-section .works-fan--carousel a.works-card.works-card--fan {
+        touch-action: pan-x pinch-zoom;
+    }
+
+    .works-section .works-fan::-webkit-scrollbar {
+        display: none;
+    }
+
+    .works-section .works-fan__item {
+        flex: 0 0 min(68vw, 280px);
+        max-width: none;
+        scroll-snap-align: center;
+        transform-style: preserve-3d;
+        transition:
+            transform 0.55s cubic-bezier(0.2, 0.85, 0.25, 1),
+            opacity 0.45s ease,
+            filter 0.45s ease;
+        width: auto;
+        will-change: transform;
+    }
+
+    .works-section .works-fan--carousel .works-card.works-card--fan {
+        box-shadow:
+            0 18px 40px rgba(0, 0, 0, 0.42),
+            0 48px 100px rgba(0, 0, 0, 0.38);
+        filter: saturate(1.02);
+        opacity: 1 !important;
+        transform: translate3d(0, 0, 0) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) !important;
+        transition:
+            transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+            box-shadow 0.45s ease,
+            opacity 0.45s ease;
+    }
+
+    .works-section .works-fan--carousel .works-card.works-card--fan::after {
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .works-section .works-fan--carousel .works-fan__item.is-works-fan-active .works-card.works-card--fan {
+        box-shadow:
+            0 0 40px rgba(229, 82, 106, 0.22),
+            0 22px 70px rgba(0, 0, 0, 0.28),
+            0 72px 140px rgba(0, 0, 0, 0.16);
+    }
+
+    .works-section .works-fan--carousel .works-fan__item.is-works-fan-active .works-card.works-card--fan::after {
+        background:
+            radial-gradient(circle at 18% 12%, rgba(229, 82, 106, 0.24), transparent 32%),
+            linear-gradient(135deg, rgba(255, 255, 255, 0.17), transparent 28%, rgba(255, 255, 255, 0.05) 62%, transparent);
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.22),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.07),
+            0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    .works-section .works-fan--carousel .works-fan__item.is-works-fan-active .works-card.works-card--fan::before {
+        opacity: 0.88;
+    }
+
+    .works-section .works-fan-pagination {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 8px;
+        padding: 0 clamp(18px, 4vw, 28px) 4px;
+    }
+
+    .works-section .works-fan-pagination__hint {
+        color: rgba(0, 0, 0, 0.5);
+        font-family: "Outfit", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .works-section .works-card {
+        min-height: clamp(420px, 58vh, 560px);
+    }
+
+    .works-section .works-card__image {
+        min-height: clamp(240px, 42vw, 400px);
+        transform: translate3d(0, 0, 6px) scale(1.008);
+    }
+
+    .works-section .works-card__content {
+        padding: clamp(20px, 3.5vw, 36px) clamp(18px, 3vw, 32px);
+    }
+
+    .works-section .works-card__content > span:first-of-type {
+        font-size: clamp(0.65rem, 1.6vw, 0.76rem);
+        letter-spacing: 0.1em;
+        margin-bottom: clamp(8px, 1.5vw, 14px);
+    }
+
+    .works-section .works-card__content h3 {
+        font-size: clamp(1.1rem, 2.4vw + 0.35rem, 1.65rem);
+        line-height: 1.15;
+        margin-bottom: 0;
+    }
+}
+
+body.mil-theme-dark .works-section .uxm-page-dots {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+body.mil-theme-dark .works-section .uxm-page-dot {
+    background: rgba(255, 255, 255, 0.32);
+}
+
+body.mil-theme-dark .works-section .uxm-page-dot:hover {
+    background: rgba(255, 255, 255, 0.48);
+}
+
+body.mil-theme-dark .works-section .uxm-page-dot.is-active {
+    background: #ff9800;
+}
+
+body.mil-theme-dark .works-section .works-fan-pagination__hint {
+    color: rgba(255, 255, 255, 0.6);
+}

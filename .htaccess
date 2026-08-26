@@ -1,0 +1,46 @@
+# Apache (e.g. cPanel): enable mod_rewrite / mod_headers.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # www → apex
+  RewriteCond %{HTTP_HOST} ^www\.uxuimate\.com$ [NC]
+  RewriteRule ^ https://uxuimate.com%{REQUEST_URI} [L,R=301]
+
+  # Legacy case-study URLs (keep crawlable so Google can follow the 301)
+  RewriteRule ^nistravel\.html$ /nistravel-travel-website-redesign.html [R=301,L]
+  RewriteRule ^erclima\.html$ /bomi-clima-ecommerce-case-study.html [R=301,L]
+  RewriteRule ^videonabliudenie\.html$ /videonabliudenie-b2b-security-ux-case-study.html [R=301,L]
+  RewriteRule ^articles/saas-ideas-2026\.html$ /articles/best-saas-startup-ideas-2026.html [R=301,L]
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+# Apache (e.g. cPanel): enable mod_headers. If you use Netlify/Cloudflare instead, use _headers / dashboard rules.
+
+# Long cache for static assets (mobile PSI: efficient cache lifetimes)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(woff2|woff|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|ico)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self'; connect-src 'self' https://formsubmit.co https://www.google-analytics.com https://www.googletagmanager.com https://region1.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://formsubmit.co; frame-src 'self' https://embed.figma.com"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+</IfModule>

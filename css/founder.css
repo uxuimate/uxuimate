@@ -1,0 +1,355 @@
+/* Founder / CV page
+   Shared card grids: use .mil-card-grid.mil-card-grid--3|--4|--center in markup
+------------------------------------------- */
+
+/* Hero: white background, grey social frame */
+.alexander-cv-hero.mil-banner-personal {
+  background-color: #fff !important;
+}
+
+.alexander-cv-hero .mil-banner-panel .mil-right .mil-social-frame {
+  background-color: rgb(242, 242, 242);
+}
+
+/* Gallery row gap helper (founder “Beyond the screen”) */
+.mil-gallery-gap,
+.alex-cv-beyond-gallery {
+  gap: 24px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  overflow-x: hidden;
+}
+
+.mil-gallery-gap > [class*="col-"],
+.alex-cv-beyond-gallery > [class*="col-"] {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.mil-gallery-gap .mil-cover-frame,
+.mil-gallery-gap .mil-cover,
+.alex-cv-beyond-gallery .mil-cover-frame,
+.alex-cv-beyond-gallery .mil-cover {
+  overflow: hidden;
+}
+
+.mil-gallery-gap img,
+.alex-cv-beyond-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Scoped to alexander CV - Experience & Certifications (white_version look), font: Outfit */
+.alex-cv-exp-edu {
+    font-family: "Outfit", sans-serif;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-section {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-section:after {
+    content: "";
+    position: absolute;
+    background-color: #202020;
+    width: 2px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: -1;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-r,
+.alex-cv-exp-edu .alex-cv-edu-box-l {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-r:after,
+.alex-cv-exp-edu .alex-cv-edu-box-l:after {
+    background-color: #000;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    content: "";
+    height: 15px;
+    margin-top: -7px;
+    position: absolute;
+    top: 50%;
+    transition: all 0.3s ease;
+    width: 15px;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-r:after {
+    left: -22px;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-l {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-l:after {
+    right: -22px;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-r:hover:after,
+.alex-cv-exp-edu .alex-cv-edu-box-l:hover:after {
+    background-color: #fff;
+    border-color: #E5526A;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-r:hover .alex-cv-edu-year h2,
+.alex-cv-exp-edu .alex-cv-edu-box-l:hover .alex-cv-edu-year h2 {
+    color: #E5526A;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-year {
+    flex: 0 0 132px;
+    width: 132px;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-year h2 {
+    color: #202020;
+    font-family: "Outfit", sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-edu-info {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-edu-info h4 {
+    font-family: "Outfit", sans-serif;
+    font-size: 18px;
+    line-height: 1.3;
+    margin: 0 0 6px;
+    text-transform: none;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-edu-info .alex-cv-edu-loc {
+    color: rgba(0, 0, 0, 0.5);
+    display: block;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-edu-info p {
+    color: rgba(0, 0, 0, 0.6);
+    font-family: "Outfit", sans-serif;
+    line-height: 1.5;
+    margin: 10px 0 0;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-year .alex-cv-edu-dates {
+    color: #717171;
+    display: block;
+    font-family: "Outfit", sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    margin-top: 8px;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-r .alex-cv-edu-year,
+.alex-cv-exp-edu .alex-cv-edu-box-r .alex-cv-edu-year .alex-cv-edu-dates {
+    text-align: left;
+}
+
+.alex-cv-exp-edu .alex-cv-edu-box-l .alex-cv-edu-year,
+.alex-cv-exp-edu .alex-cv-edu-box-l .alex-cv-edu-year .alex-cv-edu-dates {
+    text-align: right;
+}
+
+body.mil-theme-dark .alex-cv-exp-edu .alex-cv-edu-section:after {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.mil-theme-dark .alex-cv-exp-edu .alex-cv-edu-year h2 {
+    color: #f4f4f4;
+}
+
+body.mil-theme-dark .alex-cv-exp-edu .alex-cv-edu-edu-info .alex-cv-edu-loc,
+body.mil-theme-dark .alex-cv-exp-edu .alex-cv-edu-edu-info p,
+body.mil-theme-dark .alex-cv-exp-edu .alex-cv-edu-year .alex-cv-edu-dates {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width:992px) {
+    .alex-cv-exp-edu .alex-cv-edu-section:after {
+        display: none;
+    }
+
+    .alex-cv-exp-edu .alex-cv-edu-box-r:after,
+    .alex-cv-exp-edu .alex-cv-edu-box-l:after {
+        display: none;
+    }
+
+    .alex-cv-exp-edu .alex-cv-edu-box-r,
+    .alex-cv-exp-edu .alex-cv-edu-box-l {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+        text-align: left;
+    }
+
+    .alex-cv-exp-edu .alex-cv-edu-year,
+    .alex-cv-exp-edu .alex-cv-edu-box-r .alex-cv-edu-year,
+    .alex-cv-exp-edu .alex-cv-edu-box-l .alex-cv-edu-year,
+    .alex-cv-exp-edu .alex-cv-edu-box-r .alex-cv-edu-year .alex-cv-edu-dates,
+    .alex-cv-exp-edu .alex-cv-edu-box-l .alex-cv-edu-year .alex-cv-edu-dates {
+        flex: none;
+        text-align: left;
+        width: auto;
+    }
+
+    .alex-cv-exp-edu .alex-cv-edu-year h2 {
+        font-size: 32px;
+    }
+}
+
+/* -------------------------------------------
+   Skills — spacing + soft glow (About ownership style)
+------------------------------------------- */
+.mil-skills {
+  overflow: hidden;
+  position: relative;
+}
+
+.mil-skills__glow {
+  background:
+    radial-gradient(ellipse 42% 48% at 18% 40%, rgba(124, 92, 255, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 36% 40% at 88% 30%, rgba(229, 82, 106, 0.1) 0%, transparent 68%),
+    radial-gradient(ellipse 40% 36% at 55% 85%, rgba(168, 120, 255, 0.08) 0%, transparent 72%);
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.mil-skills__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.mil-skills__card {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.08),
+    0 12px 40px rgba(124, 92, 255, 0.12),
+    0 4px 18px rgba(229, 82, 106, 0.08);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.mil-skills__card .mil-descr {
+  margin-bottom: 1.75rem !important;
+}
+
+.mil-skills__card:hover {
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.14),
+    0 16px 48px rgba(124, 92, 255, 0.18),
+    0 6px 22px rgba(229, 82, 106, 0.12);
+  transform: translateY(-3px);
+}
+
+body.mil-theme-dark .mil-content .mil-skills__glow {
+  background:
+    radial-gradient(ellipse 42% 48% at 18% 40%, rgba(124, 92, 255, 0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 36% 40% at 88% 30%, rgba(255, 152, 0, 0.12) 0%, transparent 68%),
+    radial-gradient(ellipse 40% 36% at 55% 85%, rgba(168, 120, 255, 0.12) 0%, transparent 72%);
+}
+
+body.mil-theme-dark .mil-content .mil-skills__card {
+  background: rgba(22, 22, 22, 0.92);
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.16),
+    0 12px 40px rgba(124, 92, 255, 0.18),
+    0 4px 18px rgba(255, 152, 0, 0.08);
+}
+
+body.mil-theme-dark .mil-content .mil-skills__card:hover {
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.24),
+    0 16px 48px rgba(124, 92, 255, 0.26),
+    0 6px 22px rgba(255, 152, 0, 0.12);
+}
+
+/* -------------------------------------------
+   How I Work — soft glow on cards
+------------------------------------------- */
+.mil-howwork {
+  overflow: hidden;
+  position: relative;
+}
+
+.mil-howwork__glow {
+  background:
+    radial-gradient(ellipse 44% 50% at 82% 28%, rgba(124, 92, 255, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 38% 42% at 12% 70%, rgba(229, 82, 106, 0.1) 0%, transparent 68%),
+    radial-gradient(ellipse 42% 36% at 48% 90%, rgba(168, 120, 255, 0.08) 0%, transparent 72%);
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.mil-howwork__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.mil-howwork__card {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.08),
+    0 12px 40px rgba(124, 92, 255, 0.12),
+    0 4px 18px rgba(229, 82, 106, 0.08);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.mil-howwork__card:hover {
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.14),
+    0 16px 48px rgba(124, 92, 255, 0.18),
+    0 6px 22px rgba(229, 82, 106, 0.12);
+  transform: translateY(-3px);
+}
+
+body.mil-theme-dark .mil-content .mil-howwork__glow {
+  background:
+    radial-gradient(ellipse 44% 50% at 82% 28%, rgba(124, 92, 255, 0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 38% 42% at 12% 70%, rgba(255, 152, 0, 0.12) 0%, transparent 68%),
+    radial-gradient(ellipse 42% 36% at 48% 90%, rgba(168, 120, 255, 0.12) 0%, transparent 72%);
+}
+
+body.mil-theme-dark .mil-content .mil-howwork__card {
+  background: rgba(22, 22, 22, 0.92);
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.16),
+    0 12px 40px rgba(124, 92, 255, 0.18),
+    0 4px 18px rgba(255, 152, 0, 0.08);
+}
+
+body.mil-theme-dark .mil-content .mil-howwork__card:hover {
+  box-shadow:
+    0 0 0 1px rgba(124, 92, 255, 0.24),
+    0 16px 48px rgba(124, 92, 255, 0.26),
+    0 6px 22px rgba(255, 152, 0, 0.12);
+}
+
+
