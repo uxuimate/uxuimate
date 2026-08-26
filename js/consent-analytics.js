@@ -108,19 +108,21 @@
         banner.innerHTML =
             '<div class="uxui-cookie-banner__inner">' +
                 '<div class="uxui-cookie-banner__copy">' +
-                    '<p id="uxui-cookie-title" class="uxui-cookie-banner__title">We use cookies</p>' +
-                    '<p id="uxui-cookie-text" class="uxui-cookie-banner__text">We use cookies to make this website work and to understand how it is used. Optional analytics cookies are only set if you accept. See our <a href="' +
+                    '<p id="uxui-cookie-title" class="uxui-cookie-banner__title">Cookies</p>' +
+                    '<p id="uxui-cookie-text" class="uxui-cookie-banner__text">Necessary cookies keep the site working. Analytics is optional and only runs if you accept. <a href="' +
                     cookiePolicyHref() +
-                    '">Cookie Policy</a>.</p>' +
+                    '">Cookie Policy</a></p>' +
                 '</div>' +
                 '<div class="uxui-cookie-banner__actions">' +
-                    '<button type="button" class="uxui-cookie-btn uxui-cookie-btn--ghost" data-cookie-choice="denied">Reject</button>' +
-                    '<button type="button" class="uxui-cookie-btn uxui-cookie-btn--solid" data-cookie-choice="granted">Accept</button>' +
+                    '<button type="button" class="mil-link mil-arrow-place" data-cookie-choice="denied"><span>Reject</span></button>' +
+                    '<button type="button" class="mil-button mil-arrow-place" data-cookie-choice="granted"><span>Accept</span></button>' +
                 '</div>' +
             '</div>';
         document.body.appendChild(banner);
         banner.addEventListener('click', function (e) {
-            var choice = e.target && e.target.getAttribute && e.target.getAttribute('data-cookie-choice');
+            var btn = e.target && e.target.closest ? e.target.closest('[data-cookie-choice]') : null;
+            if (!btn || !banner.contains(btn)) return;
+            var choice = btn.getAttribute('data-cookie-choice');
             if (!choice) return;
             writeConsent(choice);
             if (choice === 'granted') grantAnalytics();

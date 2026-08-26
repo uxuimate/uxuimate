@@ -7848,91 +7848,117 @@ body.mil-theme-dark .mil-revi-pagination .swiper-pagination-bullet.swiper-pagina
           box-shadow: inset 0 0 0 4px var(--mil-dark-accent);
 }
 
-/* Cookie consent — current studio styles, bottom bar */
+/* Cookie consent — same chrome as site CTAs / footer */
 .uxui-cookie-banner {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 10050;
-  padding: 20px 24px calc(20px + env(safe-area-inset-bottom, 0px));
-  background: #111;
+  padding: 28px 40px calc(28px + env(safe-area-inset-bottom, 0px));
+  background: #000;
   color: rgba(255, 255, 255, 0.86);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.28);
   font-family: "Outfit", sans-serif;
 }
 .uxui-cookie-banner__inner {
-  max-width: 1140px;
+  max-width: 1320px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
+  gap: 40px;
+}
+.uxui-cookie-banner__copy {
+  min-width: 0;
+  max-width: 720px;
 }
 .uxui-cookie-banner__title {
-  margin: 0 0 6px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.2;
   text-transform: uppercase;
-  color: var(--mil-accent, #E5526A);
+  color: #E5526A;
 }
 .uxui-cookie-banner__text {
   margin: 0;
   font-size: 15px;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.78);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
 }
 .uxui-cookie-banner__text a {
-  color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  color: #E5526A;
+  text-decoration: none;
+  transition: color 0.4s cubic-bezier(0, 0, 0.3642, 1);
+}
+.uxui-cookie-banner__text a:hover,
+.uxui-cookie-banner__text a:focus-visible {
+  color: #ffffff;
 }
 .uxui-cookie-banner__actions {
   display: flex;
   flex-shrink: 0;
+  align-items: center;
   gap: 12px;
 }
-.uxui-cookie-btn {
-  appearance: none;
-  border-radius: 0;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 14px 22px;
-  transition: 0.2s ease;
+.uxui-cookie-banner button.mil-button,
+.uxui-cookie-banner button.mil-link {
+  margin: 0;
+  text-decoration: none;
 }
-.uxui-cookie-btn--ghost {
+.uxui-cookie-banner button.mil-button svg,
+.uxui-cookie-banner button.mil-link svg {
+  display: none;
+}
+.uxui-cookie-banner button.mil-link.mil-arrow-place {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  color: #fff;
+  border: 2px solid #E5526A;
+  border-radius: 50px;
+  color: #E5526A;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  line-height: 1.8em;
+  padding: 9px 34px;
+  text-transform: capitalize;
+  transition: background 0.5s ease, border-color 0.5s ease, color 0.5s ease;
 }
-.uxui-cookie-btn--ghost:hover {
-  border-color: #fff;
+.uxui-cookie-banner button.mil-link.mil-arrow-place:hover,
+.uxui-cookie-banner button.mil-link.mil-arrow-place:focus {
+  background: #E5526A;
+  border-color: #E5526A;
+  color: #ffffff;
+  filter: none;
+  transform: none;
 }
-.uxui-cookie-btn--solid {
-  background: var(--mil-accent, #E5526A);
-  border: 1px solid var(--mil-accent, #E5526A);
-  color: #fff;
+.uxui-cookie-banner button.mil-button:focus-visible,
+.uxui-cookie-banner button.mil-link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
-.uxui-cookie-btn--solid:hover {
-  filter: brightness(1.08);
-}
-@media (max-width: 767px) {
+@media (max-width: 991px) {
+  .uxui-cookie-banner {
+    padding: 24px 24px calc(24px + env(safe-area-inset-bottom, 0px));
+  }
   .uxui-cookie-banner__inner {
     flex-direction: column;
-    align-items: stretch;
-    gap: 18px;
+    align-items: flex-start;
+    gap: 22px;
   }
+}
+@media (max-width: 575px) {
   .uxui-cookie-banner__actions {
     width: 100%;
-  }
-  .uxui-cookie-btn {
-    flex: 1;
+    flex-wrap: wrap;
   }
 }
 
