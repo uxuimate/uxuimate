@@ -226,7 +226,7 @@ body.mil-theme-dark .alex-cv-exp-edu .alex-cv-edu-year .alex-cv-edu-dates {
    Skills — spacing + soft glow (About ownership style)
 ------------------------------------------- */
 .mil-skills {
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
@@ -293,7 +293,7 @@ body.mil-theme-dark .mil-content .mil-skills__card:hover {
    How I Work — soft glow on cards
 ------------------------------------------- */
 .mil-howwork {
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 

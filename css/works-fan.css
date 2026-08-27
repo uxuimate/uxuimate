@@ -149,7 +149,11 @@
 .works-card.works-card--fan {
     --tilt-x: 0deg;
     --tilt-y: 0deg;
+    -webkit-clip-path: inset(0 round 28px);
+            clip-path: inset(0 round 28px);
+    isolation: isolate;
     opacity: 1;
+    overflow: hidden;
     transform: translate3d(0, 0, 0) scale(1) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
     transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -173,7 +177,8 @@
 .works-card::after {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), transparent 28%, rgba(255, 255, 255, 0.04) 62%, transparent);
     border-radius: inherit;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    overflow: hidden;
 }
 
 @media (min-width: 992px) {
@@ -194,10 +199,7 @@
         background:
             radial-gradient(circle at 18% 12%, rgba(229, 82, 106, 0.28), transparent 30%),
             linear-gradient(135deg, rgba(255, 255, 255, 0.18), transparent 28%, rgba(255, 255, 255, 0.05) 62%, transparent);
-        box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.22),
-            inset 0 -1px 0 rgba(255, 255, 255, 0.07),
-            0 0 0 1px rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
     }
 
     .works-fan:has(.works-fan__item--0:hover) .works-fan__item--0 .works-card--fan::before,
@@ -231,14 +233,16 @@
 .works-card__image {
     background-color: #202020;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     backface-visibility: hidden;
+    border-radius: 28px 28px 0 0;
     flex: 1 1 auto;
     min-height: clamp(280px, 36vh, 580px);
+    overflow: hidden;
     position: relative;
-    transform: translate3d(0, 0, 22px) scale(1.02);
+    transform: translateZ(0);
     width: 100%;
-    will-change: transform;
 }
 
 .works-card__image--nistravel,
@@ -453,10 +457,7 @@ a.works-card.works-card--fan:active .works-card__content > span:first-of-type {
         background:
             radial-gradient(circle at 18% 12%, rgba(229, 82, 106, 0.24), transparent 32%),
             linear-gradient(135deg, rgba(255, 255, 255, 0.17), transparent 28%, rgba(255, 255, 255, 0.05) 62%, transparent);
-        box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.22),
-            inset 0 -1px 0 rgba(255, 255, 255, 0.07),
-            0 0 0 1px rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
     }
 
     .works-section .works-fan--carousel .works-fan__item.is-works-fan-active .works-card.works-card--fan::before {

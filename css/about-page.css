@@ -49,6 +49,15 @@
   padding: 0;
 }
 
+.mil-principles__cta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  margin-top: clamp(40px, 5vh, 64px);
+}
+
 .mil-principles__row {
   align-items: start;
   border-bottom: 1px solid rgba(22, 22, 22, 0.1);
@@ -151,7 +160,7 @@ body.mil-theme-dark .mil-content .mil-principles__text {
    Ownership — white + soft glow on cards
 ------------------------------------------- */
 .mil-ownership {
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 

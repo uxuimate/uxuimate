@@ -3,6 +3,23 @@
    hello@uxuimate.com
 ------------------------------------------- */
 
+(function uxuiStartAtTopOnLoad() {
+    if (typeof history !== "undefined" && "scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+    var hash = String(window.location.hash || "").replace(/^#/, "");
+    var section = "";
+    try {
+        section = new URLSearchParams(window.location.search).get("section") || "";
+    } catch (err) {
+        section = "";
+    }
+    if (hash === "book-a-call" || hash === "contact" || section === "book-a-call" || section === "contact") {
+        return;
+    }
+    window.scrollTo(0, 0);
+})();
+
 (function uxuiLoadSiteHelpers() {
     var el = document.querySelector('script[src*="js/main.js"]');
     if (!el || !el.src) return;
@@ -64,6 +81,10 @@ $(function () {
         animationSelector: '[class="mil-main-transition"]'
     };
     const swup = new Swup(options);
+
+    document.addEventListener("swup:willReplaceContent", function () {
+        milRequestStartAtTop();
+    });
 
     /** Footer links to the current page: scroll to top (Swup otherwise does nothing). */
     function milNormalizePagePath(pathname) {
@@ -357,12 +378,15 @@ $(function () {
         }
         requestAnimationFrame(function () {
             ScrollTrigger.refresh();
+            milScrollPageToTopIfPending();
         });
         setTimeout(function () {
             ScrollTrigger.refresh();
+            milScrollPageToTopIfPending();
         }, 350);
         setTimeout(function () {
             ScrollTrigger.refresh();
+            milScrollPageToTopIfPending();
         }, 1000);
     }
 
@@ -553,7 +577,9 @@ $(function () {
         var selectors = [
             ".mil-services-grid",
             ".mil-other-services-row",
-            ".mil-what-we-solve-row"
+            ".mil-what-we-solve-row",
+            ".mil-card-grid",
+            ".home-problems__row"
         ];
         var isMobile = window.matchMedia("(max-width: 992px)").matches;
         var minCards = 2;
@@ -581,6 +607,11 @@ $(function () {
         selectors.forEach(function (selector) {
             document.querySelectorAll(selector).forEach(function (row) {
                 var directCols = Array.prototype.filter.call(row.children, milIsBootstrapColumn);
+                if (!directCols.length) {
+                    directCols = Array.prototype.filter.call(row.children, function (el) {
+                        return el.nodeType === 1 && !el.classList.contains("mil-card-rail-hint");
+                    });
+                }
                 var cardsCount = directCols.length;
                 var existingHint = row.nextElementSibling && row.nextElementSibling.classList.contains("mil-card-rail-hint")
                     ? row.nextElementSibling
@@ -699,6 +730,42 @@ $(function () {
         }
         return null;
     }
+
+    var milKeepAtTopUntil = 0;
+
+    function milScrollPageToTop() {
+        if (milGetContactSectionId()) {
+            return;
+        }
+        window.scrollTo(0, 0);
+        if (document.documentElement) {
+            document.documentElement.scrollTop = 0;
+        }
+        if (document.body) {
+            document.body.scrollTop = 0;
+        }
+    }
+
+    function milRequestStartAtTop() {
+        milKeepAtTopUntil = Date.now() + 1100;
+        milScrollPageToTop();
+        requestAnimationFrame(function () {
+            milScrollPageToTop();
+            requestAnimationFrame(milScrollPageToTop);
+        });
+        window.setTimeout(milScrollPageToTop, 80);
+        window.setTimeout(milScrollPageToTop, 280);
+        window.setTimeout(milScrollPageToTop, 600);
+    }
+
+    function milScrollPageToTopIfPending() {
+        if (Date.now() > milKeepAtTopUntil) {
+            return;
+        }
+        milScrollPageToTop();
+    }
+
+    milRequestStartAtTop();
 
     function milScrollToContactSection() {
         var targetId = milGetContactSectionId();
@@ -1640,11 +1707,16 @@ $(function () {
     main menu
 
     ***************************/
-    $('.mil-has-children a').on('click', function () {
+    $('.mil-has-children > a').on('click', function (e) {
+        e.preventDefault();
+        var $sub = $(this).next('ul');
+        var willOpen = !$sub.hasClass('mil-active');
         $('.mil-has-children ul').removeClass('mil-active');
-        $('.mil-has-children a').removeClass('mil-active');
-        $(this).toggleClass('mil-active');
-        $(this).next().toggleClass('mil-active');
+        $('.mil-has-children > a').removeClass('mil-active');
+        if (willOpen) {
+            $(this).addClass('mil-active');
+            $sub.addClass('mil-active');
+        }
     });
     /***************************
 
@@ -1802,17 +1874,14 @@ $(function () {
             }
         }
 
-        if (!milGetContactSectionId()) {
-            $('html, body').animate({
-                scrollTop: 0,
-            }, 0);
-        }
+        milRequestStartAtTop();
 
         gsap.to('.mil-progress', {
             height: 0,
             ease: 'sine',
             onComplete: () => {
-                ScrollTrigger.refresh()
+                ScrollTrigger.refresh();
+                milScrollPageToTopIfPending();
             },
         });
         /***************************
@@ -2033,11 +2102,16 @@ $(function () {
         main menu
 
         ***************************/
-        $('.mil-has-children a').on('click', function () {
+        $('.mil-has-children > a').on('click', function (e) {
+            e.preventDefault();
+            var $sub = $(this).next('ul');
+            var willOpen = !$sub.hasClass('mil-active');
             $('.mil-has-children ul').removeClass('mil-active');
-            $('.mil-has-children a').removeClass('mil-active');
-            $(this).toggleClass('mil-active');
-            $(this).next().toggleClass('mil-active');
+            $('.mil-has-children > a').removeClass('mil-active');
+            if (willOpen) {
+                $(this).addClass('mil-active');
+                $sub.addClass('mil-active');
+            }
         });
         /***************************
 
@@ -2195,9 +2269,16 @@ $(function () {
     });
 
     $(window).on("load", function () {
+        milRequestStartAtTop();
         $(".mil-arrow-place .mil-arrow").remove();
         $(".mil-hidden-elements svg.mil-arrow").first().clone().appendTo(".mil-arrow-place");
         milInitCardRailHints();
+    });
+
+    window.addEventListener("pageshow", function (e) {
+        if (e.persisted) {
+            milRequestStartAtTop();
+        }
     });
 
     window.addEventListener("resize", function () {
