@@ -3,7 +3,7 @@
    hello@uxuimate.com
 ------------------------------------------- */
 @import url("animated-gallery.css?v=20260827");
-@import url("works-fan.css?v=20260827");
+@import url("works-fan.css?v=20260827c");
 @import url("fan-cards.css?v=20260827"); /* Design system: 3D fan cards (pricing + Growth Systems) */
 @import url("hero.css?v=20260827"); /* Design system: split hero / banner */
 @import url("about-page.css?v=20260827"); /* About: principles list */
@@ -5617,42 +5617,6 @@ images
 }
 .mil-image-frame.mil-fw {
   padding-bottom: 50%;
-}
-.mil-image-frame .mil-zoom-btn {
-  opacity: 0;
-  -webkit-transform: translateY(15px);
-          transform: translateY(15px);
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: rgba(255, 255, 255, 0.8);
-  -webkit-transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-  transition: 0.4s cubic-bezier(0, 0, 0.3642, 1);
-}
-.mil-image-frame .mil-zoom-btn:hover {
-  background-color: rgb(255, 255, 255);
-}
-.mil-image-frame .mil-zoom-btn img {
-  height: 17px;
-  width: 17px;
-}
-.mil-image-frame:hover .mil-zoom-btn {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  z-index: 2;
 }
 
 /***************************
