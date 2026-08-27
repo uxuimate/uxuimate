@@ -196,7 +196,7 @@
                                                         data-i18n="common.footer.cookies">Cookie Policy</a></li>
                                                     <li><a href="feedback.html" class="mil-light-soft mil-no-wrap"
                                                         data-i18n="common.footer.projectFeedback">Feedback</a></li>
-                                                    <li><a href="ux-ui-design-studio-newcastle.html" class="mil-light-soft">Newcastle Studio</a></li>
+                                                    <li><a href="about.html" class="mil-light-soft">Newcastle Studio</a></li>
                                                     <li><a href="site-map.html" class="mil-light-soft">Sitemap</a></li>
                                                 </ul>
 
@@ -294,21 +294,17 @@
                 <div id="swupMain" class="mil-main-transition">
 
                     <!-- banner -->
-                    <section class="mil-banner">
-                        <div class="mil-animation-frame">
-                            <div class="mil-animation mil-position-4 mil-scale mil-dark" data-value-1="7"
-                            data-value-2="1.6"></div>
-                            <div class="mil-animation mil-position-2 mil-scale" data-value-1="4" data-value-2="1"></div>
-                            <div class="mil-animation mil-position-3 mil-scale" data-value-1="1.2" data-value-2=".1">
-                            </div>
-                        </div>
+                    <section class="mil-banner mil-white-bg mil-banner--split">
 
-                        <div class="mil-gradient"></div>
+                    <div class="mil-banner-visual" aria-hidden="true">
+                            <img src="img/photo/web-dev-theory.webp" alt="" width="1600" height="1067"
+                            fetchpriority="high" decoding="async">
+                        </div>
 
                         <div class="container">
                             <div class="mil-banner-content mil-up">
-
-                                <ul class="mil-breadcrumbs mil-mb-60">
+                                <div class="mil-banner-copy">
+                                <ul class="mil-breadcrumbs mil-dark mil-mb-30">
                                     <li><a href="index.html" data-i18n="services.breadcrumb.home">Homepage</a></li>
                                     <li><a href="services.html" data-i18n="services.breadcrumb.services">Services</a>
                                     </li>
@@ -320,9 +316,6 @@
                                     class="mil-thin">Design</span><br> and
                                     <span class="mil-thin">Development</span>
                                 </h1>
-                                <div class="row">
-                                    <div class="col-12">
-
                                         <p class="mil-dark-soft mil-mb-30" data-i18n-html="web.hero.lead.html">Clean,
                                             easy-to-update sites. <span class="mil-emphasize">No-code</span> (Framer,
                                             Webflow, Squarespace, Shopify) or <span class="mil-emphasize">custom
@@ -331,9 +324,6 @@
                                             class="mil-accent">From &pound;3,800</span> for most brochure-style sites. Shops
                                             &amp; larger builds: quote after a quick brief.</p>
 
-                                    </div>
-                                </div>
-
                                 <a href="#prices" class="mil-button mil-arrow-place mil-btn-space">
                                     <span data-i18n="svc.cta.seePrices">See prices</span>
                                 </a>
@@ -341,31 +331,30 @@
                                 <a href="works.html" class="mil-link mil-dark mil-arrow-place">
                                     <span data-i18n="svc.cta.viewWorks">View works</span>
                                 </a>
-
-                                <div class="mil-circle-text mil-circle-text-light">
-                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
-                                    enable-background="new 0 0 300 300" xml:space="preserve"
-                                    class="mil-ct-svg mil-rotate" data-value="360">
-                                        <defs>
-                                            <path id="circlePath"
-                                            d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 " />
-                                        </defs>
-                                        <circle cx="150" cy="100" r="75" fill="none" />
-                                        <g>
-                                            <use xlink:href="#circlePath" fill="none" />
-                                            <text style="letter-spacing: 6.5px">
-                                                <textPath xlink:href="#circlePath" data-i18n="index.hero.scrollDown">
-                                                    Scroll down - Scroll down -
-                                                </textPath>
-                                            </text>
-                                        </g>
-                                    </svg>
-                                    <a href="#service"
-                                    class="mil-button mil-arrow-place mil-icon-button mil-arrow-down"></a>
                                 </div>
-
                             </div>
+                        </div>
+
+                        <div class="mil-circle-text">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 300"
+                            enable-background="new 0 0 300 300" xml:space="preserve"
+                            class="mil-ct-svg mil-rotate" data-value="360">
+                                <defs>
+                                    <path id="circlePathWeb"
+                                    d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 " />
+                                </defs>
+                                <circle cx="150" cy="100" r="75" fill="none" />
+                                <g>
+                                    <use xlink:href="#circlePathWeb" fill="none" />
+                                    <text>
+                                        <textPath xlink:href="#circlePathWeb" data-i18n="index.hero.scrollDown">
+                                            Scroll down - Scroll down - </textPath>
+                                    </text>
+                                </g>
+                            </svg>
+                            <a href="#service" class="mil-button mil-arrow-place mil-icon-button mil-arrow-down"
+                            aria-label="Scroll down" title="Scroll down"></a>
                         </div>
                     </section>
                     <!-- banner end -->
@@ -1193,7 +1182,7 @@
                                                         data-i18n="common.footer.cookies">Cookie Policy</a></li>
                                                     <li><a href="feedback.html" class="mil-light-soft mil-no-wrap"
                                                         data-i18n="common.footer.projectFeedback">Feedback</a></li>
-                                                    <li><a href="ux-ui-design-studio-newcastle.html" class="mil-light-soft">Newcastle Studio</a></li>
+                                                    <li><a href="about.html" class="mil-light-soft">Newcastle Studio</a></li>
                                                     <li><a href="site-map.html" class="mil-light-soft">Sitemap</a></li>
                                                 </ul>
 

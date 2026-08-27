@@ -67,13 +67,20 @@
   z-index: 0;
 }
 
-.mil-banner.mil-banner--split .mil-banner-visual img {
+.mil-banner.mil-banner--split .mil-banner-visual img,
+.mil-banner.mil-banner--split .mil-banner-visual video {
   display: block;
   filter: var(--mil-hero-img-filter);
   height: 100%;
   object-fit: cover;
   object-position: 68% center;
   width: 100%;
+}
+
+.mil-banner.mil-banner--split .mil-banner-visual video {
+  background-color: #111;
+  filter: saturate(0.88) contrast(1.05) brightness(0.78);
+  object-position: center;
 }
 
 .mil-banner.mil-banner--split .mil-banner-visual::after {
@@ -185,6 +192,10 @@
     object-position: 72% 22%;
   }
 
+  .mil-banner.mil-banner--split .mil-banner-visual video {
+    object-position: center 28%;
+  }
+
   .mil-banner.mil-banner--split .mil-banner-visual::after {
     background:
       linear-gradient(
@@ -229,6 +240,10 @@ body.mil-theme-dark {
   --mil-hero-scrim: #0d0d0d;
   --mil-hero-scrim-rgb: 13, 13, 13;
   --mil-hero-img-filter: saturate(0.7) contrast(1.06) brightness(0.55);
+}
+
+body.mil-theme-dark .mil-banner.mil-banner--split .mil-banner-visual video {
+  filter: saturate(0.88) contrast(1.05) brightness(0.68);
 }
 
 body.mil-theme-dark .mil-content .mil-banner.mil-banner--split {

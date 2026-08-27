@@ -2,6 +2,5 @@ User-agent: *
 Allow: /
 
 Disallow: /404.html
-Disallow: /articles/saas-ideas-2026.html
 
 Sitemap: https://uxuimate.com/sitemap.xml

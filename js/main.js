@@ -1561,7 +1561,7 @@ $(function () {
             "healthy-eats-case-study.html": 1,
             "cinematic-escapes.html": 1
         };
-        var about = { "about.html": 1, "founder.html": 1, "ux-ui-design-studio-newcastle.html": 1 };
+        var about = { "about.html": 1, "founder.html": 1 };
         var contact = { "contact.html": 1, "feedback.html": 1 };
 
         if (file === "index.html") return "home";

@@ -10,14 +10,6 @@
   # www → apex
   RewriteCond %{HTTP_HOST} ^www\.uxuimate\.com$ [NC]
   RewriteRule ^ https://uxuimate.com%{REQUEST_URI} [L,R=301]
-
-  # Legacy case-study URLs (keep crawlable so Google can follow the 301)
-  RewriteRule ^nistravel\.html$ /nistravel-travel-website-redesign.html [R=301,L]
-  RewriteRule ^erclima\.html$ /bomi-clima-ecommerce-case-study.html [R=301,L]
-  RewriteRule ^bomiclima\.html$ /bomi-clima-ecommerce-case-study.html [R=301,L]
-  RewriteRule ^videonabliudenie\.html$ /videonabliudenie-b2b-security-ux-case-study.html [R=301,L]
-  RewriteRule ^web-development\.html$ /website-design-and-development.html [R=301,L]
-  RewriteRule ^articles/saas-ideas-2026\.html$ /articles/best-saas-startup-ideas-2026.html [R=301,L]
 </IfModule>
 
 # Custom 404: GitHub Pages serves /404.html automatically for missing URLs.
