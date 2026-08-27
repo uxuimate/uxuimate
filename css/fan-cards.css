@@ -343,6 +343,12 @@ a.mil-fan-card:focus .mil-fan-card__title {
   padding: clamp(32px, 3.5vh, 48px) clamp(28px, 3vw, 40px);
 }
 
+/* One shared starting line for labels and prices, even if a name wraps */
+.mil-fan-card--price .mil-fan-card__eyebrow {
+  line-height: 1.3;
+  min-height: 1.3em;
+}
+
 /* -------------------------------------------
    Variant: --offer (media + copy)
 ------------------------------------------- */
