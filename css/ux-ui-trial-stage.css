@@ -1,0 +1,198 @@
+/**
+ * Layout trial only — linked from "ux-ui-design trial.html".
+ * Editorial / framed scan layout. Does not ship on live service pages.
+ */
+
+.uxui-trial-stage {
+  --trial-ink: #161616;
+  --trial-muted: rgba(22, 22, 22, 0.55);
+  --trial-line: rgba(22, 22, 22, 0.12);
+  --trial-accent: var(--mil-accent, #e5526a);
+  position: relative;
+  background: #fff;
+  color: var(--trial-ink);
+  padding: clamp(80px, 10vh, 140px) 0;
+}
+
+.uxui-trial-stage--soft {
+  background: rgb(242, 242, 242);
+}
+
+.uxui-trial-stage__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.uxui-trial-stage__index {
+  color: var(--trial-accent);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  margin: 0 0 1.1rem;
+  text-transform: uppercase;
+}
+
+.uxui-trial-stage__head {
+  margin-bottom: clamp(36px, 5vh, 56px);
+  max-width: 38rem;
+}
+
+.uxui-trial-stage__head h2 {
+  margin-bottom: 1rem;
+}
+
+.uxui-trial-frame {
+  position: relative;
+  padding: 14px;
+}
+
+.uxui-trial-frame__mark {
+  border-color: var(--trial-accent);
+  border-style: solid;
+  height: 16px;
+  pointer-events: none;
+  position: absolute;
+  width: 16px;
+  z-index: 2;
+}
+
+.uxui-trial-frame__mark--tl {
+  border-width: 1px 0 0 1px;
+  left: 0;
+  top: 0;
+}
+
+.uxui-trial-frame__mark--tr {
+  border-width: 1px 1px 0 0;
+  right: 0;
+  top: 0;
+}
+
+.uxui-trial-frame__mark--bl {
+  border-width: 0 0 1px 1px;
+  bottom: 0;
+  left: 0;
+}
+
+.uxui-trial-frame__mark--br {
+  border-width: 0 1px 1px 0;
+  bottom: 0;
+  right: 0;
+}
+
+.uxui-trial-frame__media {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.uxui-trial-frame__media img {
+  display: block;
+  height: auto;
+  max-height: min(72vh, 760px);
+  object-fit: cover;
+  width: 100%;
+}
+
+.uxui-trial-frame__caption {
+  color: var(--trial-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  margin: 12px 2px 0;
+  text-transform: uppercase;
+}
+
+.uxui-trial-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.uxui-trial-rows__item {
+  align-items: start;
+  border-bottom: 1px solid var(--trial-line);
+  display: grid;
+  gap: clamp(12px, 2.5vw, 36px);
+  grid-template-columns: 3.1rem minmax(0, 1.05fr) minmax(0, 1.15fr);
+  margin: 0;
+  padding: clamp(22px, 3.2vh, 36px) 0;
+}
+
+.uxui-trial-rows__item:first-child {
+  border-top: 1px solid var(--trial-line);
+}
+
+.uxui-trial-rows__num {
+  color: var(--trial-accent);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  padding-top: 0.25em;
+}
+
+.uxui-trial-rows__title {
+  color: var(--trial-ink);
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(1.12rem, 1.8vw, 1.38rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.uxui-trial-rows__text {
+  color: var(--trial-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.uxui-trial-split {
+  align-items: start;
+  display: grid;
+  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+}
+
+.uxui-trial-split__copy .uxui-trial-rows {
+  margin-top: 8px;
+}
+
+@media (max-width: 991px) {
+  .uxui-trial-split {
+    grid-template-columns: 1fr;
+  }
+
+  .uxui-trial-frame {
+    order: -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .uxui-trial-rows__item {
+    gap: 0.35rem 0;
+    grid-template-columns: 1fr;
+    padding: 1.15rem 0;
+  }
+
+  .uxui-trial-rows__num {
+    padding-top: 0;
+  }
+}
+
+body.mil-theme-dark .uxui-trial-stage {
+  --trial-ink: #ffeef3;
+  --trial-muted: rgba(255, 255, 255, 0.52);
+  --trial-line: rgba(255, 255, 255, 0.12);
+  background: #0d0d0d;
+}
+
+body.mil-theme-dark .uxui-trial-stage--soft {
+  background: #161616;
+}
+
+body.mil-theme-dark .uxui-trial-rows__title {
+  color: var(--mil-dark-headline, #ffeef3);
+}
