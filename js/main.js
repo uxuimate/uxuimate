@@ -57,7 +57,7 @@ $(function () {
             return !el.classList.contains("mil-link")
                 && !el.classList.contains("mil-button")
                 && !el.classList.contains("mil-arrow-place")
-                && !el.closest(".mil-fan, .mil-fan__wrap, .works-fan");
+                && !el.closest(".mil-fan, .mil-fan__wrap, .works-fan, .mil-card-grid, .mil-what-we-solve-row, .mil-services-grid, .mil-other-services-row, .home-problems__row");
         });
     }
 
@@ -691,6 +691,28 @@ $(function () {
                 }
                 row._milRailScrollHandler = refreshRailHint;
                 row.addEventListener("scroll", row._milRailScrollHandler, { passive: true });
+
+                if (!row._milRailSwipeGuard) {
+                    row._milRailSwipeGuard = true;
+                    var railDrag = false;
+                    row.addEventListener("pointerdown", function () {
+                        railDrag = false;
+                    }, { passive: true });
+                    row.addEventListener("touchstart", function () {
+                        railDrag = false;
+                    }, { passive: true });
+                    row.addEventListener("scroll", function () {
+                        railDrag = true;
+                    }, { passive: true });
+                    row.addEventListener("click", function (e) {
+                        if (!railDrag) {
+                            return;
+                        }
+                        e.preventDefault();
+                        e.stopPropagation();
+                        railDrag = false;
+                    }, true);
+                }
 
                 if (row._milRailResizeObserver) {
                     row._milRailResizeObserver.disconnect();

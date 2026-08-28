@@ -6,7 +6,7 @@
 @import url("works-fan.css?v=20260827f");
 @import url("fan-cards.css?v=20260827e"); /* Design system: 3D fan cards (pricing + Growth Systems) */
 @import url("hero.css?v=20260827d"); /* Design system: split hero / banner */
-@import url("about-page.css?v=20260827k"); /* About: principles list */
+@import url("about-page.css?v=20260828"); /* About: principles list */
 @import url("contact.css?v=20260827b");
 @import url("case-studies.css?v=20260827");
 @import url("founder.css?v=20260827k"); /* Founder / CV page */
@@ -1344,10 +1344,10 @@ spaces
 .mil-btn-space {
   margin-right: 30px;
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .mil-btn-space {
-    margin-right: 50px;
-    margin-bottom: 30px;
+    margin-right: 0;
+    margin-bottom: 12px;
   }
 }
 
@@ -6168,34 +6168,57 @@ html[lang="bg"] .fab {
 
 /* Mobile card rails (3+ card sections): shorter pages, swipeable flow */
 @media screen and (max-width: 992px) {
+  .row > [class*="col"]:has(> .mil-what-we-solve-row),
+  .row > [class*="col"]:has(> .mil-card-grid),
+  .row > [class*="col"]:has(> .mil-services-grid),
+  .row > [class*="col"]:has(> .mil-other-services-row),
+  .row > [class*="col"]:has(> .home-problems__row) {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: hidden;
+  }
+
   .mil-services-grid,
   .mil-other-services-row,
   .mil-what-we-solve-row,
-  .mil-card-grid {
+  .mil-card-grid,
+  .home-problems__row {
     display: flex !important;
     flex-wrap: nowrap !important;
+    grid-template-columns: none !important;
     overflow-x: auto;
-    overflow-y: visible;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
     gap: 14px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
     padding: 4px 4px 10px;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    transform: translateZ(0);
   }
 
   .mil-services-grid > [class*="col"],
   .mil-other-services-row > [class*="col"],
   .mil-what-we-solve-row > [class*="col"],
-  .mil-card-grid > [class*="col"] {
-    flex: 0 0 min(86vw, 360px) !important;
-    max-width: min(86vw, 360px) !important;
-    width: min(86vw, 360px) !important;
+  .mil-card-grid > [class*="col"],
+  .home-problems__row > * {
+    flex: 0 0 min(82vw, 340px) !important;
+    min-width: min(82vw, 340px) !important;
+    max-width: min(82vw, 340px) !important;
+    width: min(82vw, 340px) !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-bottom: 0 !important;
     scroll-snap-align: start;
+    scroll-snap-stop: normal;
+    grid-column: auto !important;
+    touch-action: pan-x pinch-zoom;
   }
   .mil-what-we-solve-row > [class*="col"].d-flex,
   .mil-card-grid > [class*="col"].d-flex {
@@ -6209,15 +6232,19 @@ html[lang="bg"] .fab {
   .mil-what-we-solve-row > [class*="col"] > .mil-service-card-lg,
   .mil-card-grid > [class*="col"] > .mil-service-card-lg,
   .mil-card-grid > [class*="col"] > a.mil-service-card-lg,
-  .mil-what-we-solve-row > [class*="col"] > a.mil-service-card-lg {
+  .mil-what-we-solve-row > [class*="col"] > a.mil-service-card-lg,
+  .home-problems__row .mil-service-card-lg.mil-other-card {
     height: 100%;
+    min-height: 0;
     margin-bottom: 0 !important;
+    touch-action: pan-x pinch-zoom;
   }
 
   .mil-services-grid::-webkit-scrollbar,
   .mil-other-services-row::-webkit-scrollbar,
   .mil-what-we-solve-row::-webkit-scrollbar,
-  .mil-card-grid::-webkit-scrollbar {
+  .mil-card-grid::-webkit-scrollbar,
+  .home-problems__row::-webkit-scrollbar {
     display: none;
   }
 
@@ -6281,18 +6308,23 @@ html[lang="bg"] .fab {
 @media screen and (max-width: 576px) {
   .mil-services-grid,
   .mil-other-services-row,
-  .mil-what-we-solve-row {
-    gap: 12px;
+  .mil-what-we-solve-row,
+  .mil-card-grid,
+  .home-problems__row {
+    gap: 12px !important;
     padding-left: 2px;
     padding-right: 2px;
   }
 
   .mil-services-grid > [class*="col"],
   .mil-other-services-row > [class*="col"],
-  .mil-what-we-solve-row > [class*="col"] {
-    flex-basis: 88vw !important;
-    max-width: 88vw !important;
-    width: 88vw !important;
+  .mil-what-we-solve-row > [class*="col"],
+  .mil-card-grid > [class*="col"],
+  .home-problems__row > * {
+    flex-basis: 84vw !important;
+    min-width: 84vw !important;
+    max-width: 84vw !important;
+    width: 84vw !important;
   }
 }
 
@@ -7123,38 +7155,6 @@ body.mil-theme-dark .mil-menu-frame .mil-main-menu ul li.mil-has-children ul li 
   }
 }
 
-@media screen and (max-width: 992px) {
-  .home-problems__row {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
-    overflow-y: visible;
-    gap: 14px;
-    padding: 4px 4px 10px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    grid-template-columns: none !important;
-  }
-
-  .home-problems__row::-webkit-scrollbar {
-    display: none;
-  }
-
-  .home-problems__row > * {
-    flex: 0 0 min(86vw, 360px) !important;
-    max-width: min(86vw, 360px) !important;
-    width: min(86vw, 360px) !important;
-    grid-column: auto !important;
-    scroll-snap-align: start;
-  }
-
-  .home-problems__row .mil-service-card-lg.mil-other-card {
-    height: 100%;
-    min-height: 0;
-  }
-}
-
 /* -------------------------------------------
    Homepage: Trusted by logo ticker
 ------------------------------------------- */
@@ -7774,6 +7774,51 @@ body .mil-back-to-top a.mil-link.mil-arrow-place:focus,
   background: none !important;
   border: none !important;
   color: inherit !important;
+}
+
+.mil-section-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+.mil-section-cta--start {
+  justify-content: flex-start;
+}
+.mil-section-cta .mil-button,
+.mil-section-cta .mil-link {
+  margin: 0 !important;
+}
+@media screen and (max-width: 768px) {
+  .mil-section-cta,
+  .mil-principles__cta {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+  .mil-section-cta .mil-button,
+  .mil-section-cta a.mil-button,
+  .mil-section-cta .mil-link,
+  .mil-section-cta a.mil-link.mil-arrow-place,
+  .mil-principles__cta .mil-button,
+  .mil-principles__cta a.mil-button,
+  .mil-principles__cta .mil-link,
+  .mil-principles__cta a.mil-link.mil-arrow-place,
+  .mil-banner-copy > .mil-button,
+  .mil-banner-copy > .mil-link.mil-arrow-place {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: none !important;
+    align-self: stretch !important;
+    justify-content: center !important;
+    text-align: center;
+    box-sizing: border-box;
+    margin-right: 0 !important;
+  }
 }
 
 body.mil-theme-dark .mil-content a.mil-button:not(.mil-icon-button):not(.mil-icon-button-sm),
