@@ -3554,6 +3554,16 @@ body.mil-theme-dark .mil-content .mil-card-sm--media:hover {
               0 0 0 1px rgba(255, 152, 0, 0.32);
 }
 
+/* Prices footer: space between copy and CTAs when the row stacks */
+#prices .mil-section-cta {
+  margin-top: 0;
+}
+@media screen and (max-width: 991px) {
+  #prices .row.justify-content-between > .col-lg-auto {
+    margin-top: 32px;
+  }
+}
+
 /* Card system: small media cards on tablet */
 @media screen and (max-width: 992px) {
   #prices .row.mil-mt-30 {
