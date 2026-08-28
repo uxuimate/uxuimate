@@ -3560,7 +3560,7 @@ body.mil-theme-dark .mil-content .mil-card-sm--media:hover {
 }
 @media screen and (max-width: 991px) {
   #prices .row.justify-content-between > .col-lg-auto {
-    margin-top: 32px;
+    margin-top: 40px;
   }
 }
 
@@ -7793,10 +7793,10 @@ body .mil-back-to-top a.mil-link.mil-arrow-place:focus,
   justify-content: flex-end;
   gap: 12px;
   width: 100%;
-  margin-top: 8px;
+  margin-top: 40px;
 }
 .mil-section-cta.mil-mt-30 {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 .mil-section-cta--start {
   justify-content: flex-start;
