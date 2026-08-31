@@ -23,6 +23,7 @@
  *         <p class="mil-hero-subtitle|mil-dark-soft">…</p>
  *         <a class="mil-button …">…</a>
  *         <a class="mil-link …">…</a>
+ *         <div class="mil-hero-proof">Clutch + Google 5.0</div>
  *       </div>
  *     </div>
  *   </div>
@@ -256,6 +257,93 @@ body.mil-theme-dark .mil-banner.mil-banner--split .mil-banner-copy .mil-breadcru
 
 body.mil-theme-dark .mil-banner.mil-banner--split .mil-banner-copy .mil-breadcrumbs a:hover {
   color: var(--mil-dark-accent, #ff9800);
+}
+
+/* -------------------------------------------
+   Hero social proof — Clutch + Google
+------------------------------------------- */
+.mil-hero-proof {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 1.75rem;
+  width: 100%;
+}
+
+.mil-hero-proof__brand {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  gap: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.mil-hero-proof__brand:hover,
+.mil-hero-proof__brand:focus-visible {
+  opacity: 0.72;
+}
+
+.mil-hero-proof__logo {
+  display: block;
+  flex-shrink: 0;
+  height: 18px;
+  width: 18px;
+}
+
+.mil-hero-proof__logo--clutch {
+  height: 18px;
+  max-width: 72px;
+  object-fit: contain;
+  object-position: left center;
+  width: auto;
+}
+
+.mil-hero-proof__stars {
+  color: #c9a24a;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.mil-hero-proof__label {
+  color: rgba(22, 22, 22, 0.5);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mil-hero-proof__sep {
+  background: rgba(22, 22, 22, 0.14);
+  display: inline-block;
+  flex-shrink: 0;
+  height: 14px;
+  width: 1px;
+}
+
+body.mil-theme-dark .mil-hero-proof__logo--clutch {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+body.mil-theme-dark .mil-hero-proof__stars {
+  color: #e2b84f;
+}
+
+body.mil-theme-dark .mil-hero-proof__label {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+body.mil-theme-dark .mil-hero-proof__sep {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 480px) {
+  .mil-hero-proof__sep {
+    display: none;
+  }
 }
 
 /* -------------------------------------------
