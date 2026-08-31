@@ -898,9 +898,9 @@ $(function () {
             "brand-starter": { name: "Branding Starter (from £799)", types: ["Branding"], budget: "Under £1,000" },
             "brand-growth": { name: "Branding Growth (from £1,499)", types: ["Branding"], budget: "£2,500" },
             "brand-custom": { name: "Branding Custom (from £2,999)", types: ["Branding"], budget: "£5,000" },
-            "research-audit": { name: "UX audit (from £900)", types: ["UX Research"], budget: "Under £1,000" },
-            "research-testing": { name: "Moderated user testing (from £2,200)", types: ["UX Research"], budget: "£2,500" },
-            "research-discovery": { name: "Discovery & validation (from £5,200)", types: ["UX Research"], budget: "£10,000" }
+            "research-audit": { name: "UX audit", types: ["UX Research"] },
+            "research-testing": { name: "User testing", types: ["UX Research"] },
+            "research-discovery": { name: "Discovery & validation", types: ["UX Research"] }
         };
         var offerMap = {
             "website-launch-system": { name: "Website Launch System", types: ["Website"], budget: "£10,000" },
@@ -947,7 +947,9 @@ $(function () {
         if (spec) {
             fillMessage(spec.name);
             markTypes(spec.types);
-            markBudget(spec.budget);
+            if (spec.budget) {
+                markBudget(spec.budget);
+            }
             return;
         }
 

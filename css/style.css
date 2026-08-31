@@ -3554,13 +3554,30 @@ body.mil-theme-dark .mil-content .mil-card-sm--media:hover {
               0 0 0 1px rgba(255, 152, 0, 0.32);
 }
 
-/* Prices footer: space between copy and CTAs when the row stacks */
+/* Prices footer: space under fan cards, and between copy and CTAs when they stack */
+#prices .mil-fan__wrap {
+  padding-bottom: clamp(40px, 6vh, 72px);
+}
+
+#prices .mil-p-0-90 {
+  padding-top: 64px;
+}
+
+#prices .mil-p-0-90 > .row {
+  row-gap: 32px;
+}
+
 #prices .mil-section-cta {
   margin-top: 0;
 }
+
 @media screen and (max-width: 991px) {
+  #prices .mil-p-0-90 {
+    padding-top: 48px;
+  }
+
   #prices .row.justify-content-between > .col-lg-auto {
-    margin-top: 40px;
+    margin-top: 0;
   }
 }
 
@@ -4460,6 +4477,181 @@ body.mil-theme-dark .mil-content .mil-design-flow-item:focus-within .mil-design-
 }
 .mil-ux-problems-list li:last-child {
   margin-bottom: 0;
+}
+
+.mil-ux-problems-list--cards li {
+  margin-bottom: 22px;
+  padding-left: 28px;
+}
+
+.mil-ux-problems-list--cards h3 {
+  color: var(--mil-dark, #000);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0 0 6px;
+}
+
+.mil-ux-problems-list--cards p {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.uxr-proof {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.uxr-proof__grid {
+  display: grid;
+  gap: 28px 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: 36px 0;
+}
+
+.uxr-proof__item {
+  min-width: 0;
+}
+
+.uxr-proof__value {
+  color: #E5526A;
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+.uxr-proof__label {
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.uxr-connect__flow {
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 992px) {
+  .uxr-proof__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 28px 0;
+  }
+}
+
+body.mil-theme-dark .mil-content .mil-ux-problems-list--cards h3 {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+body.mil-theme-dark .mil-content .mil-ux-problems-list--cards p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.mil-theme-dark .mil-content .uxr-proof {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.mil-theme-dark .mil-content .uxr-proof__value {
+  color: var(--mil-dark-accent);
+}
+
+body.mil-theme-dark .mil-content .uxr-proof__label {
+  color: rgba(255, 255, 255, 0.68);
+}
+
+/* UX Research: methods by stage — process photo + glass cards */
+.uxr-stages-section.our-process-section.our-process-timeline-section {
+  background-image: url("../img/photo/ux%20research.webp");
+  background-position: center center;
+}
+
+.uxr-stages-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.uxr-stages-section .our-process-step {
+  min-height: 100%;
+}
+
+.uxr-stages-section .our-process-step p {
+  margin-bottom: 18px;
+}
+
+.uxr-stages-card__methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.uxr-stages-card__methods li {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 7px 12px;
+}
+
+.uxr-stages-card__link {
+  align-self: flex-start;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+.uxr-stages-card__link:hover,
+.uxr-stages-card__link:focus-visible {
+  text-decoration: underline;
+}
+
+.uxr-stages-section .our-process-step:hover .uxr-stages-card__methods li {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.42);
+  color: #ffffff;
+}
+
+@media screen and (min-width: 800px) {
+  .uxr-stages-grid {
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .uxr-stages-section.our-process-section.our-process-timeline-section.our-process--home {
+    background-image: url("../img/photo/ux%20research.webp");
+    background-position: center center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uxr-stages-section .our-process-step {
+    transition: none;
+  }
+
+  .uxr-stages-section .our-process-step:hover {
+    transform: none;
+  }
 }
 
 @media screen and (max-width: 992px) {
