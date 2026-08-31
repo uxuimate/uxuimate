@@ -250,6 +250,7 @@ body.mil-theme-dark #contact.innovative-contact-section textarea {
 
 #book-a-call {
   overflow: visible;
+  scroll-margin-top: 90px;
 }
 
 #book-a-call .mil-calendly-embed {
@@ -626,6 +627,32 @@ body.mil-theme-dark #contact.innovative-contact-section textarea {
   background: #E5526A;
   border-color: #E5526A;
   color: #ffffff;
+}
+
+.contact-page-form-section .contact-check.is-query-prefilled span::before {
+  box-shadow: 0 0 0 3px rgba(229, 82, 106, 0.35);
+}
+
+.mil-faq-split {
+  display: grid;
+  gap: 28px;
+}
+
+.mil-faq-split__intro h2 {
+  margin-bottom: 16px;
+}
+
+.mil-faq-split__intro p {
+  margin-bottom: 0;
+  max-width: 36ch;
+}
+
+@media screen and (min-width: 992px) {
+  .mil-faq-split {
+    align-items: start;
+    gap: 72px;
+    grid-template-columns: minmax(220px, 0.36fr) minmax(0, 1fr);
+  }
 }
 
 .contact-page-form-section .contact-check input[type="checkbox"]:focus-visible + span::before,

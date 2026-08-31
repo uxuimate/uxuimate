@@ -3697,6 +3697,135 @@ body.mil-theme-dark .mil-content .mil-card-sm--media:hover {
 .mil-what-we-solve-row .mil-service-card-lg.mil-other-card .mil-service-list.mil-solve-bullets li {
   color: rgba(0, 0, 0, 0.6);
 }
+
+/* Mosaic grid — heading spans 2, four cards fill around it */
+.mil-solve-mosaic__intro .mil-suptitle {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.mil-solve-mosaic__intro h2 {
+  margin: 0 0 16px;
+}
+
+.mil-solve-mosaic__intro h2:last-child {
+  margin-bottom: 0;
+}
+
+.mil-solve-mosaic__intro p {
+  color: rgba(0, 0, 0, 0.62);
+  font-weight: 300;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 38ch;
+}
+
+.mil-solve-mosaic__intro {
+  margin-bottom: 28px;
+}
+
+.mil-solve-mosaic .mil-service-card-lg.mil-other-card {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.mil-solve-mosaic .mil-service-card-lg.mil-other-card h3,
+.mil-solve-mosaic .mil-service-card-lg.mil-other-card h4 {
+  justify-content: flex-start;
+  min-height: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.mil-solve-mosaic__num {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+@media screen and (min-width: 993px) {
+  .mil-solve-mosaic {
+    align-items: stretch;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .mil-solve-mosaic__intro {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+    justify-content: center;
+    margin-bottom: 0;
+    padding-right: 28px;
+  }
+
+  .mil-solve-mosaic .mil-what-we-solve-row,
+  .mil-solve-mosaic .mil-card-grid,
+  .mil-solve-mosaic .mil-solve-mosaic__cards {
+    display: contents !important;
+  }
+
+  .mil-solve-mosaic .mil-what-we-solve-row > [class*="col"],
+  .mil-solve-mosaic .mil-card-grid > [class*="col"],
+  .mil-solve-mosaic .mil-solve-mosaic__cards > [class*="col"] {
+    flex: none;
+    max-width: none;
+    min-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: auto;
+  }
+
+  .mil-solve-mosaic .mil-what-we-solve-row .mil-service-card-lg.mil-other-card,
+  .mil-solve-mosaic .mil-card-grid .mil-service-card-lg.mil-other-card,
+  .mil-solve-mosaic .mil-solve-mosaic__cards .mil-service-card-lg.mil-other-card {
+    height: 100%;
+    margin-bottom: 0;
+  }
+
+  .mil-solve-mosaic + .mil-section-cta,
+  .mil-solve-mosaic + .mil-up {
+    margin-top: 36px;
+  }
+}
+
+body.mil-theme-dark .mil-solve-mosaic__intro p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* About: Why work with us — process photo + glass mosaic cards */
+.about-why-us .mil-solve-mosaic__intro h2 {
+  color: #ffffff;
+}
+
+.about-why-us .mil-solve-mosaic__intro p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.about-why-us .our-process-step {
+  width: 100%;
+}
+
+.about-why-us .our-process-step p {
+  margin-bottom: 0;
+}
+
+.about-why-us .mil-solve-mosaic + .our-process__cta {
+  margin-top: 12px;
+}
+
+@media screen and (min-width: 993px) {
+  .about-why-us .mil-solve-mosaic .mil-what-we-solve-row .our-process-step {
+    height: 100%;
+    margin-bottom: 0;
+  }
+}
+
+body.mil-theme-dark .about-why-us .mil-solve-mosaic__intro p {
+  color: rgba(255, 255, 255, 0.76);
+}
 body.mil-theme-dark .mil-content .mil-service-list li::marker {
   color: #ff9800;
 }
@@ -6066,37 +6195,18 @@ html[lang="bg"] .fab {
     padding-bottom: 70px !important;
   }
 
-  /* Homepage reviews: remove large empty gap on mobile */
-  .index-reviews-mobile .mil-reviews-slider,
-  .index-reviews-mobile .mil-reviews-slider .swiper-wrapper,
-  .index-reviews-mobile .mil-reviews-slider .swiper-slide {
-    height: auto !important;
-    min-height: 0 !important;
-  }
-
-  .index-reviews-mobile .mil-reviews-slider .swiper-wrapper {
-    align-items: flex-start !important;
-  }
-
-  .index-reviews-mobile .mil-p-120-120 {
+  /* Homepage reviews */
+  .index-reviews .mil-p-120-120 {
     padding-top: 55px !important;
     padding-bottom: 35px !important;
   }
 
-  .index-reviews-mobile .mil-suptitle,
-  .index-reviews-mobile h2.mil-mb-60,
-  .index-reviews-mobile .mil-revi-pagination.mil-mb-60 {
-    margin-bottom: 25px !important;
+  .index-reviews__intro {
+    margin-bottom: 28px;
   }
 
-  .index-reviews-mobile .mil-quote-icon {
-    margin-bottom: 8px !important;
-  }
-
-  .index-reviews-mobile .mil-review-frame,
-  .index-reviews-mobile .mil-review-frame p {
-    margin-bottom: 0 !important;
-    padding-bottom: 0 !important;
+  .index-review-card {
+    padding: 24px 22px 20px;
   }
 
   /* Homepage: tighten gap between About image and Services intro */
@@ -7331,6 +7441,109 @@ body.mil-theme-dark .mil-content .about-trusted__logo--light img {
   background-size: cover;
 }
 
+.our-process-section.our-process-timeline-section.our-process--home {
+  background-image: url("../img/photo/single-portfolio2.webp");
+}
+
+.our-process--home .our-process-steps {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+  margin: 0 auto;
+  max-width: 1180px;
+}
+
+.our-process--home .our-process-step {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background: rgba(7, 7, 8, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 24px 22px 22px;
+  -webkit-transition: background-color 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+          transition: background-color 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+}
+
+.our-process--home .our-process-step__num {
+  color: #E5526A;
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  margin-bottom: 16px;
+}
+
+.our-process--home .our-process-step h3 {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.our-process--home .our-process-step p {
+  color: rgba(255, 255, 255, 0.76);
+  flex: 1 1 auto;
+  font-size: 0.93rem;
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 0 0 20px;
+}
+
+.our-process--home .our-process-step__badge {
+  align-self: flex-start;
+  background: rgba(229, 82, 106, 0.16);
+  border: 1px solid rgba(229, 82, 106, 0.42);
+  border-radius: 999px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 6px 12px;
+}
+
+.our-process--home .our-process-step:hover {
+  background: rgba(229, 82, 106, 0.9);
+  border-color: #E5526A;
+  -webkit-transform: translateY(-4px);
+          transform: translateY(-4px);
+}
+
+.our-process--home .our-process-step:hover .our-process-step__num,
+.our-process--home .our-process-step:hover p {
+  color: #ffffff;
+}
+
+.our-process--home .our-process-step:hover .our-process-step__badge {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 700px) {
+  .our-process--home .our-process-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .our-process--home .our-process-steps {
+    gap: 16px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .our-process--home .our-process-step {
+    transition: none;
+  }
+
+  .our-process--home .our-process-step:hover {
+    transform: none;
+  }
+}
+
 .our-process-timeline-section::before {
   background:
     linear-gradient(180deg, rgba(7, 7, 8, 0.42) 0%, rgba(7, 7, 8, 0.62) 100%),
@@ -7596,6 +7809,11 @@ body.mil-theme-dark .mil-content .about-trusted__logo--light img {
     background-position: center top;
   }
 
+  .our-process-section.our-process-timeline-section.our-process--home {
+    background-image: url("../img/photo/single-portfolio2.webp");
+    background-position: center center;
+  }
+
   .our-process-timeline-section::before {
     background: linear-gradient(180deg, rgba(7, 7, 8, 0.38) 0%, rgba(7, 7, 8, 0.58) 100%);
   }
@@ -7657,6 +7875,214 @@ body.mil-theme-dark .mil-content .our-process-section h3 {
 
 body.mil-theme-dark .mil-content .our-process-timeline__card p {
   color: rgba(255, 255, 255, 0.76);
+}
+
+/* -------------------------------------------
+   Homepage reviews: featured card + scattered quotes
+------------------------------------------- */
+.index-reviews__intro {
+  margin-bottom: 48px;
+}
+
+.index-reviews__intro h2 {
+  margin: 0;
+}
+
+.index-reviews-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: 1fr;
+}
+
+.index-review-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(17, 17, 17, 0.06);
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px 22px;
+  position: relative;
+  -webkit-transition: transform 0.35s ease, box-shadow 0.35s ease;
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.index-review-card h3 {
+  color: #111111;
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 14px;
+}
+
+.index-review-card blockquote {
+  flex: 1 1 auto;
+  margin: 0 0 22px;
+}
+
+.index-review-card blockquote p {
+  color: #3a3a3a;
+  font-size: 0.98rem;
+  font-weight: 300;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.index-review-card footer {
+  align-items: flex-end;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.index-review-card__who {
+  min-width: 0;
+}
+
+.index-review-card__name,
+.index-review-card__role,
+.index-review-card__company {
+  margin: 0;
+}
+
+.index-review-card__name {
+  color: #111111;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.index-review-card__role {
+  color: #6a6a6a;
+  font-size: 0.82rem;
+  font-weight: 300;
+  margin-top: 3px;
+}
+
+.index-review-card__company {
+  color: #E5526A;
+  font-size: 0.82rem;
+  font-weight: 500;
+  margin-top: 3px;
+}
+
+.index-review-card__icon {
+  align-items: center;
+  background: rgba(229, 82, 106, 0.12);
+  border-radius: 50%;
+  color: #E5526A;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  height: 36px;
+  justify-content: center;
+  line-height: 1;
+  width: 36px;
+}
+
+.index-review-card--featured h3 {
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+}
+
+.index-review-card--featured blockquote p {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.55;
+}
+
+@media screen and (min-width: 768px) {
+  .index-reviews-grid {
+    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .index-review-card--featured {
+    grid-column: 1 / -1;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .index-reviews-grid {
+    align-items: start;
+    gap: 28px 24px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 12px 8px 28px;
+  }
+
+  .index-review-card--featured {
+    grid-column: span 2;
+    min-height: 100%;
+    padding: 36px 34px 28px;
+  }
+
+  .index-review-card:nth-child(2) {
+    -webkit-transform: rotate(1.6deg) translateY(18px);
+            transform: rotate(1.6deg) translateY(18px);
+  }
+
+  .index-review-card:nth-child(3) {
+    -webkit-transform: rotate(-1.4deg) translateY(6px);
+            transform: rotate(-1.4deg) translateY(6px);
+  }
+
+  .index-review-card:nth-child(4) {
+    -webkit-transform: rotate(1.2deg) translateY(14px);
+            transform: rotate(1.2deg) translateY(14px);
+  }
+
+  .index-review-card:nth-child(5) {
+    -webkit-transform: rotate(-1.5deg) translateY(4px);
+            transform: rotate(-1.5deg) translateY(4px);
+  }
+
+  .index-review-card:hover {
+    box-shadow: 0 16px 36px rgba(17, 17, 17, 0.1);
+    -webkit-transform: rotate(0deg) translateY(-4px);
+            transform: rotate(0deg) translateY(-4px);
+    z-index: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .index-review-card,
+  .index-review-card:nth-child(2),
+  .index-review-card:nth-child(3),
+  .index-review-card:nth-child(4),
+  .index-review-card:nth-child(5),
+  .index-review-card:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+body.mil-theme-dark .index-review-card {
+  background: #1c1c1f;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+}
+
+body.mil-theme-dark .index-review-card h3,
+body.mil-theme-dark .index-review-card__name {
+  color: #ffffff;
+}
+
+body.mil-theme-dark .index-review-card blockquote p,
+body.mil-theme-dark .index-review-card__role {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+body.mil-theme-dark .index-review-card footer {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+body.mil-theme-dark .index-review-card__company,
+body.mil-theme-dark .index-review-card__icon {
+  color: var(--mil-dark-accent);
+}
+
+body.mil-theme-dark .index-review-card__icon {
+  background: rgba(255, 152, 0, 0.16);
 }
 
 /* -------------------------------------------
@@ -7957,6 +8383,20 @@ body.mil-theme-dark .our-process-timeline__item:hover::before {
   background: var(--mil-dark-accent);
   border-color: rgba(255, 152, 0, 0.36);
   box-shadow: 0 0 0 7px rgba(255, 152, 0, 0.18), 0 0 28px rgba(255, 152, 0, 0.42);
+}
+
+body.mil-theme-dark .our-process--home .our-process-step__num {
+  color: var(--mil-dark-accent);
+}
+
+body.mil-theme-dark .our-process--home .our-process-step__badge {
+  background: rgba(255, 152, 0, 0.16);
+  border-color: rgba(255, 152, 0, 0.42);
+}
+
+body.mil-theme-dark .our-process--home .our-process-step:hover {
+  background: var(--mil-dark-accent);
+  border-color: var(--mil-dark-accent);
 }
 
 @media screen and (max-width: 991px) {

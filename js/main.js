@@ -9,12 +9,19 @@
     }
     var hash = String(window.location.hash || "").replace(/^#/, "");
     var section = "";
+    var offer = "";
+    var pkg = "";
     try {
-        section = new URLSearchParams(window.location.search).get("section") || "";
+        var params = new URLSearchParams(window.location.search);
+        section = params.get("section") || "";
+        offer = params.get("offer") || "";
+        pkg = params.get("package") || "";
     } catch (err) {
         section = "";
+        offer = "";
+        pkg = "";
     }
-    if (hash === "book-a-call" || hash === "contact" || section === "book-a-call" || section === "contact") {
+    if (hash === "book-a-call" || hash === "contact" || section === "book-a-call" || section === "contact" || offer || pkg) {
         return;
     }
     window.scrollTo(0, 0);
@@ -750,6 +757,16 @@ $(function () {
         if (hash === 'book-a-call' || hash === 'contact') {
             return hash;
         }
+        if (params.get('package')) {
+            return 'contact';
+        }
+        var offer = params.get('offer');
+        if (offer === 'website-launch-system') {
+            return 'book-a-call';
+        }
+        if (offer === 'quick-website-build' || offer === 'ux-research-growth-audit') {
+            return 'contact';
+        }
         return null;
     }
 
@@ -843,6 +860,114 @@ $(function () {
             }
             budgetInput.addEventListener("input", syncBudget);
             syncBudget();
+        }
+        milPrefillContactFromQuery();
+    }
+
+    function milPrefillContactFromQuery() {
+        var form = document.getElementById("contact-form");
+        if (!form) {
+            return;
+        }
+        var params;
+        try {
+            params = new URLSearchParams(window.location.search);
+        } catch (err) {
+            return;
+        }
+        var packageId = params.get("package") || "";
+        var offer = params.get("offer") || "";
+        var projectTypeParam = params.get("projectType") || "";
+        var budgetParam = params.get("budget") || "";
+        var prefillKey = [packageId, offer, projectTypeParam, budgetParam].filter(Boolean).join("|");
+        if (!prefillKey) {
+            return;
+        }
+        if (form.getAttribute("data-mil-prefill") === prefillKey) {
+            return;
+        }
+        form.setAttribute("data-mil-prefill", prefillKey);
+
+        var packageMap = {
+            "uxui-starter": { name: "UX/UI Starter (from £999)", types: ["UX/UI Redesign"], budget: "Under £1,000" },
+            "uxui-growth": { name: "UX/UI Growth (from £3,999)", types: ["UX/UI Redesign"], budget: "£5,000" },
+            "uxui-custom": { name: "UX/UI Custom (from £8,000)", types: ["UX/UI Redesign"], budget: "£10,000" },
+            "web-starter": { name: "Website Starter (from £1,499)", types: ["Website"], budget: "£2,500" },
+            "web-growth": { name: "Website Growth (from £4,500)", types: ["Website"], budget: "£5,000" },
+            "web-custom": { name: "Website Custom (from £8,000)", types: ["Website", "E-commerce"], budget: "£10,000" },
+            "brand-starter": { name: "Branding Starter (from £799)", types: ["Branding"], budget: "Under £1,000" },
+            "brand-growth": { name: "Branding Growth (from £1,499)", types: ["Branding"], budget: "£2,500" },
+            "brand-custom": { name: "Branding Custom (from £2,999)", types: ["Branding"], budget: "£5,000" },
+            "research-audit": { name: "UX audit (from £900)", types: ["UX Research"], budget: "Under £1,000" },
+            "research-testing": { name: "Moderated user testing (from £2,200)", types: ["UX Research"], budget: "£2,500" },
+            "research-discovery": { name: "Discovery & validation (from £5,200)", types: ["UX Research"], budget: "£10,000" }
+        };
+        var offerMap = {
+            "website-launch-system": { name: "Website Launch System", types: ["Website"], budget: "£10,000" },
+            "quick-website-build": { name: "Quick Website Build", types: ["Website"], budget: "£2,500" },
+            "ux-research-growth-audit": { name: "UX Research & Growth Audit", types: ["UX Research"], budget: "£5,000" }
+        };
+        var spec = packageMap[packageId] || offerMap[offer] || null;
+
+        function poundText(value) {
+            return String(value || "").replace(/&pound;/gi, "£").replace(/\u00a3/g, "£");
+        }
+
+        function markTypes(types) {
+            var wanted = types || [];
+            form.querySelectorAll('input[name="projectType[]"]').forEach(function (box) {
+                box.checked = wanted.indexOf(box.value) !== -1;
+                if (box.checked && box.parentElement) {
+                    box.parentElement.classList.add("is-query-prefilled");
+                }
+            });
+        }
+
+        function markBudget(label) {
+            var want = poundText(label);
+            form.querySelectorAll('input[name="budget"]').forEach(function (radio) {
+                radio.checked = poundText(radio.value) === want;
+                if (radio.checked && radio.parentElement) {
+                    radio.parentElement.classList.add("is-query-prefilled");
+                }
+            });
+        }
+
+        function fillMessage(name) {
+            var msgField = document.getElementById("contact-message");
+            if (!msgField || !name) {
+                return;
+            }
+            var current = String(msgField.value || "").trim();
+            if (!current || /^Interested in:/i.test(current)) {
+                msgField.value = "Interested in: " + name + ".";
+            }
+        }
+
+        if (spec) {
+            fillMessage(spec.name);
+            markTypes(spec.types);
+            markBudget(spec.budget);
+            return;
+        }
+
+        var pType = String(projectTypeParam).toLowerCase();
+        var typeFromQuery = ({
+            "website": ["Website"],
+            "web-application": ["UX/UI Redesign"],
+            "ux-research": ["UX Research"],
+            "branding": ["Branding"]
+        })[pType];
+        if (typeFromQuery) {
+            markTypes(typeFromQuery);
+        }
+
+        var budgetValue = ({
+            "1-5k": "£5,000",
+            "5-10k": "£10,000"
+        })[budgetParam];
+        if (budgetValue) {
+            markBudget(budgetValue);
         }
     }
 
