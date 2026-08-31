@@ -131,9 +131,41 @@
   z-index: 3;
 }
 
-/* Homepage: give the headline a bit more room */
+/* Homepage: wider measure so the headline and lead wrap less */
 .mil-banner.mil-banner--split .mil-banner-copy--home {
-  max-width: min(760px, 100%);
+  max-width: min(1040px, 100%);
+}
+
+@media (min-width: 1200px) {
+  .mil-homepage .mil-banner.mil-banner--split .container {
+    max-width: 1180px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .mil-homepage .mil-banner.mil-banner--split .container {
+    max-width: 1360px;
+  }
+}
+
+/* Extra left scrim so the wider homepage copy stays readable on the photo */
+.mil-homepage .mil-banner.mil-banner--split .mil-banner-visual::after {
+  background:
+    linear-gradient(
+      180deg,
+      rgb(var(--mil-hero-scrim-rgb)) 0%,
+      rgba(var(--mil-hero-scrim-rgb), 0.82) 18%,
+      rgba(var(--mil-hero-scrim-rgb), 0.28) 42%,
+      transparent 62%
+    ),
+    linear-gradient(
+      90deg,
+      rgb(var(--mil-hero-scrim-rgb)) 0%,
+      rgba(var(--mil-hero-scrim-rgb), 0.9) 18%,
+      rgba(var(--mil-hero-scrim-rgb), 0.5) 42%,
+      rgba(var(--mil-hero-scrim-rgb), 0.16) 64%,
+      transparent 80%
+    );
 }
 
 .mil-banner.mil-banner--split .mil-banner-copy > .mil-breadcrumbs {
