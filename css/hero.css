@@ -233,10 +233,10 @@
     background:
       linear-gradient(
         180deg,
-        rgba(var(--mil-hero-scrim-rgb), 0.1) 0%,
-        rgba(var(--mil-hero-scrim-rgb), 0.42) 32%,
-        rgba(var(--mil-hero-scrim-rgb), 0.92) 58%,
-        rgb(var(--mil-hero-scrim-rgb)) 74%
+        rgba(var(--mil-hero-scrim-rgb), 0.28) 0%,
+        rgba(var(--mil-hero-scrim-rgb), 0.62) 28%,
+        rgba(var(--mil-hero-scrim-rgb), 0.94) 52%,
+        rgb(var(--mil-hero-scrim-rgb)) 78%
       ),
       linear-gradient(
         90deg,
@@ -247,9 +247,9 @@
   }
 
   .mil-banner.mil-banner--split .container {
-    align-items: flex-end;
-    padding-bottom: clamp(88px, 14vh, 120px);
-    padding-top: clamp(88px, 12vh, 110px);
+    align-items: center;
+    padding-bottom: clamp(40px, 6vh, 64px);
+    padding-top: clamp(96px, 14vh, 120px);
   }
 
   .mil-banner.mil-banner--split .mil-banner-copy {
@@ -458,6 +458,7 @@ body.mil-theme-dark .mil-hero-proof__sep {
   }
 
   .mil-banner.mil-banner--split.mil-banner--mockup .container {
-    padding-bottom: clamp(88px, 14vh, 120px);
+    align-items: center;
+    padding-bottom: clamp(40px, 6vh, 64px);
   }
 }
