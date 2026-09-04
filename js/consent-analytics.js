@@ -5,7 +5,7 @@
     'use strict';
 
     /* Measurement ID from GA4 Admin → Data streams (G-…). */
-    var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+    var GA_MEASUREMENT_ID = 'G-87Z218HTCK';
     var STORAGE_KEY = 'uxui_cookie_consent';
     var CONSENT_VERSION = '2026-08';
 
