@@ -39,7 +39,11 @@
 
     function cookiePolicyHref() {
         var path = (window.location.pathname || '').replace(/\\/g, '/');
-        return path.indexOf('/articles/') !== -1 ? '../cookie-policy.html' : 'cookie-policy.html';
+        if (path.indexOf('/useful-links/') !== -1) return 'cookie-policy.html';
+        if (path.indexOf('/articles/') !== -1 || path.indexOf('/services/') !== -1 || path.indexOf('/projects/') !== -1) {
+            return '../useful-links/cookie-policy.html';
+        }
+        return 'useful-links/cookie-policy.html';
     }
 
     function ensureConsentDefaults() {

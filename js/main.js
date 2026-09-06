@@ -33,7 +33,7 @@
     var base = el.src.replace(/main\.js(\?.*)?$/i, '');
     ['consent-analytics.js', 'forms-mail.js'].forEach(function (file) {
         var s = document.createElement('script');
-        s.src = base + file + '?v=20260904a';
+        s.src = base + file + '?v=20260906b';
         s.async = false;
         (document.body || document.head).appendChild(s);
     });
@@ -1786,6 +1786,8 @@ $(function () {
         if (about[file]) return "about";
         if (contact[file]) return "contact";
         if (file === "blog.html" || path.indexOf("/articles/") !== -1) return "insights";
+        if (path.indexOf("/services/") !== -1) return "services";
+        if (path.indexOf("/projects/") !== -1) return "projects";
         return null;
     }
 

@@ -1,0 +1,22 @@
+# Cloudflare Pages / Netlify (GitHub Pages ignores this file).
+# Keep in sync with .htaccess 301s.
+
+/ux-ui-design.html /services/ux-ui-design.html 301
+/ux-research-strategy.html /services/ux-research-strategy.html 301
+/website-design-and-development.html /services/website-design-and-development.html 301
+/branding-and-visual-identity.html /services/branding-and-visual-identity.html 301
+
+/nistravel-travel-website-redesign.html /projects/nistravel-travel-website-redesign.html 301
+/videonabliudenie-b2b-security-ux-case-study.html /projects/videonabliudenie-b2b-security-ux-case-study.html 301
+/bomi-clima-ecommerce-case-study.html /projects/bomi-clima-ecommerce-case-study.html 301
+/softplay-solutions.html /projects/softplay-solutions.html 301
+/eco-herbalist-ux-case-study.html /projects/eco-herbalist-ux-case-study.html 301
+/healthy-eats-case-study.html /projects/healthy-eats-case-study.html 301
+/eco-herbalist-branding.html /projects/eco-herbalist-branding.html 301
+/cinematic-escapes.html /projects/cinematic-escapes.html 301
+
+/privacy-policy.html /useful-links/privacy-policy.html 301
+/terms-and-conditions.html /useful-links/terms-and-conditions.html 301
+/cookie-policy.html /useful-links/cookie-policy.html 301
+/site-map.html /useful-links/site-map.html 301
+/feedback.html /useful-links/feedback.html 301

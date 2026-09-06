@@ -10,6 +10,30 @@
   # www → apex
   RewriteCond %{HTTP_HOST} ^www\.uxuimate\.com$ [NC]
   RewriteRule ^ https://uxuimate.com%{REQUEST_URI} [L,R=301]
+
+  # Old service URLs → /services/
+  RewriteRule ^ux-ui-design\.html$ /services/ux-ui-design.html [R=301,L]
+  RewriteRule ^ux-research-strategy\.html$ /services/ux-research-strategy.html [R=301,L]
+  RewriteRule ^website-design-and-development\.html$ /services/website-design-and-development.html [R=301,L]
+  RewriteRule ^branding-and-visual-identity\.html$ /services/branding-and-visual-identity.html [R=301,L]
+
+  # Old legal / utility URLs → /useful-links/
+  RewriteRule ^privacy-policy\.html$ /useful-links/privacy-policy.html [R=301,L]
+  RewriteRule ^terms-and-conditions\.html$ /useful-links/terms-and-conditions.html [R=301,L]
+  RewriteRule ^cookie-policy\.html$ /useful-links/cookie-policy.html [R=301,L]
+  RewriteRule ^site-map\.html$ /useful-links/site-map.html [R=301,L]
+  RewriteRule ^feedback\.html$ /useful-links/feedback.html [R=301,L]
+  RewriteRule ^usefull[\s+_-]*links/(.*)$ /useful-links/$1 [R=301,L]
+
+  # Old project URLs → /projects/
+  RewriteRule ^nistravel-travel-website-redesign\.html$ /projects/nistravel-travel-website-redesign.html [R=301,L]
+  RewriteRule ^videonabliudenie-b2b-security-ux-case-study\.html$ /projects/videonabliudenie-b2b-security-ux-case-study.html [R=301,L]
+  RewriteRule ^bomi-clima-ecommerce-case-study\.html$ /projects/bomi-clima-ecommerce-case-study.html [R=301,L]
+  RewriteRule ^softplay-solutions\.html$ /projects/softplay-solutions.html [R=301,L]
+  RewriteRule ^eco-herbalist-ux-case-study\.html$ /projects/eco-herbalist-ux-case-study.html [R=301,L]
+  RewriteRule ^healthy-eats-case-study\.html$ /projects/healthy-eats-case-study.html [R=301,L]
+  RewriteRule ^eco-herbalist-branding\.html$ /projects/eco-herbalist-branding.html [R=301,L]
+  RewriteRule ^cinematic-escapes\.html$ /projects/cinematic-escapes.html [R=301,L]
 </IfModule>
 
 # Custom 404: GitHub Pages serves /404.html automatically for missing URLs.
